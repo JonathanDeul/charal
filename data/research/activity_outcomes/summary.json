@@ -1,0 +1,192 @@
+{
+  "reference": "VIIRS only",
+  "measurement_days": 7,
+  "seasonal_radius_days": 30,
+  "first_eligible_anchor": "2012-01-23",
+  "last_eligible_anchor": "2025-12-28",
+  "eligible_cell_windows": 1122688,
+  "active_cell_windows": 213574,
+  "score_count_spearman_active": 0.49498435343821906,
+  "by_activity": [
+    {
+      "min": 1,
+      "max": 1,
+      "windows": 73316,
+      "flagged_95_fraction": 0.061896448251404876,
+      "median_score": 72.03373718261719
+    },
+    {
+      "min": 2,
+      "max": 4,
+      "windows": 74724,
+      "flagged_95_fraction": 0.13240725871206038,
+      "median_score": 81.54901885986328
+    },
+    {
+      "min": 5,
+      "max": 19,
+      "windows": 47666,
+      "flagged_95_fraction": 0.32889271178617885,
+      "median_score": 91.07537841796875
+    },
+    {
+      "min": 20,
+      "max": 99,
+      "windows": 11679,
+      "flagged_95_fraction": 0.6147786625567258,
+      "median_score": 97.03741455078125
+    },
+    {
+      "min": 100,
+      "max": 499,
+      "windows": 3579,
+      "flagged_95_fraction": 0.6756077116512993,
+      "median_score": 97.7808837890625
+    },
+    {
+      "min": 500,
+      "max": 9999999,
+      "windows": 2610,
+      "flagged_95_fraction": 0.8685823754789272,
+      "median_score": 99.99021911621094
+    }
+  ],
+  "threshold_95": {
+    "windows": 41974,
+    "fraction_all": 0.03738705677801847,
+    "fraction_active": 0.1965314129997097,
+    "fraction_activity_le_2": 0.19512078905989422,
+    "fraction_activity_le_5": 0.39634059179492065,
+    "fraction_reference_zero_ge_95": 0.14737694763424977,
+    "fraction_activity_ge_100": 0.1116167151093534
+  },
+  "threshold_99": {
+    "windows": 14922,
+    "fraction_all": 0.013291315129403717,
+    "fraction_active": 0.06986805510033993,
+    "fraction_activity_le_2": 0.11694142876290041,
+    "fraction_activity_le_5": 0.25164187106286023,
+    "fraction_reference_zero_ge_95": 0.2208819193137649,
+    "fraction_activity_ge_100": 0.20526739043023723
+  },
+  "activity_ge_100_not_outlier_fraction": 0.24301179512037485,
+  "activity_ge_500_not_outlier_fraction": 0.1314176245210728,
+  "activity_ge_1000_not_outlier_fraction": 0.09097320169252468,
+  "annual_comparison_active_windows": 211381,
+  "seasonal_added_value": {
+    "95": {
+      "seasonal_only": 12447,
+      "annual_only": 11140,
+      "both": 29109,
+      "neither": 158685,
+      "seasonal_only_fraction_of_seasonal_flags": 0.29952353450765234
+    },
+    "99": {
+      "seasonal_only": 7825,
+      "annual_only": 3385,
+      "both": 6981,
+      "neither": 193190,
+      "seasonal_only_fraction_of_seasonal_flags": 0.528501958665406
+    }
+  },
+  "spatiotemporal_episodes": 3201,
+  "perimeter_associations": 1511,
+  "perimeter_exclusions": {
+    "no_linked_viirs_reports": 3886,
+    "missing_dates": 50,
+    "invalid_or_overlong_dates": 9
+  },
+  "events": {
+    "first_week": {
+      "n": 1484,
+      "score_area_spearman": 0.4553055608045488,
+      "score_activity_spearman": 0.5240029534444199,
+      "fraction_score_ge_95": 0.5498652291105122,
+      "fraction_score_ge_99": 0.28099730458221023,
+      "under_100ha": {
+        "n": 630,
+        "flagged_95": 223,
+        "median_score": 91.74032974243164
+      },
+      "100_1000ha": {
+        "n": 492,
+        "flagged_95": 306,
+        "median_score": 97.01828002929688
+      },
+      "1000_10000ha": {
+        "n": 252,
+        "flagged_95": 189,
+        "median_score": 98.9217643737793
+      },
+      "over_10000ha": {
+        "n": 110,
+        "flagged_95": 98,
+        "median_score": 100.0
+      }
+    },
+    "peak_week": {
+      "n": 1484,
+      "score_area_spearman": 0.5038006096263902,
+      "score_activity_spearman": 0.5372220102057154,
+      "fraction_score_ge_95": 0.5613207547169812,
+      "fraction_score_ge_99": 0.2944743935309973,
+      "under_100ha": {
+        "n": 630,
+        "flagged_95": 222,
+        "median_score": 91.82809829711914
+      },
+      "100_1000ha": {
+        "n": 492,
+        "flagged_95": 306,
+        "median_score": 96.98175430297852
+      },
+      "1000_10000ha": {
+        "n": 252,
+        "flagged_95": 198,
+        "median_score": 99.17325973510742
+      },
+      "over_10000ha": {
+        "n": 110,
+        "flagged_95": 107,
+        "median_score": 100.0
+      }
+    },
+    "any_observed_cell_day": {
+      "under_100ha": {
+        "n": 634,
+        "flagged_95": 240,
+        "flagged_99": 81
+      },
+      "100_1000ha": {
+        "n": 494,
+        "flagged_95": 319,
+        "flagged_99": 165
+      },
+      "1000_10000ha": {
+        "n": 254,
+        "flagged_95": 215,
+        "flagged_99": 137
+      },
+      "over_10000ha": {
+        "n": 111,
+        "flagged_95": 109,
+        "flagged_99": 98
+      }
+    }
+  },
+  "episodes_with_perimeter_association": 528,
+  "small_flagged_peak_context": {
+    "n": 222,
+    "median_linked_fire_share": 0.3333333333333333,
+    "fraction_fire_share_below_half": 0.7117117117117117
+  },
+  "noncomplex_peak_sensitivity": {
+    "n": 1302,
+    "score_area_spearman": 0.5076064707022037
+  },
+  "input_sha256": {
+    "activity_daily.npz": "607fe634ca58b4a247c259a43f0b451e990d398c889415ca0ff67d432fea860d",
+    "observations.npz": "1b1dd69b0edd98210b95b89af0635c294378a286a6082b98a9f13a31caa94ea2",
+    "perimeters.json": "1c073e057ae5282dcfb99aa79eec1158a95cc57c7df798225bf47dbfc87b7d8e"
+  }
+}

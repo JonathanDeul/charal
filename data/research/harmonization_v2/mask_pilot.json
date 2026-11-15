@@ -1,0 +1,156 @@
+{
+  "source": "https://cmr.earthdata.nasa.gov/search/granules.json",
+  "period_queries": [
+    "2018-07-20",
+    "2020-08-20"
+  ],
+  "products": [
+    "MOD14A1.061",
+    "MYD14A1.061"
+  ],
+  "tiles": [
+    "h08v04",
+    "h08v05",
+    "h09v04",
+    "h09v05"
+  ],
+  "files": [
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2018201.h09v04.061.2021338104924.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2018201.h09v04.061.2021338104924/MOD14A1.A2018201.h09v04.061.2021338104924.hdf",
+      "status": "downloaded",
+      "bytes": 911129,
+      "sha256": "5486d0cd576b004c08dc93f783b35b20e3c304f51d6af8ee1268c4f477bec604"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2018201.h08v05.061.2021338105634.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2018201.h08v05.061.2021338105634/MOD14A1.A2018201.h08v05.061.2021338105634.hdf",
+      "status": "downloaded",
+      "bytes": 708810,
+      "sha256": "f90ddc7c5f61096e308d6b580af3102753a16dd7be3cd4927c0ac36ed9c61cf2"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2018201.h08v04.061.2021338105843.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2018201.h08v04.061.2021338105843/MOD14A1.A2018201.h08v04.061.2021338105843.hdf",
+      "status": "downloaded",
+      "bytes": 788261,
+      "sha256": "a17d0dbf8bd954f3c982547bd608eb5ab9977e1682611cd31919959ff8399cb4"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2018201.h09v05.061.2021338105654.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2018201.h09v05.061.2021338105654/MOD14A1.A2018201.h09v05.061.2021338105654.hdf",
+      "status": "downloaded",
+      "bytes": 743659,
+      "sha256": "cd32736cc240756eb585543821e5561e7e540e419bec45b638cdf79e2c623fb8"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2020233.h09v04.061.2020344162340.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2020233.h09v04.061.2020344162340/MOD14A1.A2020233.h09v04.061.2020344162340.hdf",
+      "status": "downloaded",
+      "bytes": 976796,
+      "sha256": "16c175bbd36ea9fc1a2ca08d5f19967e0d642985241290b38347a5795cef6925"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2020233.h08v04.061.2020344134138.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2020233.h08v04.061.2020344134138/MOD14A1.A2020233.h08v04.061.2020344134138.hdf",
+      "status": "downloaded",
+      "bytes": 696948,
+      "sha256": "f75a0003b468bbb6c338eabd1096f8d848473a0ef8642646493915591914056a"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2020233.h09v05.061.2020344160823.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2020233.h09v05.061.2020344160823/MOD14A1.A2020233.h09v05.061.2020344160823.hdf",
+      "status": "downloaded",
+      "bytes": 672613,
+      "sha256": "94c0bdaa441d5854340126c87d32c32552bf586fb71038be7e81a21dfb098a80"
+    },
+    {
+      "product": "MOD14A1",
+      "granule": "MOD14A1.A2020233.h08v05.061.2020344155947.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MOD14A1.061/MOD14A1.A2020233.h08v05.061.2020344155947/MOD14A1.A2020233.h08v05.061.2020344155947.hdf",
+      "status": "downloaded",
+      "bytes": 838286,
+      "sha256": "83e3c46f2a6e44ecd1dbdf6d203196a1a022fe33798d31d60d11d0526eb09239"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2018201.h08v04.061.2021338003648.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2018201.h08v04.061.2021338003648/MYD14A1.A2018201.h08v04.061.2021338003648.hdf",
+      "status": "downloaded",
+      "bytes": 769332,
+      "sha256": "40717f6ccff056143c45e115110017a359d1e84803dd95a81ba3a11127adb6ff"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2018201.h09v05.061.2021338003725.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2018201.h09v05.061.2021338003725/MYD14A1.A2018201.h09v05.061.2021338003725.hdf",
+      "status": "downloaded",
+      "bytes": 876993,
+      "sha256": "1ad424d62581eda94d2ab1afe7d3cfd5e4463d41dc65aeaa6b2e475eb3111b83"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2018201.h08v05.061.2021338003624.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2018201.h08v05.061.2021338003624/MYD14A1.A2018201.h08v05.061.2021338003624.hdf",
+      "status": "downloaded",
+      "bytes": 797435,
+      "sha256": "e1ddb66fd9ddbe6a4d874aa17444c634122589a40953ffa0a1fe057d9aeb2d63"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2018201.h09v04.061.2021338003711.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2018201.h09v04.061.2021338003711/MYD14A1.A2018201.h09v04.061.2021338003711.hdf",
+      "status": "downloaded",
+      "bytes": 947210,
+      "sha256": "0e0d5b5947dd29e6fe96e25ab5f5d60b9d93cfa3e028accda40e142015e06ac4"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2020233.h08v04.061.2020343120838.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2020233.h08v04.061.2020343120838/MYD14A1.A2020233.h08v04.061.2020343120838.hdf",
+      "status": "downloaded",
+      "bytes": 603332,
+      "sha256": "24c79ee750be65095576f3ba8b596b4ea3a7fae8c4e52db713007afd360526ed"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2020233.h08v05.061.2020343120039.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2020233.h08v05.061.2020343120039/MYD14A1.A2020233.h08v05.061.2020343120039.hdf",
+      "status": "downloaded",
+      "bytes": 794287,
+      "sha256": "53576d50a44fb845a4265d1cab4619ba82d11a12d081ffe6064a36c22edb3a7b"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2020233.h09v05.061.2020343121448.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2020233.h09v05.061.2020343121448/MYD14A1.A2020233.h09v05.061.2020343121448.hdf",
+      "status": "downloaded",
+      "bytes": 779984,
+      "sha256": "c8e0dceac33b682b09648bc6af46c4f13795a5eaf7e36ebacfde33065bfc8e1e"
+    },
+    {
+      "product": "MYD14A1",
+      "granule": "MYD14A1.A2020233.h09v04.061.2020343121312.hdf",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/MYD14A1.061/MYD14A1.A2020233.h09v04.061.2020343121312/MYD14A1.A2020233.h09v04.061.2020343121312.hdf",
+      "status": "downloaded",
+      "bytes": 948677,
+      "sha256": "70ef9e2840fdd45612520df8313282cc8812df69e5bd537be9d9f27c36b4abe9"
+    }
+  ],
+  "status": "acquired",
+  "generated_at": "2026-11-15T06:22:32.455967+00:00",
+  "limitations": [
+    "Pilot only; not used as full-period model predictors.",
+    "Daily MOD14A1 maximum fire-mask composites do not preserve each overpass observation.",
+    "Cloud/smoke and unknown classes are not interchangeable; mask cannot reconstruct every missed fire.",
+    "MODIS masks do not measure SNPP 375m reference exposure; matched VIIRS L2 masks remain necessary before exposure-aware training."
+  ],
+  "cell_days": 7072
+}

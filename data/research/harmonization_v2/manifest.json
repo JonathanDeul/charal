@@ -1,0 +1,1343 @@
+{
+  "sources": [
+    {
+      "path": "data/raw/modis_2001_United_States.csv.gz",
+      "sha256": "7ca358f9c0335f6cac59d37d730fb5e46b896b58967ba76c6581700e91b2ca16"
+    },
+    {
+      "path": "data/raw/modis_2002_United_States.csv.gz",
+      "sha256": "2674496141b587db80a2ec8f7ed44c378023c4f18afc64b6a4e2317857a84012"
+    },
+    {
+      "path": "data/raw/modis_2003_United_States.csv.gz",
+      "sha256": "5507821e4dddb724a411800689a3c2875e1d0b1e5cfdbcd5d0490a53ec0e77e7"
+    },
+    {
+      "path": "data/raw/modis_2004_United_States.csv.gz",
+      "sha256": "d9c8a3421c6445f695ca57a96c8c0b9e468b6ec8fa1f312710360235c4527673"
+    },
+    {
+      "path": "data/raw/modis_2005_United_States.csv.gz",
+      "sha256": "f33ba7b5f463d3c8bcb2eb133af295bb66174939e48a15a270f3e8ec1479e909"
+    },
+    {
+      "path": "data/raw/modis_2006_United_States.csv.gz",
+      "sha256": "f3fbd788c445d93b4939c454957d6667f53e5759e2ee89a71b879ba9b4c991c2"
+    },
+    {
+      "path": "data/raw/modis_2007_United_States.csv.gz",
+      "sha256": "4a1da3a86526a038128091e863dfc06dc3acd3803724f1509be30fbda4a4acce"
+    },
+    {
+      "path": "data/raw/modis_2008_United_States.csv.gz",
+      "sha256": "f62f755d487852b44820609ab206cbae33a5fcc14b67fd959a5caba1aeab4252"
+    },
+    {
+      "path": "data/raw/modis_2009_United_States.csv.gz",
+      "sha256": "730e18851a70b3b8bc35b20b52a64424ab37f363d9868bcb5e8a45e7076eeca1"
+    },
+    {
+      "path": "data/raw/modis_2010_United_States.csv.gz",
+      "sha256": "d484a3e50d2f189323fd6333f2937fc12666f5ba1d6c5e7cc41dc127b2eeb5f0"
+    },
+    {
+      "path": "data/raw/modis_2011_United_States.csv.gz",
+      "sha256": "272b6fdb0d9b57b239cf0165d9e2e8c8cfbfe09556f8546e8ecc3cba4d31ee90"
+    },
+    {
+      "path": "data/raw/modis_2012_United_States.csv.gz",
+      "sha256": "653ef95e0abe78a6d3b629c3e5f6a0cff20e129ecb63b0d3f54baa8835c5ef6e"
+    },
+    {
+      "path": "data/raw/modis_2013_United_States.csv.gz",
+      "sha256": "3393e79f03719ae7e4f1360e112e553e3b2fce3f98c7e5faaf54c68e4a61b8b1"
+    },
+    {
+      "path": "data/raw/modis_2014_United_States.csv.gz",
+      "sha256": "9f96e5bc2a5cdf07044bd80d33f616cb893d60d222506f28e3cefdbc721b4a91"
+    },
+    {
+      "path": "data/raw/modis_2015_United_States.csv.gz",
+      "sha256": "6b9c4f5061f526afd237ab56a48945e9001c82c8e67f1aad6247f7eefd5f9ef3"
+    },
+    {
+      "path": "data/raw/modis_2016_United_States.csv.gz",
+      "sha256": "191bf106927ba658d72fd00dc30bba4a9eb8bfcdf602e386d5a5ef2d8b5a2e96"
+    },
+    {
+      "path": "data/raw/modis_2017_United_States.csv.gz",
+      "sha256": "458d60d17259b63e5891bbb00312174a9f8318aefc3f1342cc45bab35eee183c"
+    },
+    {
+      "path": "data/raw/modis_2018_United_States.csv.gz",
+      "sha256": "bb28918c706040f99c12e27966d82506f7cf3c05f968200135b37ad0330fb052"
+    },
+    {
+      "path": "data/raw/modis_2019_United_States.csv.gz",
+      "sha256": "a81fd7299f3e51b0f6d9816495f40713fd0911aea8f56a889d85515a320d0f06"
+    },
+    {
+      "path": "data/raw/modis_2020_United_States.csv.gz",
+      "sha256": "2d6d7cce37fb2942a937ddfe53ef232344020a643592575466b388a386b2fc1b"
+    },
+    {
+      "path": "data/raw/modis_2021_United_States.csv.gz",
+      "sha256": "87d4634abf9067e5f0c8102771ffc0c3bffb5b00ceea060647b97f7124bef8dc"
+    },
+    {
+      "path": "data/raw/modis_2022_United_States.csv.gz",
+      "sha256": "7de2e8b6f55ba07c8ad56ea7a0d7a223b855cd3074977cb3c739f7ef588a317a"
+    },
+    {
+      "path": "data/raw/modis_2023_United_States.csv.gz",
+      "sha256": "b328b0a9b1889ae6b19d8f593ba848988813447befcadcaf7136a0ee2f6e5462"
+    },
+    {
+      "path": "data/raw/modis_2024_United_States.csv.gz",
+      "sha256": "852e460f673a04bbacaa582c6a7fb5b0c927aa64d9ad0a7f551adae71ab6f80b"
+    },
+    {
+      "path": "data/raw/modis_2025_United_States.csv.gz",
+      "sha256": "839f0f6582fbf0d586c0e5f32e972b16524f3ad827046043be4e93cce5017d63"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2012_United_States.csv.gz",
+      "sha256": "37aec89066954cdbe706bd692976b8f2b4cc23cc26d2a8adad3f88b4d9e4ea70"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2013_United_States.csv.gz",
+      "sha256": "dcdeabb9f66fc2fdfaf8e5f5fedd7b5db271bdf8541ba76c0738be16b3a2397c"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2014_United_States.csv.gz",
+      "sha256": "5d476b186becfce383c8be04ee70a88610f8fd8dfda18e7447351cf0334e0720"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2015_United_States.csv.gz",
+      "sha256": "290ca4e423ec0aef36de91f2e90faae2044638c92d63dece9dbff486f6c3350a"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2016_United_States.csv.gz",
+      "sha256": "f555447d5aefa7f2161da8a8b8107ba2bb62732069359ea4651cfb76dcf444ca"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2017_United_States.csv.gz",
+      "sha256": "e95eee69e2ccd63dffc85f81b6d30fd0c27495a9a8cfd476cd77095788634017"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2018_United_States.csv.gz",
+      "sha256": "bad7e672b02de8ebcda6fd08b43a04cf4208a3766a91ca567b8fa0cbc9221eb6"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2019_United_States.csv.gz",
+      "sha256": "5a61edd73594fd02e26ecaa52f49263c3bf4cd6ee4c7aa6a5f57f4dedabbf3f9"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2020_United_States.csv.gz",
+      "sha256": "edead13b2efa5fb40f489386fb7692dd1704c7232f3565100e956a11d8b52a39"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2021_United_States.csv.gz",
+      "sha256": "ec6924a47fbae65a56085321c4a787c7b965e14df7638f200c13471a4e43165d"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2022_United_States.csv.gz",
+      "sha256": "dfbfe97a2c2b7eac788886a87a4dd0cc756ac344c86a9e5aa34f331f8ef495c0"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2023_United_States.csv.gz",
+      "sha256": "df90494e07cec2a4fd14a0cd542a44303e139d805e028af5e6e0e6f1fb7ec6a5"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2024_United_States.csv.gz",
+      "sha256": "13c49580c052c2171e1e679abc0ad5c529a5e766207ac6521e5ce8cdf85d9b06"
+    },
+    {
+      "path": "data/raw/viirs-snpp_2025_United_States.csv.gz",
+      "sha256": "b1251b0a49196bf1e555e29c714b554183d2ead92bfed66467364ed41c208e87"
+    }
+  ],
+  "counts": [
+    {
+      "sensor": "modis",
+      "year": 2001,
+      "state": "AZ",
+      "retained": 578
+    },
+    {
+      "sensor": "modis",
+      "year": 2001,
+      "state": "CA",
+      "retained": 3068
+    },
+    {
+      "sensor": "modis",
+      "year": 2001,
+      "state": "NV",
+      "retained": 1147
+    },
+    {
+      "sensor": "modis",
+      "year": 2001,
+      "state": "OR",
+      "retained": 1600
+    },
+    {
+      "sensor": "modis",
+      "year": 2001,
+      "state": "WA",
+      "retained": 1529
+    },
+    {
+      "sensor": "modis",
+      "year": 2002,
+      "state": "AZ",
+      "retained": 2991
+    },
+    {
+      "sensor": "modis",
+      "year": 2002,
+      "state": "CA",
+      "retained": 7037
+    },
+    {
+      "sensor": "modis",
+      "year": 2002,
+      "state": "NV",
+      "retained": 219
+    },
+    {
+      "sensor": "modis",
+      "year": 2002,
+      "state": "OR",
+      "retained": 10858
+    },
+    {
+      "sensor": "modis",
+      "year": 2002,
+      "state": "WA",
+      "retained": 1975
+    },
+    {
+      "sensor": "modis",
+      "year": 2003,
+      "state": "AZ",
+      "retained": 2513
+    },
+    {
+      "sensor": "modis",
+      "year": 2003,
+      "state": "CA",
+      "retained": 10790
+    },
+    {
+      "sensor": "modis",
+      "year": 2003,
+      "state": "NV",
+      "retained": 187
+    },
+    {
+      "sensor": "modis",
+      "year": 2003,
+      "state": "OR",
+      "retained": 4272
+    },
+    {
+      "sensor": "modis",
+      "year": 2003,
+      "state": "WA",
+      "retained": 3320
+    },
+    {
+      "sensor": "modis",
+      "year": 2004,
+      "state": "AZ",
+      "retained": 2699
+    },
+    {
+      "sensor": "modis",
+      "year": 2004,
+      "state": "CA",
+      "retained": 6031
+    },
+    {
+      "sensor": "modis",
+      "year": 2004,
+      "state": "NV",
+      "retained": 433
+    },
+    {
+      "sensor": "modis",
+      "year": 2004,
+      "state": "OR",
+      "retained": 2832
+    },
+    {
+      "sensor": "modis",
+      "year": 2004,
+      "state": "WA",
+      "retained": 2975
+    },
+    {
+      "sensor": "modis",
+      "year": 2005,
+      "state": "AZ",
+      "retained": 3917
+    },
+    {
+      "sensor": "modis",
+      "year": 2005,
+      "state": "CA",
+      "retained": 4788
+    },
+    {
+      "sensor": "modis",
+      "year": 2005,
+      "state": "NV",
+      "retained": 3116
+    },
+    {
+      "sensor": "modis",
+      "year": 2005,
+      "state": "OR",
+      "retained": 2919
+    },
+    {
+      "sensor": "modis",
+      "year": 2005,
+      "state": "WA",
+      "retained": 1933
+    },
+    {
+      "sensor": "modis",
+      "year": 2006,
+      "state": "AZ",
+      "retained": 2106
+    },
+    {
+      "sensor": "modis",
+      "year": 2006,
+      "state": "CA",
+      "retained": 10892
+    },
+    {
+      "sensor": "modis",
+      "year": 2006,
+      "state": "NV",
+      "retained": 3243
+    },
+    {
+      "sensor": "modis",
+      "year": 2006,
+      "state": "OR",
+      "retained": 4211
+    },
+    {
+      "sensor": "modis",
+      "year": 2006,
+      "state": "WA",
+      "retained": 6812
+    },
+    {
+      "sensor": "modis",
+      "year": 2007,
+      "state": "AZ",
+      "retained": 1933
+    },
+    {
+      "sensor": "modis",
+      "year": 2007,
+      "state": "CA",
+      "retained": 12349
+    },
+    {
+      "sensor": "modis",
+      "year": 2007,
+      "state": "NV",
+      "retained": 2351
+    },
+    {
+      "sensor": "modis",
+      "year": 2007,
+      "state": "OR",
+      "retained": 6042
+    },
+    {
+      "sensor": "modis",
+      "year": 2007,
+      "state": "WA",
+      "retained": 2517
+    },
+    {
+      "sensor": "modis",
+      "year": 2008,
+      "state": "AZ",
+      "retained": 1758
+    },
+    {
+      "sensor": "modis",
+      "year": 2008,
+      "state": "CA",
+      "retained": 20904
+    },
+    {
+      "sensor": "modis",
+      "year": 2008,
+      "state": "NV",
+      "retained": 592
+    },
+    {
+      "sensor": "modis",
+      "year": 2008,
+      "state": "OR",
+      "retained": 3772
+    },
+    {
+      "sensor": "modis",
+      "year": 2008,
+      "state": "WA",
+      "retained": 1702
+    },
+    {
+      "sensor": "modis",
+      "year": 2009,
+      "state": "AZ",
+      "retained": 2545
+    },
+    {
+      "sensor": "modis",
+      "year": 2009,
+      "state": "CA",
+      "retained": 7900
+    },
+    {
+      "sensor": "modis",
+      "year": 2009,
+      "state": "NV",
+      "retained": 287
+    },
+    {
+      "sensor": "modis",
+      "year": 2009,
+      "state": "OR",
+      "retained": 3210
+    },
+    {
+      "sensor": "modis",
+      "year": 2009,
+      "state": "WA",
+      "retained": 1540
+    },
+    {
+      "sensor": "modis",
+      "year": 2010,
+      "state": "AZ",
+      "retained": 1411
+    },
+    {
+      "sensor": "modis",
+      "year": 2010,
+      "state": "CA",
+      "retained": 2810
+    },
+    {
+      "sensor": "modis",
+      "year": 2010,
+      "state": "NV",
+      "retained": 110
+    },
+    {
+      "sensor": "modis",
+      "year": 2010,
+      "state": "OR",
+      "retained": 2324
+    },
+    {
+      "sensor": "modis",
+      "year": 2010,
+      "state": "WA",
+      "retained": 1279
+    },
+    {
+      "sensor": "modis",
+      "year": 2011,
+      "state": "AZ",
+      "retained": 7859
+    },
+    {
+      "sensor": "modis",
+      "year": 2011,
+      "state": "CA",
+      "retained": 3437
+    },
+    {
+      "sensor": "modis",
+      "year": 2011,
+      "state": "NV",
+      "retained": 1119
+    },
+    {
+      "sensor": "modis",
+      "year": 2011,
+      "state": "OR",
+      "retained": 3717
+    },
+    {
+      "sensor": "modis",
+      "year": 2011,
+      "state": "WA",
+      "retained": 1264
+    },
+    {
+      "sensor": "modis",
+      "year": 2012,
+      "state": "AZ",
+      "retained": 2110
+    },
+    {
+      "sensor": "modis",
+      "year": 2012,
+      "state": "CA",
+      "retained": 8745
+    },
+    {
+      "sensor": "modis",
+      "year": 2012,
+      "state": "NV",
+      "retained": 2503
+    },
+    {
+      "sensor": "modis",
+      "year": 2012,
+      "state": "OR",
+      "retained": 5765
+    },
+    {
+      "sensor": "modis",
+      "year": 2012,
+      "state": "WA",
+      "retained": 4326
+    },
+    {
+      "sensor": "modis",
+      "year": 2013,
+      "state": "AZ",
+      "retained": 1105
+    },
+    {
+      "sensor": "modis",
+      "year": 2013,
+      "state": "CA",
+      "retained": 9800
+    },
+    {
+      "sensor": "modis",
+      "year": 2013,
+      "state": "NV",
+      "retained": 969
+    },
+    {
+      "sensor": "modis",
+      "year": 2013,
+      "state": "OR",
+      "retained": 3826
+    },
+    {
+      "sensor": "modis",
+      "year": 2013,
+      "state": "WA",
+      "retained": 2011
+    },
+    {
+      "sensor": "modis",
+      "year": 2014,
+      "state": "AZ",
+      "retained": 1952
+    },
+    {
+      "sensor": "modis",
+      "year": 2014,
+      "state": "CA",
+      "retained": 7900
+    },
+    {
+      "sensor": "modis",
+      "year": 2014,
+      "state": "NV",
+      "retained": 621
+    },
+    {
+      "sensor": "modis",
+      "year": 2014,
+      "state": "OR",
+      "retained": 5700
+    },
+    {
+      "sensor": "modis",
+      "year": 2014,
+      "state": "WA",
+      "retained": 4680
+    },
+    {
+      "sensor": "modis",
+      "year": 2015,
+      "state": "AZ",
+      "retained": 1289
+    },
+    {
+      "sensor": "modis",
+      "year": 2015,
+      "state": "CA",
+      "retained": 10896
+    },
+    {
+      "sensor": "modis",
+      "year": 2015,
+      "state": "NV",
+      "retained": 104
+    },
+    {
+      "sensor": "modis",
+      "year": 2015,
+      "state": "OR",
+      "retained": 6284
+    },
+    {
+      "sensor": "modis",
+      "year": 2015,
+      "state": "WA",
+      "retained": 11958
+    },
+    {
+      "sensor": "modis",
+      "year": 2016,
+      "state": "AZ",
+      "retained": 2893
+    },
+    {
+      "sensor": "modis",
+      "year": 2016,
+      "state": "CA",
+      "retained": 8589
+    },
+    {
+      "sensor": "modis",
+      "year": 2016,
+      "state": "NV",
+      "retained": 667
+    },
+    {
+      "sensor": "modis",
+      "year": 2016,
+      "state": "OR",
+      "retained": 3067
+    },
+    {
+      "sensor": "modis",
+      "year": 2016,
+      "state": "WA",
+      "retained": 1840
+    },
+    {
+      "sensor": "modis",
+      "year": 2017,
+      "state": "AZ",
+      "retained": 3728
+    },
+    {
+      "sensor": "modis",
+      "year": 2017,
+      "state": "CA",
+      "retained": 16920
+    },
+    {
+      "sensor": "modis",
+      "year": 2017,
+      "state": "NV",
+      "retained": 2177
+    },
+    {
+      "sensor": "modis",
+      "year": 2017,
+      "state": "OR",
+      "retained": 9525
+    },
+    {
+      "sensor": "modis",
+      "year": 2017,
+      "state": "WA",
+      "retained": 5372
+    },
+    {
+      "sensor": "modis",
+      "year": 2018,
+      "state": "AZ",
+      "retained": 1820
+    },
+    {
+      "sensor": "modis",
+      "year": 2018,
+      "state": "CA",
+      "retained": 19920
+    },
+    {
+      "sensor": "modis",
+      "year": 2018,
+      "state": "NV",
+      "retained": 3221
+    },
+    {
+      "sensor": "modis",
+      "year": 2018,
+      "state": "OR",
+      "retained": 9163
+    },
+    {
+      "sensor": "modis",
+      "year": 2018,
+      "state": "WA",
+      "retained": 5468
+    },
+    {
+      "sensor": "modis",
+      "year": 2019,
+      "state": "AZ",
+      "retained": 2829
+    },
+    {
+      "sensor": "modis",
+      "year": 2019,
+      "state": "CA",
+      "retained": 5308
+    },
+    {
+      "sensor": "modis",
+      "year": 2019,
+      "state": "NV",
+      "retained": 277
+    },
+    {
+      "sensor": "modis",
+      "year": 2019,
+      "state": "OR",
+      "retained": 2904
+    },
+    {
+      "sensor": "modis",
+      "year": 2019,
+      "state": "WA",
+      "retained": 1909
+    },
+    {
+      "sensor": "modis",
+      "year": 2020,
+      "state": "AZ",
+      "retained": 4869
+    },
+    {
+      "sensor": "modis",
+      "year": 2020,
+      "state": "CA",
+      "retained": 46495
+    },
+    {
+      "sensor": "modis",
+      "year": 2020,
+      "state": "NV",
+      "retained": 799
+    },
+    {
+      "sensor": "modis",
+      "year": 2020,
+      "state": "OR",
+      "retained": 11308
+    },
+    {
+      "sensor": "modis",
+      "year": 2020,
+      "state": "WA",
+      "retained": 3566
+    },
+    {
+      "sensor": "modis",
+      "year": 2021,
+      "state": "AZ",
+      "retained": 4408
+    },
+    {
+      "sensor": "modis",
+      "year": 2021,
+      "state": "CA",
+      "retained": 42226
+    },
+    {
+      "sensor": "modis",
+      "year": 2021,
+      "state": "NV",
+      "retained": 539
+    },
+    {
+      "sensor": "modis",
+      "year": 2021,
+      "state": "OR",
+      "retained": 10417
+    },
+    {
+      "sensor": "modis",
+      "year": 2021,
+      "state": "WA",
+      "retained": 10568
+    },
+    {
+      "sensor": "modis",
+      "year": 2022,
+      "state": "AZ",
+      "retained": 1550
+    },
+    {
+      "sensor": "modis",
+      "year": 2022,
+      "state": "CA",
+      "retained": 6569
+    },
+    {
+      "sensor": "modis",
+      "year": 2022,
+      "state": "NV",
+      "retained": 284
+    },
+    {
+      "sensor": "modis",
+      "year": 2022,
+      "state": "OR",
+      "retained": 4481
+    },
+    {
+      "sensor": "modis",
+      "year": 2022,
+      "state": "WA",
+      "retained": 3108
+    },
+    {
+      "sensor": "modis",
+      "year": 2023,
+      "state": "AZ",
+      "retained": 2325
+    },
+    {
+      "sensor": "modis",
+      "year": 2023,
+      "state": "CA",
+      "retained": 6968
+    },
+    {
+      "sensor": "modis",
+      "year": 2023,
+      "state": "NV",
+      "retained": 81
+    },
+    {
+      "sensor": "modis",
+      "year": 2023,
+      "state": "OR",
+      "retained": 3996
+    },
+    {
+      "sensor": "modis",
+      "year": 2023,
+      "state": "WA",
+      "retained": 2184
+    },
+    {
+      "sensor": "modis",
+      "year": 2024,
+      "state": "AZ",
+      "retained": 1831
+    },
+    {
+      "sensor": "modis",
+      "year": 2024,
+      "state": "CA",
+      "retained": 10290
+    },
+    {
+      "sensor": "modis",
+      "year": 2024,
+      "state": "NV",
+      "retained": 684
+    },
+    {
+      "sensor": "modis",
+      "year": 2024,
+      "state": "OR",
+      "retained": 13581
+    },
+    {
+      "sensor": "modis",
+      "year": 2024,
+      "state": "WA",
+      "retained": 3640
+    },
+    {
+      "sensor": "modis",
+      "year": 2025,
+      "state": "AZ",
+      "retained": 3990
+    },
+    {
+      "sensor": "modis",
+      "year": 2025,
+      "state": "CA",
+      "retained": 7098
+    },
+    {
+      "sensor": "modis",
+      "year": 2025,
+      "state": "NV",
+      "retained": 1421
+    },
+    {
+      "sensor": "modis",
+      "year": 2025,
+      "state": "OR",
+      "retained": 3208
+    },
+    {
+      "sensor": "modis",
+      "year": 2025,
+      "state": "WA",
+      "retained": 4958
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2012,
+      "state": "AZ",
+      "retained": 6878
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2012,
+      "state": "CA",
+      "retained": 34654
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2012,
+      "state": "NV",
+      "retained": 8026
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2012,
+      "state": "OR",
+      "retained": 21680
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2012,
+      "state": "WA",
+      "retained": 19217
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2013,
+      "state": "AZ",
+      "retained": 4149
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2013,
+      "state": "CA",
+      "retained": 38143
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2013,
+      "state": "NV",
+      "retained": 3455
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2013,
+      "state": "OR",
+      "retained": 13726
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2013,
+      "state": "WA",
+      "retained": 7538
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2014,
+      "state": "AZ",
+      "retained": 8743
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2014,
+      "state": "CA",
+      "retained": 34352
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2014,
+      "state": "NV",
+      "retained": 2686
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2014,
+      "state": "OR",
+      "retained": 20751
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2014,
+      "state": "WA",
+      "retained": 17383
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2015,
+      "state": "AZ",
+      "retained": 5385
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2015,
+      "state": "CA",
+      "retained": 49506
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2015,
+      "state": "NV",
+      "retained": 338
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2015,
+      "state": "OR",
+      "retained": 27677
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2015,
+      "state": "WA",
+      "retained": 56283
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2016,
+      "state": "AZ",
+      "retained": 10869
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2016,
+      "state": "CA",
+      "retained": 30776
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2016,
+      "state": "NV",
+      "retained": 2176
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2016,
+      "state": "OR",
+      "retained": 11126
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2016,
+      "state": "WA",
+      "retained": 6608
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2017,
+      "state": "AZ",
+      "retained": 15129
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2017,
+      "state": "CA",
+      "retained": 69833
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2017,
+      "state": "NV",
+      "retained": 7901
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2017,
+      "state": "OR",
+      "retained": 39667
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2017,
+      "state": "WA",
+      "retained": 23445
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2018,
+      "state": "AZ",
+      "retained": 7829
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2018,
+      "state": "CA",
+      "retained": 78077
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2018,
+      "state": "NV",
+      "retained": 11466
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2018,
+      "state": "OR",
+      "retained": 39788
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2018,
+      "state": "WA",
+      "retained": 23036
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2019,
+      "state": "AZ",
+      "retained": 12268
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2019,
+      "state": "CA",
+      "retained": 18644
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2019,
+      "state": "NV",
+      "retained": 846
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2019,
+      "state": "OR",
+      "retained": 10257
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2019,
+      "state": "WA",
+      "retained": 6983
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2020,
+      "state": "AZ",
+      "retained": 20149
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2020,
+      "state": "CA",
+      "retained": 220505
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2020,
+      "state": "NV",
+      "retained": 3450
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2020,
+      "state": "OR",
+      "retained": 61934
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2020,
+      "state": "WA",
+      "retained": 15723
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2021,
+      "state": "AZ",
+      "retained": 15670
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2021,
+      "state": "CA",
+      "retained": 187016
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2021,
+      "state": "NV",
+      "retained": 1710
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2021,
+      "state": "OR",
+      "retained": 45395
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2021,
+      "state": "WA",
+      "retained": 47292
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2022,
+      "state": "AZ",
+      "retained": 5729
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2022,
+      "state": "CA",
+      "retained": 23013
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2022,
+      "state": "NV",
+      "retained": 1097
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2022,
+      "state": "OR",
+      "retained": 23562
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2022,
+      "state": "WA",
+      "retained": 14302
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2023,
+      "state": "AZ",
+      "retained": 9386
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2023,
+      "state": "CA",
+      "retained": 27654
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2023,
+      "state": "NV",
+      "retained": 264
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2023,
+      "state": "OR",
+      "retained": 16916
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2023,
+      "state": "WA",
+      "retained": 8616
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2024,
+      "state": "AZ",
+      "retained": 6387
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2024,
+      "state": "CA",
+      "retained": 30674
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2024,
+      "state": "NV",
+      "retained": 1841
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2024,
+      "state": "OR",
+      "retained": 48382
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2024,
+      "state": "WA",
+      "retained": 11261
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2025,
+      "state": "AZ",
+      "retained": 17392
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2025,
+      "state": "CA",
+      "retained": 28492
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2025,
+      "state": "NV",
+      "retained": 5025
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2025,
+      "state": "OR",
+      "retained": 13893
+    },
+    {
+      "sensor": "viirs-snpp",
+      "year": 2025,
+      "state": "WA",
+      "retained": 22257
+    }
+  ],
+  "geography_sha256": "24fecd66025756b4b22a70ecfbec65c4f229990ae3e1043e72739bb43b55939e",
+  "cells_sha256": "0631ab309be4fff5f823ef08046c4d2fa1d4bd7ff4114f64315be38f7038a72e",
+  "coverage_sha256": "69b9a32b85b08ae68f96184a575746b798b2ccb4b2ba9e594e7794fc49b86aa9",
+  "grid_rows": 768,
+  "cell_months": 230400,
+  "ecoregion_assignment": "Largest EPA Level III polygon intersection within each state-clipped cell, planar degree-area proxy.",
+  "limitations": [
+    "Detection days/acquisitions are not observed clear-sky exposure.",
+    "Detection-pixel geometry is not geometry of all observations.",
+    "No land-cover time series acquired; static 2011 EPA regions are ecological proxies."
+  ]
+}

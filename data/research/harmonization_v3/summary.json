@@ -1,0 +1,48 @@
+{
+  "selected_candidate": "boost_context",
+  "production_changed": false,
+  "models": {
+    "seasonal_ratio": {
+      "selection_monthly_mae": 841.4588623046875,
+      "known_benchmark_monthly_mae": 317.676513671875,
+      "known_benchmark_wape": 0.14400987327098846,
+      "spatial_monthly_mae": 141.3243865966797
+    },
+    "boost_point": {
+      "selection_monthly_mae": 893.8965679193141,
+      "known_benchmark_monthly_mae": 289.6685834083491,
+      "known_benchmark_wape": 0.1313132616644072,
+      "spatial_monthly_mae": 479.4667739476306
+    },
+    "boost_context": {
+      "selection_monthly_mae": 769.0308077646143,
+      "known_benchmark_monthly_mae": 264.37379155950237,
+      "known_benchmark_wape": 0.11984656554668596,
+      "spatial_monthly_mae": 159.35848371948933
+    },
+    "mlp_poisson": {
+      "selection_monthly_mae": 913.32470703125,
+      "known_benchmark_monthly_mae": 307.5404052734375,
+      "known_benchmark_wape": 0.1394149661064148,
+      "spatial_monthly_mae": 161.18280029296875
+    },
+    "cnn_poisson": {
+      "selection_monthly_mae": 918.8170166015625,
+      "known_benchmark_monthly_mae": 339.49200439453125,
+      "known_benchmark_wape": 0.15389932692050934,
+      "spatial_monthly_mae": 138.14894104003906
+    },
+    "cnn_nb": {
+      "selection_monthly_mae": 4916.03466796875,
+      "known_benchmark_monthly_mae": 537.137939453125,
+      "known_benchmark_wape": 0.24349665641784668,
+      "spatial_monthly_mae": 160.34959411621094
+    },
+    "cnn_poisson_aggregate": {
+      "selection_monthly_mae": 982.50244140625,
+      "known_benchmark_monthly_mae": 348.3916320800781,
+      "known_benchmark_wape": 0.15793374180793762,
+      "spatial_monthly_mae": 136.3045196533203
+    }
+  }
+}

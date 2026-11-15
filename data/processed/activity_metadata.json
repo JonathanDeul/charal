@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "grid_degrees": 0.5,
+  "days": 9131,
+  "cells": 224,
+  "train_years": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ],
+  "calibration": "Raised-cosine \u00b130 calendar-day ratio of pooled training sensor totals; applied to actual daily MODIS counts.",
+  "reference_switch": "2012-02-01",
+  "calibration_exclusion": "All calendar years covered by the target measurement are also left out of the sensor-ratio fit.",
+  "ratio_min": 2.4775184485822135,
+  "ratio_max": 4.785211228422213,
+  "input_sha256": {
+    "observations.npz": "1b1dd69b0edd98210b95b89af0635c294378a286a6082b98a9f13a31caa94ea2",
+    "coverage.json": "69b9a32b85b08ae68f96184a575746b798b2ccb4b2ba9e594e7794fc49b86aa9"
+  },
+  "boundary_sha256": "e22cfa8f05b944394b38c7766f43332efe6b204f2981d40a4d8e8d4abb373e65",
+  "limitations": [
+    "Exploratory daily calibration; monthly model validation does not validate these windows.",
+    "Early Terra-only sampling, orbit drift, clouds and unlisted local gaps remain.",
+    "Ranks describe activity in a fixed 2001\u20132025 historical reference, not present-day climate or a calibrated tail probability."
+  ]
+}

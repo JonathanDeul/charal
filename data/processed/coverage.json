@@ -1,0 +1,4923 @@
+{
+  "source": "https://firms.modaps.eosdis.nasa.gov/api/missing_data/",
+  "source_url": "https://firms.modaps.eosdis.nasa.gov/api/missing_data/",
+  "table_data_url": "https://firms.modaps.eosdis.nasa.gov/api/missing_data/?action=fetch_data",
+  "downloaded_at": "2026-11-14T20:45:03.904662+00:00",
+  "period": [
+    "2001-01",
+    "2025-12"
+  ],
+  "source_columns": "Standard Data: Date Missing and Satellite (Sensor); Near Real Time columns excluded",
+  "listed_standard_rows_total": 169,
+  "selected_satellite_date_count": {
+    "Terra": 56,
+    "Aqua": 26,
+    "Suomi NPP": 35
+  },
+  "excluded_standard_rows_in_period_by_satellite": {
+    "NOAA-20 (VIIRS)": 6
+  },
+  "flagged_dates_by_satellite": {
+    "Terra": [
+      "2001-06-16",
+      "2001-06-17",
+      "2001-06-18",
+      "2001-06-19",
+      "2001-06-20",
+      "2001-06-21",
+      "2001-06-22",
+      "2001-06-23",
+      "2001-06-24",
+      "2001-06-25",
+      "2001-06-26",
+      "2001-06-27",
+      "2001-06-28",
+      "2001-06-29",
+      "2001-06-30",
+      "2001-07-01",
+      "2001-07-02",
+      "2002-03-20",
+      "2002-03-21",
+      "2002-03-22",
+      "2002-03-23",
+      "2002-03-24",
+      "2002-03-25",
+      "2002-03-26",
+      "2002-03-27",
+      "2002-04-15",
+      "2003-12-17",
+      "2003-12-18",
+      "2003-12-19",
+      "2003-12-20",
+      "2003-12-21",
+      "2003-12-22",
+      "2003-12-23",
+      "2008-12-21",
+      "2008-12-22",
+      "2016-02-19",
+      "2016-02-20",
+      "2016-02-21",
+      "2016-02-22",
+      "2016-02-23",
+      "2016-02-24",
+      "2016-02-25",
+      "2016-02-26",
+      "2016-02-27",
+      "2022-10-11",
+      "2022-10-12",
+      "2022-10-13",
+      "2022-10-14",
+      "2022-10-15",
+      "2022-10-16",
+      "2022-10-17",
+      "2022-10-18",
+      "2022-10-19",
+      "2022-10-20",
+      "2022-10-21",
+      "2022-10-22"
+    ],
+    "Aqua": [
+      "2002-07-30",
+      "2002-07-31",
+      "2002-08-01",
+      "2002-08-02",
+      "2002-08-03",
+      "2002-08-04",
+      "2002-08-05",
+      "2002-08-06",
+      "2002-08-07",
+      "2002-09-13",
+      "2022-04-01",
+      "2022-04-02",
+      "2022-04-03",
+      "2022-04-04",
+      "2022-04-05",
+      "2022-04-06",
+      "2022-04-07",
+      "2022-04-08",
+      "2022-04-09",
+      "2022-04-10",
+      "2022-04-11",
+      "2022-04-12",
+      "2022-04-13",
+      "2022-04-14",
+      "2022-04-15",
+      "2022-04-16"
+    ],
+    "Suomi NPP": [
+      "2012-03-25",
+      "2022-07-27",
+      "2022-07-28",
+      "2022-07-29",
+      "2022-07-30",
+      "2022-07-31",
+      "2022-08-01",
+      "2022-08-02",
+      "2022-08-03",
+      "2022-08-04",
+      "2022-08-05",
+      "2022-08-06",
+      "2022-08-07",
+      "2022-08-08",
+      "2022-08-09",
+      "2022-08-10",
+      "2024-05-30",
+      "2024-05-31",
+      "2024-06-01",
+      "2024-06-02",
+      "2024-06-03",
+      "2024-07-10",
+      "2024-07-11",
+      "2024-07-12",
+      "2024-07-13",
+      "2024-07-14",
+      "2024-07-15",
+      "2024-07-25",
+      "2024-07-26",
+      "2024-07-27",
+      "2024-07-28",
+      "2024-09-26",
+      "2024-11-03",
+      "2024-11-04",
+      "2024-11-05"
+    ]
+  },
+  "raw_page_sha256": "49112cea45d97fb3ba7556e2861b8f01922b8e070dc7aedcbd331cafe4918ce0",
+  "raw_response_sha256": "60ab8a4d35394d116378ba11747f6a4286d7303c9a8a77b8ec7ac01757f1b3e1",
+  "viirs_startup_source": "https://firms.modaps.eosdis.nasa.gov/download/",
+  "viirs_startup_note": "FIRMS lists Suomi-NPP coverage beginning 20 January 2012. January 1\u201319 are separately marked preoperational, not attributed to the missing-data table.",
+  "supplemental_notices": [
+    {
+      "date": "2024-07-24",
+      "satellite": "Suomi NPP",
+      "sensor": "VIIRS",
+      "start_utc": "2024-07-24T05:28:00Z",
+      "end_utc": "2024-07-24T18:22:00Z",
+      "source": "https://forum.earthdata.nasa.gov/viewtopic.php?p=19854&t=5795",
+      "published_date": "2024-07-30",
+      "note": "LP DAAC reports a partial-day mission outage and suspended VIIRS processing. This supplementary notice is not a row in the acquired FIRMS Standard Data missing-days table and has not been added to those table-derived day arrays."
+    }
+  ],
+  "monthly": [
+    {
+      "date": "2001-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-06",
+      "modis_missing_days": [
+        "2001-06-16",
+        "2001-06-17",
+        "2001-06-18",
+        "2001-06-19",
+        "2001-06-20",
+        "2001-06-21",
+        "2001-06-22",
+        "2001-06-23",
+        "2001-06-24",
+        "2001-06-25",
+        "2001-06-26",
+        "2001-06-27",
+        "2001-06-28",
+        "2001-06-29",
+        "2001-06-30"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 15,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2001-06-16",
+          "2001-06-17",
+          "2001-06-18",
+          "2001-06-19",
+          "2001-06-20",
+          "2001-06-21",
+          "2001-06-22",
+          "2001-06-23",
+          "2001-06-24",
+          "2001-06-25",
+          "2001-06-26",
+          "2001-06-27",
+          "2001-06-28",
+          "2001-06-29",
+          "2001-06-30"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 15,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-07",
+      "modis_missing_days": [
+        "2001-07-01",
+        "2001-07-02"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 2,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2001-07-01",
+          "2001-07-02"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 2,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2001-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-03",
+      "modis_missing_days": [
+        "2002-03-20",
+        "2002-03-21",
+        "2002-03-22",
+        "2002-03-23",
+        "2002-03-24",
+        "2002-03-25",
+        "2002-03-26",
+        "2002-03-27"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 8,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2002-03-20",
+          "2002-03-21",
+          "2002-03-22",
+          "2002-03-23",
+          "2002-03-24",
+          "2002-03-25",
+          "2002-03-26",
+          "2002-03-27"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 8,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-04",
+      "modis_missing_days": [
+        "2002-04-15"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 1,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2002-04-15"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 1,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-07",
+      "modis_missing_days": [
+        "2002-07-30",
+        "2002-07-31"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 2,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": [
+          "2002-07-30",
+          "2002-07-31"
+        ]
+      },
+      "modis_platform_missing_day_count": 2,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-08",
+      "modis_missing_days": [
+        "2002-08-01",
+        "2002-08-02",
+        "2002-08-03",
+        "2002-08-04",
+        "2002-08-05",
+        "2002-08-06",
+        "2002-08-07"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 7,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": [
+          "2002-08-01",
+          "2002-08-02",
+          "2002-08-03",
+          "2002-08-04",
+          "2002-08-05",
+          "2002-08-06",
+          "2002-08-07"
+        ]
+      },
+      "modis_platform_missing_day_count": 7,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-09",
+      "modis_missing_days": [
+        "2002-09-13"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 1,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": [
+          "2002-09-13"
+        ]
+      },
+      "modis_platform_missing_day_count": 1,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2002-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2003-12",
+      "modis_missing_days": [
+        "2003-12-17",
+        "2003-12-18",
+        "2003-12-19",
+        "2003-12-20",
+        "2003-12-21",
+        "2003-12-22",
+        "2003-12-23"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 7,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2003-12-17",
+          "2003-12-18",
+          "2003-12-19",
+          "2003-12-20",
+          "2003-12-21",
+          "2003-12-22",
+          "2003-12-23"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 7,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2004-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2005-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2006-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2007-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2008-12",
+      "modis_missing_days": [
+        "2008-12-21",
+        "2008-12-22"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 2,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2008-12-21",
+          "2008-12-22"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 2,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2009-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2010-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2011-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "not_yet_available"
+    },
+    {
+      "date": "2012-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [
+        "2012-01-01",
+        "2012-01-02",
+        "2012-01-03",
+        "2012-01-04",
+        "2012-01-05",
+        "2012-01-06",
+        "2012-01-07",
+        "2012-01-08",
+        "2012-01-09",
+        "2012-01-10",
+        "2012-01-11",
+        "2012-01-12",
+        "2012-01-13",
+        "2012-01-14",
+        "2012-01-15",
+        "2012-01-16",
+        "2012-01-17",
+        "2012-01-18",
+        "2012-01-19"
+      ],
+      "viirs_reference_status": "partial_startup"
+    },
+    {
+      "date": "2012-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2012-03-25"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 1,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2012-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2012-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2013-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2014-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2015-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-02",
+      "modis_missing_days": [
+        "2016-02-19",
+        "2016-02-20",
+        "2016-02-21",
+        "2016-02-22",
+        "2016-02-23",
+        "2016-02-24",
+        "2016-02-25",
+        "2016-02-26",
+        "2016-02-27"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 9,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2016-02-19",
+          "2016-02-20",
+          "2016-02-21",
+          "2016-02-22",
+          "2016-02-23",
+          "2016-02-24",
+          "2016-02-25",
+          "2016-02-26",
+          "2016-02-27"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 9,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2016-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2017-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2018-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2019-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2020-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2021-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-04",
+      "modis_missing_days": [
+        "2022-04-01",
+        "2022-04-02",
+        "2022-04-03",
+        "2022-04-04",
+        "2022-04-05",
+        "2022-04-06",
+        "2022-04-07",
+        "2022-04-08",
+        "2022-04-09",
+        "2022-04-10",
+        "2022-04-11",
+        "2022-04-12",
+        "2022-04-13",
+        "2022-04-14",
+        "2022-04-15",
+        "2022-04-16"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 16,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": [
+          "2022-04-01",
+          "2022-04-02",
+          "2022-04-03",
+          "2022-04-04",
+          "2022-04-05",
+          "2022-04-06",
+          "2022-04-07",
+          "2022-04-08",
+          "2022-04-09",
+          "2022-04-10",
+          "2022-04-11",
+          "2022-04-12",
+          "2022-04-13",
+          "2022-04-14",
+          "2022-04-15",
+          "2022-04-16"
+        ]
+      },
+      "modis_platform_missing_day_count": 16,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2022-07-27",
+        "2022-07-28",
+        "2022-07-29",
+        "2022-07-30",
+        "2022-07-31"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 5,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2022-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2022-08-01",
+        "2022-08-02",
+        "2022-08-03",
+        "2022-08-04",
+        "2022-08-05",
+        "2022-08-06",
+        "2022-08-07",
+        "2022-08-08",
+        "2022-08-09",
+        "2022-08-10"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 10,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2022-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-10",
+      "modis_missing_days": [
+        "2022-10-11",
+        "2022-10-12",
+        "2022-10-13",
+        "2022-10-14",
+        "2022-10-15",
+        "2022-10-16",
+        "2022-10-17",
+        "2022-10-18",
+        "2022-10-19",
+        "2022-10-20",
+        "2022-10-21",
+        "2022-10-22"
+      ],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 12,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [
+          "2022-10-11",
+          "2022-10-12",
+          "2022-10-13",
+          "2022-10-14",
+          "2022-10-15",
+          "2022-10-16",
+          "2022-10-17",
+          "2022-10-18",
+          "2022-10-19",
+          "2022-10-20",
+          "2022-10-21",
+          "2022-10-22"
+        ],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 12,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2022-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2023-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2024-05-30",
+        "2024-05-31"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 2,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2024-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2024-06-01",
+        "2024-06-02",
+        "2024-06-03"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 3,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2024-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2024-07-10",
+        "2024-07-11",
+        "2024-07-12",
+        "2024-07-13",
+        "2024-07-14",
+        "2024-07-15",
+        "2024-07-25",
+        "2024-07-26",
+        "2024-07-27",
+        "2024-07-28"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 10,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2024-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2024-09-26"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 1,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2024-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2024-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [
+        "2024-11-03",
+        "2024-11-04",
+        "2024-11-05"
+      ],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 3,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "known_gap"
+    },
+    {
+      "date": "2024-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-01",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-02",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-03",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-04",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-05",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-06",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-07",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-08",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-09",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-10",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-11",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    },
+    {
+      "date": "2025-12",
+      "modis_missing_days": [],
+      "viirs_missing_days": [],
+      "modis_missing_day_count": 0,
+      "viirs_missing_day_count": 0,
+      "modis_platform_days": {
+        "Terra": [],
+        "Aqua": []
+      },
+      "modis_platform_missing_day_count": 0,
+      "modis_both_platform_missing_days": [],
+      "viirs_preoperational_days": [],
+      "viirs_reference_status": "no_listed_gap"
+    }
+  ],
+  "limitations": [
+    "These are all listed historical Standard Data dates for the selected satellites in the table acquired at downloaded_at; the table is not a proof of exhaustive historical outage reporting.",
+    "A listed date identifies missing data in the FIRMS database for that satellite/product; it does not establish that every global granule or every California overpass was absent on that date.",
+    "A month with no listed dates is not proven complete, cloud-free, or equally observed. Cloud, smoke, view geometry, unlisted/partial outages, and acquisition schedules remain unmeasured by this table.",
+    "MODIS missing_days is the union of Terra/Aqua flagged dates. One platform being flagged does not imply both platforms were absent; per-platform arrays and the intersection are supplied separately.",
+    "Duplicate rows for a date/platform are collapsed. NOAA-20/NOAA-21 and Near Real Time records are excluded because this snapshot uses standard MODIS and Suomi-NPP data.",
+    "Reference availability before Suomi-NPP's start is not represented by zero missing days: viirs_reference_status is not_yet_available before January 2012, and January 2012 has separately documented preoperational days.",
+    "Do not convert these day counts into an inverse-coverage scaling factor or corrected hotspot count without a spatial observation model."
+  ]
+}

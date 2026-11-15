@@ -1,0 +1,9 @@
+{
+  "purpose": "Supplementary transfer diagnostic, specified while main development fits were running, before final selection/benchmark results",
+  "train_years": [2013, 2020],
+  "evaluation_years": [2023, 2025],
+  "audit_cells": "California centers latitude >=39.5",
+  "train_cells": "Keep only centers with maximum-coordinate distance >2 degrees from every audit center, so 5x5 patches (radius 1 degree) do not overlap spatially",
+  "models": "Same seven families as main protocol; neural epochs fixed by main development, three seeds. No new tuning or effect on main selection.",
+  "limitation": "Main epoch selection saw northern California in earlier development years; this is a refit transfer diagnostic, not a wholly unseen-geography model-development exercise. Known 2023-2025 benchmark is already inspected."
+}

@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-15",
+  "pytest": {
+    "command": ".venv/bin/python -m pytest tests -q",
+    "passed": 30,
+    "failed": 0,
+    "warnings": [
+      "Existing Starlette/httpx deprecation warning"
+    ]
+  },
+  "artifact_checks": {
+    "frozen_protocol_hash": "passed",
+    "all_reported_optimizations_converged": "passed",
+    "california_monthly_count_parity": "passed",
+    "modis_mask_class_partition": "passed",
+    "viirs_mask_class_totals": "passed",
+    "all_18_granule_hashes": "passed",
+    "selection_saved_before_audit_predictions": "passed"
+  },
+  "production_method": "seasonal_ratio",
+  "promotion_gate_passed": false
+}

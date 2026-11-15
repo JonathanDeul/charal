@@ -1,0 +1,40 @@
+{
+  "calfire_guard_effect": {
+    "rows_before": 648032,
+    "rows_after": 616674,
+    "reference_before": 539141.0,
+    "reference_after": 372260.0,
+    "modis_before": 125663.0,
+    "modis_after": 91135.0
+  },
+  "selection": {
+    "rows": 135968,
+    "monthly_reference_parity": true,
+    "finite_predictions_and_metric_parity": true
+  },
+  "known_benchmark": {
+    "rows": 211456,
+    "monthly_reference_parity": true,
+    "finite_predictions_and_metric_parity": true
+  },
+  "backward_audit": {
+    "rows": 68096,
+    "monthly_reference_parity": true,
+    "finite_predictions_and_metric_parity": true
+  },
+  "checkpoint_prediction_parity": true,
+  "spatial_patch_separation": true,
+  "selection_sealed_before_benchmark": true,
+  "protocol_and_source_hashes": true,
+  "production_changed": false,
+  "source_inputs_sha256": {
+    "data/processed/perimeters.json": "1c073e057ae5282dcfb99aa79eec1158a95cc57c7df798225bf47dbfc87b7d8e",
+    "data/processed/coverage.json": "69b9a32b85b08ae68f96184a575746b798b2ccb4b2ba9e594e7794fc49b86aa9",
+    "data/research/harmonization_v2/geography.json": "24fecd66025756b4b22a70ecfbec65c4f229990ae3e1043e72739bb43b55939e"
+  },
+  "automated_tests": {
+    "command": ".venv/bin/python -m pytest tests -q",
+    "passed": 45,
+    "failed": 0
+  }
+}

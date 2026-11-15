@@ -1,0 +1,1814 @@
+{
+  "selection_unchanged": "hurdle_rich__w1.0",
+  "limits": [
+    "Post-selection diagnostics, not an additional selection pass.",
+    "CAL FIRE linkage/geometry does not establish independent fires. Historical evaluation periods are already known."
+  ],
+  "strata": {
+    "selection": {
+      "candidate": {
+        "both_zero": {
+          "n": 2493,
+          "mae": 0.5684524478325884,
+          "bias_total": 1417.151952446643,
+          "reference_total": 0.0,
+          "predicted_total": 1417.151952446643,
+          "bias_fraction": null
+        },
+        "viirs_only": {
+          "n": 817,
+          "mae": 2.212643476503932,
+          "bias_total": -1622.9438776619809,
+          "reference_total": 2598.0,
+          "predicted_total": 975.056122338019,
+          "bias_fraction": -0.6246897142655815
+        },
+        "all_zero_modis": {
+          "n": 3310,
+          "mae": 0.9742844932780529,
+          "bias_total": -205.791925215338,
+          "reference_total": 2598.0,
+          "predicted_total": 2392.208074784662,
+          "bias_fraction": -0.0792116725232248
+        },
+        "positive_modis": {
+          "n": 1170,
+          "mae": 25.09705611354264,
+          "bias_total": -534.689233341629,
+          "reference_total": 200428.0,
+          "predicted_total": 199893.31076665837,
+          "bias_fraction": -0.0026677372090807123
+        },
+        "high_activity": {
+          "n": 27,
+          "mae": 652.2421095060625,
+          "bias_total": -112.6591431272227,
+          "reference_total": 155696.0,
+          "predicted_total": 155583.34085687276,
+          "bias_fraction": -0.0007235840556419093
+        }
+      },
+      "baseline": {
+        "both_zero": {
+          "n": 2493,
+          "mae": 0.0,
+          "bias_total": 0.0,
+          "reference_total": 0.0,
+          "predicted_total": 0.0,
+          "bias_fraction": null
+        },
+        "viirs_only": {
+          "n": 817,
+          "mae": 3.179926560587515,
+          "bias_total": -2598.0,
+          "reference_total": 2598.0,
+          "predicted_total": 0.0,
+          "bias_fraction": -1.0
+        },
+        "all_zero_modis": {
+          "n": 3310,
+          "mae": 0.7848942598187311,
+          "bias_total": -2598.0,
+          "reference_total": 2598.0,
+          "predicted_total": 0.0,
+          "bias_fraction": -1.0
+        },
+        "positive_modis": {
+          "n": 1170,
+          "mae": 27.1534761538457,
+          "bias_total": 880.5840512937615,
+          "reference_total": 200428.0,
+          "predicted_total": 201308.5840512938,
+          "bias_fraction": 0.004393518127675582
+        },
+        "high_activity": {
+          "n": 27,
+          "mae": 629.8640172941933,
+          "bias_total": -4158.828633075744,
+          "reference_total": 155696.0,
+          "predicted_total": 151537.17136692425,
+          "bias_fraction": -0.026711210519703422
+        }
+      }
+    },
+    "known_benchmark": {
+      "candidate": {
+        "both_zero": {
+          "n": 3872,
+          "mae": 0.5518901173798365,
+          "bias_total": 2136.918534494727,
+          "reference_total": 0.0,
+          "predicted_total": 2136.918534494727,
+          "bias_fraction": null
+        },
+        "viirs_only": {
+          "n": 1384,
+          "mae": 2.6324650285526174,
+          "bias_total": -3419.5987501811933,
+          "reference_total": 5003.0,
+          "predicted_total": 1583.4012498188072,
+          "bias_fraction": -0.6835096442496889
+        },
+        "all_zero_modis": {
+          "n": 5256,
+          "mae": 1.0997431761818015,
+          "bias_total": -1282.680215686466,
+          "reference_total": 5003.0,
+          "predicted_total": 3720.319784313534,
+          "bias_fraction": -0.2563822138090078
+        },
+        "positive_modis": {
+          "n": 1688,
+          "mae": 11.073619870232644,
+          "bias_total": -2155.789227990156,
+          "reference_total": 63381.0,
+          "predicted_total": 61225.21077200984,
+          "bias_fraction": -0.03401317789227302
+        },
+        "high_activity": {
+          "n": 4,
+          "mae": 453.23364045984806,
+          "bias_total": 633.1568773903159,
+          "reference_total": 12292.0,
+          "predicted_total": 12925.156877390316,
+          "bias_fraction": 0.05150967111863943
+        }
+      },
+      "baseline": {
+        "both_zero": {
+          "n": 3872,
+          "mae": 0.0,
+          "bias_total": 0.0,
+          "reference_total": 0.0,
+          "predicted_total": 0.0,
+          "bias_fraction": null
+        },
+        "viirs_only": {
+          "n": 1384,
+          "mae": 3.614884393063584,
+          "bias_total": -5003.0,
+          "reference_total": 5003.0,
+          "predicted_total": 0.0,
+          "bias_fraction": -1.0
+        },
+        "all_zero_modis": {
+          "n": 5256,
+          "mae": 0.9518645357686454,
+          "bias_total": -5003.0,
+          "reference_total": 5003.0,
+          "predicted_total": 0.0,
+          "bias_fraction": -1.0
+        },
+        "positive_modis": {
+          "n": 1688,
+          "mae": 13.413210918464916,
+          "bias_total": 4764.384486313365,
+          "reference_total": 63381.0,
+          "predicted_total": 68145.38448631336,
+          "bias_fraction": 0.07517054774006983
+        },
+        "high_activity": {
+          "n": 4,
+          "mae": 590.5539589813052,
+          "bias_total": 1168.285869731164,
+          "reference_total": 12292.0,
+          "predicted_total": 13460.285869731164,
+          "bias_fraction": 0.09504440853654117
+        }
+      }
+    },
+    "backward_audit": {
+      "candidate": {
+        "both_zero": {
+          "n": 1379,
+          "mae": 0.57924461224959,
+          "bias_total": 798.7783202921846,
+          "reference_total": 0.0,
+          "predicted_total": 798.7783202921846,
+          "bias_fraction": null
+        },
+        "viirs_only": {
+          "n": 353,
+          "mae": 2.072116716509518,
+          "bias_total": -656.0874393329055,
+          "reference_total": 1088.0,
+          "predicted_total": 431.91256066709445,
+          "bias_fraction": -0.6030215435045088
+        },
+        "all_zero_modis": {
+          "n": 1732,
+          "mae": 0.8835078067090326,
+          "bias_total": 142.6908809592791,
+          "reference_total": 1088.0,
+          "predicted_total": 1230.6908809592792,
+          "bias_fraction": 0.13114970676404328
+        },
+        "positive_modis": {
+          "n": 508,
+          "mae": 12.557698777684315,
+          "bias_total": 1233.0061852783103,
+          "reference_total": 32958.0,
+          "predicted_total": 34191.00618527831,
+          "bias_fraction": 0.037411438354217806
+        },
+        "high_activity": {
+          "n": 1,
+          "mae": 573.0823580239576,
+          "bias_total": -573.0823580239576,
+          "reference_total": 6864.0,
+          "predicted_total": 6290.917641976042,
+          "bias_fraction": -0.08349101952563484
+        }
+      },
+      "baseline": {
+        "both_zero": {
+          "n": 1379,
+          "mae": 0.0,
+          "bias_total": 0.0,
+          "reference_total": 0.0,
+          "predicted_total": 0.0,
+          "bias_fraction": null
+        },
+        "viirs_only": {
+          "n": 353,
+          "mae": 3.082152974504249,
+          "bias_total": -1088.0,
+          "reference_total": 1088.0,
+          "predicted_total": 0.0,
+          "bias_fraction": -1.0
+        },
+        "all_zero_modis": {
+          "n": 1732,
+          "mae": 0.628175519630485,
+          "bias_total": -1088.0,
+          "reference_total": 1088.0,
+          "predicted_total": 0.0,
+          "bias_fraction": -1.0
+        },
+        "positive_modis": {
+          "n": 508,
+          "mae": 15.006154815983097,
+          "bias_total": 2970.34955272015,
+          "reference_total": 32958.0,
+          "predicted_total": 35928.34955272015,
+          "bias_fraction": 0.09012529743067388
+        },
+        "high_activity": {
+          "n": 1,
+          "mae": 573.6385791412285,
+          "bias_total": -573.6385791412285,
+          "reference_total": 6864.0,
+          "predicted_total": 6290.361420858771,
+          "bias_fraction": -0.0835720540706918
+        }
+      }
+    }
+  },
+  "ablations": {
+    "original_only": {
+      "monthly_mae": 606.2994852246458,
+      "monthly_rmse": 1206.528360912016,
+      "monthly_wape": 0.05972628975841968,
+      "monthly_bias": -133.94538664234207,
+      "cell_month_mae": 7.452436734569711,
+      "n_months": 20,
+      "n_cell_months": 4480,
+      "regions": {
+        "north": {
+          "monthly_mae": 310.31243695525467,
+          "monthly_rmse": 796.0635367628561,
+          "monthly_wape": 0.046422684861284265,
+          "monthly_bias": 40.612355017934576,
+          "cell_month_mae": 16.990365656687406,
+          "n_months": 20,
+          "n_cell_months": 1100
+        },
+        "south": {
+          "monthly_mae": 327.0369176703538,
+          "monthly_rmse": 763.4184662287739,
+          "monthly_wape": 0.09433394417628757,
+          "monthly_bias": -174.55774166027695,
+          "cell_month_mae": 4.3483770261882135,
+          "n_months": 20,
+          "n_cell_months": 3380
+        }
+      },
+      "monthly": [
+        {
+          "date": "2021-01-01",
+          "actual": 1132.0,
+          "predicted": 1018.0194137085914
+        },
+        {
+          "date": "2021-02-01",
+          "actual": 1194.0,
+          "predicted": 1066.2703342516581
+        },
+        {
+          "date": "2021-03-01",
+          "actual": 1597.0,
+          "predicted": 1718.429393472751
+        },
+        {
+          "date": "2021-04-01",
+          "actual": 1305.0,
+          "predicted": 1117.9951762997498
+        },
+        {
+          "date": "2021-05-01",
+          "actual": 887.0,
+          "predicted": 664.5669554472802
+        },
+        {
+          "date": "2021-06-01",
+          "actual": 2314.0,
+          "predicted": 2040.4591344408307
+        },
+        {
+          "date": "2021-07-01",
+          "actual": 21080.0,
+          "predicted": 19667.793442655588
+        },
+        {
+          "date": "2021-08-01",
+          "actual": 101000.0,
+          "predicted": 104686.36063969877
+        },
+        {
+          "date": "2021-09-01",
+          "actual": 48153.0,
+          "predicted": 44631.95164891399
+        },
+        {
+          "date": "2021-10-01",
+          "actual": 6243.0,
+          "predicted": 6442.959214397036
+        },
+        {
+          "date": "2021-11-01",
+          "actual": 1262.0,
+          "predicted": 1197.4238593819643
+        },
+        {
+          "date": "2021-12-01",
+          "actual": 849.0,
+          "predicted": 867.8723333717799
+        },
+        {
+          "date": "2022-01-01",
+          "actual": 1124.0,
+          "predicted": 944.8633446660047
+        },
+        {
+          "date": "2022-02-01",
+          "actual": 1925.0,
+          "predicted": 1516.633077712874
+        },
+        {
+          "date": "2022-03-01",
+          "actual": 1477.0,
+          "predicted": 1199.4321322046085
+        },
+        {
+          "date": "2022-05-01",
+          "actual": 982.0,
+          "predicted": 791.236547453733
+        },
+        {
+          "date": "2022-06-01",
+          "actual": 849.0,
+          "predicted": 801.826226533521
+        },
+        {
+          "date": "2022-09-01",
+          "actual": 7739.0,
+          "predicted": 8435.919404882696
+        },
+        {
+          "date": "2022-11-01",
+          "actual": 1270.0,
+          "predicted": 998.5571996687903
+        },
+        {
+          "date": "2022-12-01",
+          "actual": 644.0,
+          "predicted": 538.5227879909347
+        }
+      ],
+      "largest_three_reference_months_mae": 2873.205182709731
+    },
+    "original_plus_fine": {
+      "monthly_mae": 524.3124114720312,
+      "monthly_rmse": 948.3714912972558,
+      "monthly_wape": 0.05164977997616376,
+      "monthly_bias": -207.84523818799727,
+      "cell_month_mae": 7.088515840537113,
+      "n_months": 20,
+      "n_cell_months": 4480,
+      "regions": {
+        "north": {
+          "monthly_mae": 321.9259947867421,
+          "monthly_rmse": 762.9037760460133,
+          "monthly_wape": 0.04816007102801138,
+          "monthly_bias": 62.429731628265515,
+          "cell_month_mae": 14.55856290057711,
+          "n_months": 20,
+          "n_cell_months": 1100
+        },
+        "south": {
+          "monthly_mae": 355.5530240643667,
+          "monthly_rmse": 850.3560366441068,
+          "monthly_wape": 0.10255942773288527,
+          "monthly_bias": -270.27496981626234,
+          "cell_month_mae": 4.657435436382085,
+          "n_months": 20,
+          "n_cell_months": 3380
+        }
+      },
+      "monthly": [
+        {
+          "date": "2021-01-01",
+          "actual": 1132.0,
+          "predicted": 1007.2104941768808
+        },
+        {
+          "date": "2021-02-01",
+          "actual": 1194.0,
+          "predicted": 1067.6109526268567
+        },
+        {
+          "date": "2021-03-01",
+          "actual": 1597.0,
+          "predicted": 1711.775535846036
+        },
+        {
+          "date": "2021-04-01",
+          "actual": 1305.0,
+          "predicted": 1118.9194749040116
+        },
+        {
+          "date": "2021-05-01",
+          "actual": 887.0,
+          "predicted": 659.8092971280964
+        },
+        {
+          "date": "2021-06-01",
+          "actual": 2314.0,
+          "predicted": 2026.8242290122637
+        },
+        {
+          "date": "2021-07-01",
+          "actual": 21080.0,
+          "predicted": 19323.4138813419
+        },
+        {
+          "date": "2021-08-01",
+          "actual": 101000.0,
+          "predicted": 103204.92576195605
+        },
+        {
+          "date": "2021-09-01",
+          "actual": 48153.0,
+          "predicted": 45167.68105591505
+        },
+        {
+          "date": "2021-10-01",
+          "actual": 6243.0,
+          "predicted": 6395.617722286888
+        },
+        {
+          "date": "2021-11-01",
+          "actual": 1262.0,
+          "predicted": 1178.952690850508
+        },
+        {
+          "date": "2021-12-01",
+          "actual": 849.0,
+          "predicted": 865.4687130304744
+        },
+        {
+          "date": "2022-01-01",
+          "actual": 1124.0,
+          "predicted": 938.4319053117497
+        },
+        {
+          "date": "2022-02-01",
+          "actual": 1925.0,
+          "predicted": 1490.0691964123898
+        },
+        {
+          "date": "2022-03-01",
+          "actual": 1477.0,
+          "predicted": 1193.6161573750503
+        },
+        {
+          "date": "2022-05-01",
+          "actual": 982.0,
+          "predicted": 784.1110000500445
+        },
+        {
+          "date": "2022-06-01",
+          "actual": 849.0,
+          "predicted": 771.2117643949707
+        },
+        {
+          "date": "2022-09-01",
+          "actual": 7739.0,
+          "predicted": 8414.883999720889
+        },
+        {
+          "date": "2022-11-01",
+          "actual": 1270.0,
+          "predicted": 1009.3490977168914
+        },
+        {
+          "date": "2022-12-01",
+          "actual": 644.0,
+          "predicted": 539.2123061830534
+        }
+      ],
+      "largest_three_reference_months_mae": 2315.6102748997014
+    },
+    "original_plus_context": {
+      "monthly_mae": 796.4310083499794,
+      "monthly_rmse": 1821.4230632715291,
+      "monthly_wape": 0.07845606063755178,
+      "monthly_bias": -13.706200774535342,
+      "cell_month_mae": 8.179918043731782,
+      "n_months": 20,
+      "n_cell_months": 4480,
+      "regions": {
+        "north": {
+          "monthly_mae": 392.6140457514149,
+          "monthly_rmse": 1088.7181298034502,
+          "monthly_wape": 0.05873499076242276,
+          "monthly_bias": 97.74114980607415,
+          "cell_month_mae": 18.45339704841105,
+          "n_months": 20,
+          "n_cell_months": 1100
+        },
+        "south": {
+          "monthly_mae": 427.0895069070481,
+          "monthly_rmse": 936.6758264057878,
+          "monthly_wape": 0.12319415798634131,
+          "monthly_bias": -111.44735058060931,
+          "cell_month_mae": 4.836478130966341,
+          "n_months": 20,
+          "n_cell_months": 3380
+        }
+      },
+      "monthly": [
+        {
+          "date": "2021-01-01",
+          "actual": 1132.0,
+          "predicted": 1029.080186244486
+        },
+        {
+          "date": "2021-02-01",
+          "actual": 1194.0,
+          "predicted": 1090.4422180197682
+        },
+        {
+          "date": "2021-03-01",
+          "actual": 1597.0,
+          "predicted": 1712.5459527764099
+        },
+        {
+          "date": "2021-04-01",
+          "actual": 1305.0,
+          "predicted": 1113.9966536121428
+        },
+        {
+          "date": "2021-05-01",
+          "actual": 887.0,
+          "predicted": 649.2490846550176
+        },
+        {
+          "date": "2021-06-01",
+          "actual": 2314.0,
+          "predicted": 2007.5335437084148
+        },
+        {
+          "date": "2021-07-01",
+          "actual": 21080.0,
+          "predicted": 20161.769788636873
+        },
+        {
+          "date": "2021-08-01",
+          "actual": 101000.0,
+          "predicted": 107544.0004312982
+        },
+        {
+          "date": "2021-09-01",
+          "actual": 48153.0,
+          "predicted": 43598.91495603137
+        },
+        {
+          "date": "2021-10-01",
+          "actual": 6243.0,
+          "predicted": 6223.19642231927
+        },
+        {
+          "date": "2021-11-01",
+          "actual": 1262.0,
+          "predicted": 1197.1494441696946
+        },
+        {
+          "date": "2021-12-01",
+          "actual": 849.0,
+          "predicted": 885.6601711449986
+        },
+        {
+          "date": "2022-01-01",
+          "actual": 1124.0,
+          "predicted": 923.8185862232717
+        },
+        {
+          "date": "2022-02-01",
+          "actual": 1925.0,
+          "predicted": 1508.3679352122379
+        },
+        {
+          "date": "2022-03-01",
+          "actual": 1477.0,
+          "predicted": 1205.8571072943093
+        },
+        {
+          "date": "2022-05-01",
+          "actual": 982.0,
+          "predicted": 772.9095789583673
+        },
+        {
+          "date": "2022-06-01",
+          "actual": 849.0,
+          "predicted": 760.2447904339001
+        },
+        {
+          "date": "2022-09-01",
+          "actual": 7739.0,
+          "predicted": 8870.041520534827
+        },
+        {
+          "date": "2022-11-01",
+          "actual": 1270.0,
+          "predicted": 982.8296246053338
+        },
+        {
+          "date": "2022-12-01",
+          "actual": 644.0,
+          "predicted": 514.2679886303976
+        }
+      ],
+      "largest_three_reference_months_mae": 4005.4385622099885
+    },
+    "full": {
+      "monthly_mae": 666.3324174099739,
+      "monthly_rmse": 1493.254365493584,
+      "monthly_wape": 0.06564010692324863,
+      "monthly_bias": -37.0240579278488,
+      "cell_month_mae": 7.2742047601775095,
+      "n_months": 20,
+      "n_cell_months": 4480,
+      "regions": {
+        "north": {
+          "monthly_mae": 347.70107613647576,
+          "monthly_rmse": 1082.751824539344,
+          "monthly_wape": 0.05201601857079449,
+          "monthly_bias": 151.55669690546188,
+          "cell_month_mae": 16.203681839925075,
+          "n_months": 20,
+          "n_cell_months": 1100
+        },
+        "south": {
+          "monthly_mae": 345.4717789311709,
+          "monthly_rmse": 812.6050159723807,
+          "monthly_wape": 0.09965148809598792,
+          "monthly_bias": -188.5807548333102,
+          "cell_month_mae": 4.368161923573272,
+          "n_months": 20,
+          "n_cell_months": 3380
+        }
+      },
+      "monthly": [
+        {
+          "date": "2021-01-01",
+          "actual": 1132.0,
+          "predicted": 1017.3532985296573
+        },
+        {
+          "date": "2021-02-01",
+          "actual": 1194.0,
+          "predicted": 1068.230937590254
+        },
+        {
+          "date": "2021-03-01",
+          "actual": 1597.0,
+          "predicted": 1689.6333958260823
+        },
+        {
+          "date": "2021-04-01",
+          "actual": 1305.0,
+          "predicted": 1108.6860247859263
+        },
+        {
+          "date": "2021-05-01",
+          "actual": 887.0,
+          "predicted": 656.6422658666374
+        },
+        {
+          "date": "2021-06-01",
+          "actual": 2314.0,
+          "predicted": 2019.153551472362
+        },
+        {
+          "date": "2021-07-01",
+          "actual": 21080.0,
+          "predicted": 20243.254519209095
+        },
+        {
+          "date": "2021-08-01",
+          "actual": 101000.0,
+          "predicted": 106489.65432696033
+        },
+        {
+          "date": "2021-09-01",
+          "actual": 48153.0,
+          "predicted": 44592.715754679586
+        },
+        {
+          "date": "2021-10-01",
+          "actual": 6243.0,
+          "predicted": 6268.659830706675
+        },
+        {
+          "date": "2021-11-01",
+          "actual": 1262.0,
+          "predicted": 1186.9065904438282
+        },
+        {
+          "date": "2021-12-01",
+          "actual": 849.0,
+          "predicted": 894.5151041787376
+        },
+        {
+          "date": "2022-01-01",
+          "actual": 1124.0,
+          "predicted": 938.7192278737069
+        },
+        {
+          "date": "2022-02-01",
+          "actual": 1925.0,
+          "predicted": 1476.1706432065062
+        },
+        {
+          "date": "2022-03-01",
+          "actual": 1477.0,
+          "predicted": 1194.2151428020427
+        },
+        {
+          "date": "2022-05-01",
+          "actual": 982.0,
+          "predicted": 783.4418048849213
+        },
+        {
+          "date": "2022-06-01",
+          "actual": 849.0,
+          "predicted": 753.8648498724705
+        },
+        {
+          "date": "2022-09-01",
+          "actual": 7739.0,
+          "predicted": 8378.620937149428
+        },
+        {
+          "date": "2022-11-01",
+          "actual": 1270.0,
+          "predicted": 1002.4435719647707
+        },
+        {
+          "date": "2022-12-01",
+          "actual": 644.0,
+          "predicted": 522.6370634400092
+        }
+      ],
+      "largest_three_reference_months_mae": 3295.5613510238823,
+      "gate": {
+        "monthly_improvement": true,
+        "cell_noninferiority": true,
+        "regional_noninferiority": true
+      },
+      "family": "hurdle_rich",
+      "weight": 1.0
+    }
+  },
+  "spatial": {
+    "training_rows": 12255,
+    "minimum_center_distance": 2.5,
+    "candidate": {
+      "monthly_mae": 123.52683485818905,
+      "monthly_rmse": 233.62571623700998,
+      "monthly_wape": 0.13643052161193744,
+      "monthly_bias": -38.83661130029175,
+      "cell_month_mae": 4.810679146028676,
+      "n_months": 31,
+      "n_cell_months": 1705,
+      "regions": {
+        "north": {
+          "monthly_mae": 123.52683485818905,
+          "monthly_rmse": 233.62571623700998,
+          "monthly_wape": 0.13643052161193744,
+          "monthly_bias": -38.83661130029175,
+          "cell_month_mae": 4.810679146028676,
+          "n_months": 31,
+          "n_cell_months": 1705
+        },
+        "south": null
+      },
+      "monthly": [
+        {
+          "date": "2023-01-01",
+          "actual": 111.0,
+          "predicted": 92.9324525743856
+        },
+        {
+          "date": "2023-02-01",
+          "actual": 195.0,
+          "predicted": 182.25625109819885
+        },
+        {
+          "date": "2023-03-01",
+          "actual": 24.0,
+          "predicted": 42.733962225340015
+        },
+        {
+          "date": "2023-04-01",
+          "actual": 298.0,
+          "predicted": 246.99338516692507
+        },
+        {
+          "date": "2023-05-01",
+          "actual": 207.0,
+          "predicted": 234.9970999234991
+        },
+        {
+          "date": "2023-06-01",
+          "actual": 196.0,
+          "predicted": 280.6227863426872
+        },
+        {
+          "date": "2023-07-01",
+          "actual": 83.0,
+          "predicted": 104.38755192051758
+        },
+        {
+          "date": "2023-08-01",
+          "actual": 7900.0,
+          "predicted": 6948.798950776191
+        },
+        {
+          "date": "2023-09-01",
+          "actual": 3810.0,
+          "predicted": 3299.490947528194
+        },
+        {
+          "date": "2023-10-01",
+          "actual": 950.0,
+          "predicted": 755.8779802384466
+        },
+        {
+          "date": "2023-11-01",
+          "actual": 748.0,
+          "predicted": 699.2161272828429
+        },
+        {
+          "date": "2023-12-01",
+          "actual": 522.0,
+          "predicted": 494.0187666507744
+        },
+        {
+          "date": "2024-01-01",
+          "actual": 133.0,
+          "predicted": 114.58133019305764
+        },
+        {
+          "date": "2024-02-01",
+          "actual": 79.0,
+          "predicted": 82.14553700224393
+        },
+        {
+          "date": "2024-03-01",
+          "actual": 245.0,
+          "predicted": 284.2253267493131
+        },
+        {
+          "date": "2024-04-01",
+          "actual": 228.0,
+          "predicted": 293.03370241092676
+        },
+        {
+          "date": "2024-08-01",
+          "actual": 3224.0,
+          "predicted": 3052.7240987941636
+        },
+        {
+          "date": "2024-10-01",
+          "actual": 502.0,
+          "predicted": 579.6845653460375
+        },
+        {
+          "date": "2024-12-01",
+          "actual": 324.0,
+          "predicted": 310.1059227326618
+        },
+        {
+          "date": "2025-01-01",
+          "actual": 474.0,
+          "predicted": 360.795025450072
+        },
+        {
+          "date": "2025-02-01",
+          "actual": 111.0,
+          "predicted": 125.08034762039458
+        },
+        {
+          "date": "2025-03-01",
+          "actual": 176.0,
+          "predicted": 206.19965295724748
+        },
+        {
+          "date": "2025-04-01",
+          "actual": 333.0,
+          "predicted": 366.9790569168463
+        },
+        {
+          "date": "2025-05-01",
+          "actual": 237.0,
+          "predicted": 265.6245092607707
+        },
+        {
+          "date": "2025-06-01",
+          "actual": 149.0,
+          "predicted": 152.568970259112
+        },
+        {
+          "date": "2025-07-01",
+          "actual": 3052.0,
+          "predicted": 3576.0661950785916
+        },
+        {
+          "date": "2025-08-01",
+          "actual": 1151.0,
+          "predicted": 1385.7594175153122
+        },
+        {
+          "date": "2025-09-01",
+          "actual": 1268.0,
+          "predicted": 1373.589783618568
+        },
+        {
+          "date": "2025-10-01",
+          "actual": 393.0,
+          "predicted": 378.8550051663229
+        },
+        {
+          "date": "2025-11-01",
+          "actual": 499.0,
+          "predicted": 257.2638341680207
+        },
+        {
+          "date": "2025-12-01",
+          "actual": 446.0,
+          "predicted": 316.45650672329066
+        }
+      ],
+      "largest_three_reference_months_mae": 544.3286676338171
+    },
+    "baseline": {
+      "monthly_mae": 121.94459381446747,
+      "monthly_rmse": 205.59502347128978,
+      "monthly_wape": 0.13468299872625378,
+      "monthly_bias": -32.304846430854795,
+      "cell_month_mae": 4.8424619552293215,
+      "n_months": 31,
+      "n_cell_months": 1705,
+      "regions": {
+        "north": {
+          "monthly_mae": 121.94459381446747,
+          "monthly_rmse": 205.59502347128978,
+          "monthly_wape": 0.13468299872625378,
+          "monthly_bias": -32.304846430854795,
+          "cell_month_mae": 4.8424619552293215,
+          "n_months": 31,
+          "n_cell_months": 1705
+        },
+        "south": null
+      },
+      "monthly": [
+        {
+          "date": "2023-01-01",
+          "actual": 111.0,
+          "predicted": 60.47191011235955
+        },
+        {
+          "date": "2023-02-01",
+          "actual": 195.0,
+          "predicted": 153.87339201083276
+        },
+        {
+          "date": "2023-03-01",
+          "actual": 24.0,
+          "predicted": 11.330486763450043
+        },
+        {
+          "date": "2023-04-01",
+          "actual": 298.0,
+          "predicted": 285.22154222766216
+        },
+        {
+          "date": "2023-05-01",
+          "actual": 207.0,
+          "predicted": 252.72227772227774
+        },
+        {
+          "date": "2023-06-01",
+          "actual": 196.0,
+          "predicted": 377.1780466724287
+        },
+        {
+          "date": "2023-07-01",
+          "actual": 83.0,
+          "predicted": 101.7107565620175
+        },
+        {
+          "date": "2023-08-01",
+          "actual": 7900.0,
+          "predicted": 6992.508626999896
+        },
+        {
+          "date": "2023-09-01",
+          "actual": 3810.0,
+          "predicted": 3482.7255552128313
+        },
+        {
+          "date": "2023-10-01",
+          "actual": 950.0,
+          "predicted": 1055.6789883268482
+        },
+        {
+          "date": "2023-11-01",
+          "actual": 748.0,
+          "predicted": 866.5772594752186
+        },
+        {
+          "date": "2023-12-01",
+          "actual": 522.0,
+          "predicted": 553.424832214765
+        },
+        {
+          "date": "2024-01-01",
+          "actual": 133.0,
+          "predicted": 52.58426966292135
+        },
+        {
+          "date": "2024-02-01",
+          "actual": 79.0,
+          "predicted": 36.84292484766418
+        },
+        {
+          "date": "2024-03-01",
+          "actual": 245.0,
+          "predicted": 314.4210076857387
+        },
+        {
+          "date": "2024-04-01",
+          "actual": 228.0,
+          "predicted": 306.4614443084455
+        },
+        {
+          "date": "2024-08-01",
+          "actual": 3224.0,
+          "predicted": 2988.8710655651994
+        },
+        {
+          "date": "2024-10-01",
+          "actual": 502.0,
+          "predicted": 664.3497081712062
+        },
+        {
+          "date": "2024-12-01",
+          "actual": 324.0,
+          "predicted": 311.04899328859057
+        },
+        {
+          "date": "2025-01-01",
+          "actual": 474.0,
+          "predicted": 349.685393258427
+        },
+        {
+          "date": "2025-02-01",
+          "actual": 111.0,
+          "predicted": 71.51861882193636
+        },
+        {
+          "date": "2025-03-01",
+          "actual": 176.0,
+          "predicted": 195.45089666951324
+        },
+        {
+          "date": "2025-04-01",
+          "actual": 333.0,
+          "predicted": 382.31823745410037
+        },
+        {
+          "date": "2025-05-01",
+          "actual": 237.0,
+          "predicted": 276.3096903096903
+        },
+        {
+          "date": "2025-06-01",
+          "actual": 149.0,
+          "predicted": 144.45116681071735
+        },
+        {
+          "date": "2025-07-01",
+          "actual": 3052.0,
+          "predicted": 2989.5697375193
+        },
+        {
+          "date": "2025-08-01",
+          "actual": 1151.0,
+          "predicted": 1343.0733033566873
+        },
+        {
+          "date": "2025-09-01",
+          "actual": 1268.0,
+          "predicted": 1460.9538864898211
+        },
+        {
+          "date": "2025-10-01",
+          "actual": 393.0,
+          "predicted": 477.78574902723733
+        },
+        {
+          "date": "2025-11-01",
+          "actual": 499.0,
+          "predicted": 208.49979175343606
+        },
+        {
+          "date": "2025-12-01",
+          "actual": 446.0,
+          "predicted": 298.93020134228186
+        }
+      ],
+      "largest_three_reference_months_mae": 489.9649174073579
+    }
+  },
+  "guarded_sensitivity": {
+    "training_rows": 20167,
+    "removed_cell_months": 1113,
+    "crossing_groups": 17,
+    "selection": {
+      "candidate": {
+        "monthly_mae": 718.1371106865388,
+        "monthly_rmse": 1468.5502188847486,
+        "monthly_wape": 0.07074336397176113,
+        "monthly_bias": -296.26154747377115,
+        "cell_month_mae": 7.818610902543011,
+        "n_months": 20,
+        "n_cell_months": 4480,
+        "regions": {
+          "north": {
+            "monthly_mae": 316.0238985260695,
+            "monthly_rmse": 762.8305622831239,
+            "monthly_wape": 0.04727711848695781,
+            "monthly_bias": -1.0502568484352424,
+            "cell_month_mae": 17.1915950063708,
+            "n_months": 20,
+            "n_cell_months": 1100
+          },
+          "south": {
+            "monthly_mae": 413.3601439948933,
+            "monthly_rmse": 1051.057868995611,
+            "monthly_wape": 0.1192339171555594,
+            "monthly_bias": -295.21129062533544,
+            "cell_month_mae": 4.768231460468878,
+            "n_months": 20,
+            "n_cell_months": 3380
+          }
+        },
+        "monthly": [
+          {
+            "date": "2021-01-01",
+            "actual": 1132.0,
+            "predicted": 1015.5455922047225
+          },
+          {
+            "date": "2021-02-01",
+            "actual": 1194.0,
+            "predicted": 1085.949649040844
+          },
+          {
+            "date": "2021-03-01",
+            "actual": 1597.0,
+            "predicted": 1684.513841661488
+          },
+          {
+            "date": "2021-04-01",
+            "actual": 1305.0,
+            "predicted": 1124.402421849868
+          },
+          {
+            "date": "2021-05-01",
+            "actual": 887.0,
+            "predicted": 659.3543193403553
+          },
+          {
+            "date": "2021-06-01",
+            "actual": 2314.0,
+            "predicted": 2011.6712086855284
+          },
+          {
+            "date": "2021-07-01",
+            "actual": 21080.0,
+            "predicted": 19381.55190943109
+          },
+          {
+            "date": "2021-08-01",
+            "actual": 101000.0,
+            "predicted": 104473.88980130502
+          },
+          {
+            "date": "2021-09-01",
+            "actual": 48153.0,
+            "predicted": 42999.96860098259
+          },
+          {
+            "date": "2021-10-01",
+            "actual": 6243.0,
+            "predicted": 5439.739968394879
+          },
+          {
+            "date": "2021-11-01",
+            "actual": 1262.0,
+            "predicted": 1214.8879167988234
+          },
+          {
+            "date": "2021-12-01",
+            "actual": 849.0,
+            "predicted": 892.9774705382389
+          },
+          {
+            "date": "2022-01-01",
+            "actual": 1124.0,
+            "predicted": 944.9612823326781
+          },
+          {
+            "date": "2022-02-01",
+            "actual": 1925.0,
+            "predicted": 1514.1073443430982
+          },
+          {
+            "date": "2022-03-01",
+            "actual": 1477.0,
+            "predicted": 1210.137531838011
+          },
+          {
+            "date": "2022-05-01",
+            "actual": 982.0,
+            "predicted": 793.0146612919954
+          },
+          {
+            "date": "2022-06-01",
+            "actual": 849.0,
+            "predicted": 752.4544728012135
+          },
+          {
+            "date": "2022-09-01",
+            "actual": 7739.0,
+            "predicted": 8352.37451862293
+          },
+          {
+            "date": "2022-11-01",
+            "actual": 1270.0,
+            "predicted": 1022.7232666208597
+          },
+          {
+            "date": "2022-12-01",
+            "actual": 644.0,
+            "predicted": 526.5432724403433
+          }
+        ],
+        "largest_three_reference_months_mae": 3441.7897636304465
+      },
+      "baseline": {
+        "monthly_mae": 835.7060619257907,
+        "monthly_rmse": 1808.528025277519,
+        "monthly_wape": 0.08232502851120455,
+        "monthly_bias": -239.88799063438006,
+        "cell_month_mae": 7.864136554617742,
+        "n_months": 20,
+        "n_cell_months": 4480,
+        "regions": {
+          "north": {
+            "monthly_mae": 397.8916151953442,
+            "monthly_rmse": 895.894984351469,
+            "monthly_wape": 0.059524514203806445,
+            "monthly_bias": -81.82411475367469,
+            "cell_month_mae": 16.03077927631056,
+            "n_months": 20,
+            "n_cell_months": 1100
+          },
+          "south": {
+            "monthly_mae": 459.5735082313684,
+            "monthly_rmse": 1015.1201837263121,
+            "monthly_wape": 0.13256418259817943,
+            "monthly_bias": -158.06387588070535,
+            "cell_month_mae": 5.206353420339015,
+            "n_months": 20,
+            "n_cell_months": 3380
+          }
+        },
+        "monthly": [
+          {
+            "date": "2021-01-01",
+            "actual": 1132.0,
+            "predicted": 1114.2682602921648
+          },
+          {
+            "date": "2021-02-01",
+            "actual": 1194.0,
+            "predicted": 1207.190112686296
+          },
+          {
+            "date": "2021-03-01",
+            "actual": 1597.0,
+            "predicted": 2101.001306051371
+          },
+          {
+            "date": "2021-04-01",
+            "actual": 1305.0,
+            "predicted": 1323.5182186234817
+          },
+          {
+            "date": "2021-05-01",
+            "actual": 887.0,
+            "predicted": 649.1258199165176
+          },
+          {
+            "date": "2021-06-01",
+            "actual": 2314.0,
+            "predicted": 2046.979401805869
+          },
+          {
+            "date": "2021-07-01",
+            "actual": 21080.0,
+            "predicted": 19459.879584775084
+          },
+          {
+            "date": "2021-08-01",
+            "actual": 101000.0,
+            "predicted": 104995.14045216968
+          },
+          {
+            "date": "2021-09-01",
+            "actual": 48153.0,
+            "predicted": 41505.14768943934
+          },
+          {
+            "date": "2021-10-01",
+            "actual": 6243.0,
+            "predicted": 5164.108291032148
+          },
+          {
+            "date": "2021-11-01",
+            "actual": 1262.0,
+            "predicted": 1560.0082387403882
+          },
+          {
+            "date": "2021-12-01",
+            "actual": 849.0,
+            "predicted": 1074.2074558907227
+          },
+          {
+            "date": "2022-01-01",
+            "actual": 1124.0,
+            "predicted": 954.2403718459495
+          },
+          {
+            "date": "2022-02-01",
+            "actual": 1925.0,
+            "predicted": 1758.1897491821157
+          },
+          {
+            "date": "2022-03-01",
+            "actual": 1477.0,
+            "predicted": 1412.6469307792772
+          },
+          {
+            "date": "2022-05-01",
+            "actual": 982.0,
+            "predicted": 827.9666070363745
+          },
+          {
+            "date": "2022-06-01",
+            "actual": 849.0,
+            "predicted": 732.4054740406319
+          },
+          {
+            "date": "2022-09-01",
+            "actual": 7739.0,
+            "predicted": 8643.114928752166
+          },
+          {
+            "date": "2022-11-01",
+            "actual": 1270.0,
+            "predicted": 1235.7176858293665
+          },
+          {
+            "date": "2022-12-01",
+            "actual": 644.0,
+            "predicted": 463.38360842344906
+          }
+        ],
+        "largest_three_reference_months_mae": 4087.704392651752
+      }
+    },
+    "known_benchmark": {
+      "candidate": {
+        "monthly_mae": 286.083203436631,
+        "monthly_rmse": 443.5285472934993,
+        "monthly_wape": 0.1296879285583698,
+        "monthly_bias": -137.4946907140786,
+        "cell_month_mae": 3.5648816091958913,
+        "n_months": 31,
+        "n_cell_months": 6944,
+        "regions": {
+          "north": {
+            "monthly_mae": 66.94688948267564,
+            "monthly_rmse": 104.55339440736971,
+            "monthly_wape": 0.07394020143804136,
+            "monthly_bias": -22.50279522950178,
+            "cell_month_mae": 4.3221465070335565,
+            "n_months": 31,
+            "n_cell_months": 1705
+          },
+          "south": {
+            "monthly_mae": 245.13210725313698,
+            "monthly_rmse": 382.78288223025766,
+            "monthly_wape": 0.18848832535090898,
+            "monthly_bias": -114.9918954845768,
+            "cell_month_mae": 3.3184344530948753,
+            "n_months": 31,
+            "n_cell_months": 5239
+          }
+        },
+        "monthly": [
+          {
+            "date": "2023-01-01",
+            "actual": 330.0,
+            "predicted": 385.21495164939154
+          },
+          {
+            "date": "2023-02-01",
+            "actual": 944.0,
+            "predicted": 717.1265442318675
+          },
+          {
+            "date": "2023-03-01",
+            "actual": 332.0,
+            "predicted": 363.6594835697077
+          },
+          {
+            "date": "2023-04-01",
+            "actual": 1180.0,
+            "predicted": 1006.808093209201
+          },
+          {
+            "date": "2023-05-01",
+            "actual": 772.0,
+            "predicted": 665.6962839241316
+          },
+          {
+            "date": "2023-06-01",
+            "actual": 1117.0,
+            "predicted": 1066.825498307042
+          },
+          {
+            "date": "2023-07-01",
+            "actual": 1421.0,
+            "predicted": 1732.7637425467572
+          },
+          {
+            "date": "2023-08-01",
+            "actual": 8769.0,
+            "predicted": 8753.429029356063
+          },
+          {
+            "date": "2023-09-01",
+            "actual": 5202.0,
+            "predicted": 4646.781284585134
+          },
+          {
+            "date": "2023-10-01",
+            "actual": 4251.0,
+            "predicted": 3111.0250557059458
+          },
+          {
+            "date": "2023-11-01",
+            "actual": 2161.0,
+            "predicted": 2249.790857128415
+          },
+          {
+            "date": "2023-12-01",
+            "actual": 1175.0,
+            "predicted": 1323.8952747690828
+          },
+          {
+            "date": "2024-01-01",
+            "actual": 545.0,
+            "predicted": 487.638180698577
+          },
+          {
+            "date": "2024-02-01",
+            "actual": 378.0,
+            "predicted": 290.5496530851694
+          },
+          {
+            "date": "2024-03-01",
+            "actual": 954.0,
+            "predicted": 722.3676289830247
+          },
+          {
+            "date": "2024-04-01",
+            "actual": 1074.0,
+            "predicted": 786.5262656731695
+          },
+          {
+            "date": "2024-08-01",
+            "actual": 5682.0,
+            "predicted": 5584.739871277084
+          },
+          {
+            "date": "2024-10-01",
+            "actual": 2755.0,
+            "predicted": 2353.8761808085433
+          },
+          {
+            "date": "2024-12-01",
+            "actual": 850.0,
+            "predicted": 792.0705930961271
+          },
+          {
+            "date": "2025-01-01",
+            "actual": 3136.0,
+            "predicted": 2200.909592256601
+          },
+          {
+            "date": "2025-02-01",
+            "actual": 669.0,
+            "predicted": 467.7936189874902
+          },
+          {
+            "date": "2025-03-01",
+            "actual": 734.0,
+            "predicted": 598.6528147587813
+          },
+          {
+            "date": "2025-04-01",
+            "actual": 1034.0,
+            "predicted": 903.2690464836932
+          },
+          {
+            "date": "2025-05-01",
+            "actual": 962.0,
+            "predicted": 910.6886975160313
+          },
+          {
+            "date": "2025-06-01",
+            "actual": 749.0,
+            "predicted": 697.6763986594531
+          },
+          {
+            "date": "2025-07-01",
+            "actual": 4334.0,
+            "predicted": 4652.134687862073
+          },
+          {
+            "date": "2025-08-01",
+            "actual": 6792.0,
+            "predicted": 8140.662949674135
+          },
+          {
+            "date": "2025-09-01",
+            "actual": 6679.0,
+            "predicted": 5722.483504290791
+          },
+          {
+            "date": "2025-10-01",
+            "actual": 1365.0,
+            "predicted": 1135.8560714633634
+          },
+          {
+            "date": "2025-11-01",
+            "actual": 1211.0,
+            "predicted": 906.4931677975569
+          },
+          {
+            "date": "2025-12-01",
+            "actual": 827.0,
+            "predicted": 744.25956550916
+          }
+        ],
+        "largest_three_reference_months_mae": 773.583472009094
+      },
+      "baseline": {
+        "monthly_mae": 316.93815417639763,
+        "monthly_rmse": 516.3987433120694,
+        "monthly_wape": 0.14367516933008198,
+        "monthly_bias": -67.05530586096671,
+        "cell_month_mae": 3.979956845529547,
+        "n_months": 31,
+        "n_cell_months": 6944,
+        "regions": {
+          "north": {
+            "monthly_mae": 91.1868671629986,
+            "monthly_rmse": 143.18549729407627,
+            "monthly_wape": 0.10071230162651262,
+            "monthly_bias": -19.274135667480667,
+            "cell_month_mae": 4.6269373913763125,
+            "n_months": 31,
+            "n_cell_months": 1705
+          },
+          "south": {
+            "monthly_mae": 269.2395712607168,
+            "monthly_rmse": 454.4000790352793,
+            "monthly_wape": 0.20702516889280234,
+            "monthly_bias": -47.78117019348606,
+            "cell_month_mae": 3.769401046585334,
+            "n_months": 31,
+            "n_cell_months": 5239
+          }
+        },
+        "monthly": [
+          {
+            "date": "2023-01-01",
+            "actual": 330.0,
+            "predicted": 317.09229747675965
+          },
+          {
+            "date": "2023-02-01",
+            "actual": 944.0,
+            "predicted": 726.3177026535806
+          },
+          {
+            "date": "2023-03-01",
+            "actual": 332.0,
+            "predicted": 304.092294296909
+          },
+          {
+            "date": "2023-04-01",
+            "actual": 1180.0,
+            "predicted": 1206.3927125506073
+          },
+          {
+            "date": "2023-05-01",
+            "actual": 772.0,
+            "predicted": 738.546213476446
+          },
+          {
+            "date": "2023-06-01",
+            "actual": 1117.0,
+            "predicted": 1292.0383747178328
+          },
+          {
+            "date": "2023-07-01",
+            "actual": 1421.0,
+            "predicted": 1881.4395452298565
+          },
+          {
+            "date": "2023-08-01",
+            "actual": 8769.0,
+            "predicted": 8583.78582715449
+          },
+          {
+            "date": "2023-09-01",
+            "actual": 5202.0,
+            "predicted": 4585.399920095885
+          },
+          {
+            "date": "2023-10-01",
+            "actual": 4251.0,
+            "predicted": 3586.5892554991538
+          },
+          {
+            "date": "2023-11-01",
+            "actual": 2161.0,
+            "predicted": 2587.497253753204
+          },
+          {
+            "date": "2023-12-01",
+            "actual": 1175.0,
+            "predicted": 1457.552077404667
+          },
+          {
+            "date": "2024-01-01",
+            "actual": 545.0,
+            "predicted": 376.36188579017266
+          },
+          {
+            "date": "2024-02-01",
+            "actual": 378.0,
+            "predicted": 170.30897855325338
+          },
+          {
+            "date": "2024-03-01",
+            "actual": 954.0,
+            "predicted": 760.2307357422725
+          },
+          {
+            "date": "2024-04-01",
+            "actual": 1074.0,
+            "predicted": 837.4473684210526
+          },
+          {
+            "date": "2024-08-01",
+            "actual": 5682.0,
+            "predicted": 5858.847392731251
+          },
+          {
+            "date": "2024-10-01",
+            "actual": 2755.0,
+            "predicted": 2476.8862098138748
+          },
+          {
+            "date": "2024-12-01",
+            "actual": 850.0,
+            "predicted": 732.9886169607285
+          },
+          {
+            "date": "2025-01-01",
+            "actual": 3136.0,
+            "predicted": 2071.472111553785
+          },
+          {
+            "date": "2025-02-01",
+            "actual": 669.0,
+            "predicted": 355.6452199200291
+          },
+          {
+            "date": "2025-03-01",
+            "actual": 734.0,
+            "predicted": 558.4240313452328
+          },
+          {
+            "date": "2025-04-01",
+            "actual": 1034.0,
+            "predicted": 945.7884615384615
+          },
+          {
+            "date": "2025-05-01",
+            "actual": 962.0,
+            "predicted": 996.8717948717949
+          },
+          {
+            "date": "2025-06-01",
+            "actual": 749.0,
+            "predicted": 747.4291760722347
+          },
+          {
+            "date": "2025-07-01",
+            "actual": 4334.0,
+            "predicted": 4492.716262975779
+          },
+          {
+            "date": "2025-08-01",
+            "actual": 6792.0,
+            "predicted": 8923.828734654187
+          },
+          {
+            "date": "2025-09-01",
+            "actual": 6679.0,
+            "predicted": 5922.808230123852
+          },
+          {
+            "date": "2025-10-01",
+            "actual": 1365.0,
+            "predicted": 1262.0152284263959
+          },
+          {
+            "date": "2025-11-01",
+            "actual": 1211.0,
+            "predicted": 853.3961918711095
+          },
+          {
+            "date": "2025-12-01",
+            "actual": 827.0,
+            "predicted": 695.0754126351736
+          }
+        ],
+        "largest_three_reference_months_mae": 1024.4115591252819
+      }
+    }
+  },
+  "source_sha256": "09a86e832e4f18adad5020783acd0b677894b7d719b4a87bf64d22a4bdd618bb"
+}

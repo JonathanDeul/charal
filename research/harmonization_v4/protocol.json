@@ -1,0 +1,17 @@
+{
+  "created": "2026-11-15",
+  "purpose": "Search for a reproducible improvement over the actual deployed calibration, not a changed-data control",
+  "training": [2013, 2020],
+  "development_folds": [{"train":[2013,2016],"validate":[2017,2018]},{"train":[2013,2018],"validate":[2019,2020]}],
+  "selection": [2021,2022],
+  "known_benchmark": [2023,2025],
+  "backward_audit": [2012,2012],
+  "features": "V2 monthly MODIS features plus within-cell 0.05 degree occupancy/components, FRP quantiles, thermal contrast, confidence and daily concentration/neighbor counts from MODIS only. No year or reference-sensor input. No CAL FIRE input.",
+  "families": ["offset_boost_rich_small","offset_boost_rich_medium","offset_boost_original","hurdle_rich","poisson_linear_rich","poisson_linear_simple"],
+  "blend_weights": [0.1,0.25,0.5,0.75,1.0],
+  "model_parameters": {"small":{"leaves":7,"iterations":120,"learning_rate":0.035,"min_leaf":100,"l2":10},"medium":{"leaves":15,"iterations":180,"learning_rate":0.04,"min_leaf":60,"l2":10},"linear_penalties":[0.1,1,10]},
+  "dev_selection": "Select linear penalty on mean temporal-fold statewide monthly MAE. Evaluate each family and convex baseline blend on both temporal folds; select eligible candidate by 2021-2022 monthly MAE, with all evaluated candidates disclosed. Benchmark predictions occur only after saving selection.",
+  "eligibility": "At least 5% lower 2021-2022 statewide monthly MAE than deployed-ratio control, and cell MAE plus north/south monthly MAE no more than 5% worse. Prefer baseline if no eligible improvement.",
+  "confirmation": "Report known benchmark, backward audit, geographic transfer and CAL FIRE guarded refit sensitivity. Do not retune based on these audits. A completed candidate must improve known-benchmark monthly MAE too without >5% regional/cell degradation. Observed months and original baseline are preserved.",
+  "limits": "All historical periods have been inspected. This is exploratory repeated model development, not a new independent test. Improvement needs prospective confirmation. Primary fits use exactly the same eligible 2013-2020 observations as deployed calibration; event-purged fits are a separately reported sensitivity."
+}

@@ -1,0 +1,373 @@
+{
+  "protocol": {
+    "created": "2026-11-15",
+    "purpose": "Controlled retrospective daily MODIS-to-SNPP comparison: architecture versus spatial/temporal context",
+    "supervision": "California only; all models use identical daily target rows and quality policy",
+    "grid": 0.5,
+    "patch": [
+      7,
+      5,
+      5
+    ],
+    "context": "MODIS within union of five previously prepared western states; +/-3 days, +/-2 grid cells. Center uses state-clipped California measurements. Outside-domain, listed missing days, and dates outside each split have an explicit availability mask and zero-filled values. Availability is not clear-sky exposure.",
+    "development_train": [
+      2013,
+      2018
+    ],
+    "development_validate": [
+      2019,
+      2020
+    ],
+    "final_train": [
+      2013,
+      2020
+    ],
+    "selection": [
+      2021,
+      2022
+    ],
+    "known_benchmark": [
+      2023,
+      2025
+    ],
+    "backward_audit": [
+      2012,
+      2012
+    ],
+    "quality": "Evaluate complete paired months only using the original NASA outage policy. Context does not cross split boundaries. All days of an eligible target month are retained.",
+    "calfire": "Never a predictor or target. Link records by normalized IRWIN/complex IDs; purge training inputs/labels spatially and temporally associated with a linked event that also touches the audit period. Use final perimeters for descriptive large-event strata only. Missing linkage/dates preclude a guarantee of event independence.",
+    "models": [
+      "seasonal_ratio",
+      "boost_point",
+      "boost_context",
+      "mlp_poisson",
+      "cnn_poisson",
+      "cnn_nb",
+      "cnn_poisson_aggregate"
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "neural_epoch_candidates": [
+      2,
+      4,
+      8
+    ],
+    "neural_fit": "AdamW lr 0.001, weight_decay 0.001, batch 2048, CPU threads 4. Small 8-filter spatial convolution over daily channels; residual positive count mean anchored to training seasonal ratio. NB2 learns one global dispersion. Aggregate variant adds 0.1 times squared log1p monthly north/south aggregate disagreement, computed on full eligible train month batches.",
+    "boost": "HistGradientBoosting Poisson, 100 iterations, learning rate .05, max_leaf_nodes 15, min_samples_leaf 100, l2 10, no early stopping. Exposure-weighted baseline-offset target.",
+    "sampling": "Keep all training rows with local MODIS>0 or VIIRS>0 and a seeded 10% sample of double-zero rows; inverse-probability weights. Same rows for all architectures. Full unsampled evaluation. Monthly aggregate training uses all unpurged rows, not sampled estimates.",
+    "selection_rule": "Select epoch for each NN family using ensemble statewide monthly MAE on 2019-2020 only. Refit 2013-2020 with chosen epochs, ensemble three seeds. Select final family by 2021-2022 statewide monthly MAE. Baseline wins ties. Known benchmark and backward audit are computed only after saving selection.",
+    "promotion": "Research comparison only; no automatic production change. Report selection cell MAE, north/south monthly MAE, zero-MODIS-daily and zero-MODIS-month strata and >=500 MODIS/month errors alongside primary MAE.",
+    "limitations": "All historical evaluation periods have already been inspected. This is an exploratory follow-up, not a pristine independent test. Full observation masks remain unavailable as predictors. Grid and context size are fixed for this first experiment; no benchmark-driven tuning."
+  },
+  "protocol_sha256": "e3e6768dfe261a98cd46d0e3f77a317954cf323eca4c05964610fdc7dc1bb1f8",
+  "environment": {
+    "torch": "2.15.0",
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "shapely": "2.2.0"
+  },
+  "manifest": {
+    "sources": [
+      {
+        "path": "data/raw/modis_2012_United_States.csv.gz",
+        "sha256": "653ef95e0abe78a6d3b629c3e5f6a0cff20e129ecb63b0d3f54baa8835c5ef6e"
+      },
+      {
+        "path": "data/raw/modis_2013_United_States.csv.gz",
+        "sha256": "3393e79f03719ae7e4f1360e112e553e3b2fce3f98c7e5faaf54c68e4a61b8b1"
+      },
+      {
+        "path": "data/raw/modis_2014_United_States.csv.gz",
+        "sha256": "9f96e5bc2a5cdf07044bd80d33f616cb893d60d222506f28e3cefdbc721b4a91"
+      },
+      {
+        "path": "data/raw/modis_2015_United_States.csv.gz",
+        "sha256": "6b9c4f5061f526afd237ab56a48945e9001c82c8e67f1aad6247f7eefd5f9ef3"
+      },
+      {
+        "path": "data/raw/modis_2016_United_States.csv.gz",
+        "sha256": "191bf106927ba658d72fd00dc30bba4a9eb8bfcdf602e386d5a5ef2d8b5a2e96"
+      },
+      {
+        "path": "data/raw/modis_2017_United_States.csv.gz",
+        "sha256": "458d60d17259b63e5891bbb00312174a9f8318aefc3f1342cc45bab35eee183c"
+      },
+      {
+        "path": "data/raw/modis_2018_United_States.csv.gz",
+        "sha256": "bb28918c706040f99c12e27966d82506f7cf3c05f968200135b37ad0330fb052"
+      },
+      {
+        "path": "data/raw/modis_2019_United_States.csv.gz",
+        "sha256": "a81fd7299f3e51b0f6d9816495f40713fd0911aea8f56a889d85515a320d0f06"
+      },
+      {
+        "path": "data/raw/modis_2020_United_States.csv.gz",
+        "sha256": "2d6d7cce37fb2942a937ddfe53ef232344020a643592575466b388a386b2fc1b"
+      },
+      {
+        "path": "data/raw/modis_2021_United_States.csv.gz",
+        "sha256": "87d4634abf9067e5f0c8102771ffc0c3bffb5b00ceea060647b97f7124bef8dc"
+      },
+      {
+        "path": "data/raw/modis_2022_United_States.csv.gz",
+        "sha256": "7de2e8b6f55ba07c8ad56ea7a0d7a223b855cd3074977cb3c739f7ef588a317a"
+      },
+      {
+        "path": "data/raw/modis_2023_United_States.csv.gz",
+        "sha256": "b328b0a9b1889ae6b19d8f593ba848988813447befcadcaf7136a0ee2f6e5462"
+      },
+      {
+        "path": "data/raw/modis_2024_United_States.csv.gz",
+        "sha256": "852e460f673a04bbacaa582c6a7fb5b0c927aa64d9ad0a7f551adae71ab6f80b"
+      },
+      {
+        "path": "data/raw/modis_2025_United_States.csv.gz",
+        "sha256": "839f0f6582fbf0d586c0e5f32e972b16524f3ad827046043be4e93cce5017d63"
+      }
+    ],
+    "channels": [
+      "Terra count",
+      "Aqua count",
+      "FRP sum MW",
+      "daytime count"
+    ],
+    "shape": [
+      5114,
+      24,
+      25,
+      4
+    ],
+    "ca_cells": 224,
+    "daily_ca_rows": 1145536,
+    "daily_sha256": "ddb296dd8b7ab2bb93876b87ac400c645408b64df30b5d42ae74e17c476971c1",
+    "target_source_sha256": "5b8bb68d89e3e0eff1e7b294760f40f843acd7c90e66d6a1d9d38028743380d9",
+    "monthly_parity_with_v2": "passed for every full reference month 2012-02 through 2025-12",
+    "limitations": [
+      "Availability channel measures source/split support, not overpass/cloud exposure.",
+      "Context outside the five-state union is unavailable.",
+      "Monthly outage exclusions are conservative and shared with v2."
+    ]
+  },
+  "development": {},
+  "selection": {},
+  "known_benchmark": {},
+  "backward_audit": {},
+  "training": {
+    "development": {
+      "years": [
+        2013,
+        2018
+      ],
+      "rows": 465457,
+      "purged_rows": 18831,
+      "crossing_groups": [
+        {
+          "ids": [
+            "31a188e0-b9bb-4621-a481-98b4f12091bf",
+            "5403f8d2-cb03-4834-ba05-edbed38a06af",
+            "3514c345-7cef-4433-bc9e-19f9346b858f",
+            "15217c3e-abd9-4c5f-8522-10f78a472bef"
+          ],
+          "start": "2017-10-08",
+          "end": "2020-09-16",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "561faf09-4fa9-4955-a990-f1ce3603d725"
+          ],
+          "start": "2018-08-19",
+          "end": "2019-08-19",
+          "missing_dates": false
+        }
+      ]
+    },
+    "final": {
+      "years": [
+        2013,
+        2020
+      ],
+      "rows": 616674,
+      "purged_rows": 31358,
+      "crossing_groups": [
+        {
+          "ids": [
+            "313b6b85-0177-4d6e-b037-d3b0bf4c5cdb",
+            "2a7bbf1d-e90a-4965-a5ac-a48fe4ac3f45"
+          ],
+          "start": "2020-08-19",
+          "end": "2021-01-04",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "caa5a162-3917-418f-8541-e3121ac68d4f"
+          ],
+          "start": "2020-08-18",
+          "end": "2020-12-31",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "caab632d-727e-4e38-b988-82227e77828f"
+          ],
+          "start": "2020-09-09",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "9a1d2730-1608-4029-a3b7-c058b3c9fa53"
+          ],
+          "start": "2020-12-24",
+          "end": "2020-12-31",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "0d274bfa-15f9-472b-b775-160dbd2e51fb"
+          ],
+          "start": "2020-08-21",
+          "end": "2020-12-29",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "bd4a6f4d-e3eb-419d-80b9-076750385b23"
+          ],
+          "start": "2020-08-08",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "997c72bf-a0b9-45d7-97bf-92f1a67862ed"
+          ],
+          "start": "2020-10-25",
+          "end": "2021-01-25",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "52766632-17fd-44c8-ab13-bf262db6c570"
+          ],
+          "start": "2020-01-21",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "abe705be-c221-4404-8b89-b784cf471f51"
+          ],
+          "start": "2020-07-20",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "9c6001cf-8ee7-4d95-a8c0-21b0203278e4"
+          ],
+          "start": "2020-07-26",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "fd7d9785-a45c-4768-a9e6-8d33e30e9e47"
+          ],
+          "start": "2020-07-28",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "d646622a-616a-4e39-9b2a-fa2f1f80d2ed"
+          ],
+          "start": "2020-07-28",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "392abbce-119c-49d6-a369-cf167edfa366"
+          ],
+          "start": "2020-08-21",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "5807a79d-4414-4df5-be7c-70a113058172"
+          ],
+          "start": "2020-09-14",
+          "end": "2021-01-14",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "36d5ab40-21c0-4f99-99d6-c411e31b01a6"
+          ],
+          "start": "2020-12-31",
+          "end": "2020-12-31",
+          "missing_dates": false
+        },
+        {
+          "ids": [
+            "c81e50ac-7762-4d28-93c2-a22cc30b0580"
+          ],
+          "start": "2020-07-26",
+          "end": "2020-12-31",
+          "missing_dates": true
+        },
+        {
+          "ids": [
+            "5dec798b-5706-4f8f-ad81-a6273cf9ed93"
+          ],
+          "start": "2020-03-06",
+          "end": "2020-12-31",
+          "missing_dates": true
+        }
+      ]
+    },
+    "development_validation": {
+      "years": [
+        2019,
+        2020
+      ],
+      "rows": 163744,
+      "purged_rows": 0,
+      "crossing_groups": []
+    },
+    "selection": {
+      "years": [
+        2021,
+        2022
+      ],
+      "rows": 135968,
+      "purged_rows": 0,
+      "crossing_groups": []
+    },
+    "development_sample_rows": 67075,
+    "final_sample_rows": 90992,
+    "calfire_linked_groups": 8249,
+    "final_ratios": [
+      2.9521937370300293,
+      2.5045437812805176,
+      2.765346050262451,
+      2.9281375408172607,
+      3.311866521835327,
+      3.755925416946411,
+      3.672713279724121,
+      4.595795631408691,
+      4.527066230773926,
+      3.649966239929199,
+      3.4135847091674805,
+      4.179715633392334
+    ]
+  }
+}

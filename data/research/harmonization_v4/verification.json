@@ -1,0 +1,49 @@
+{
+  "deployed_ratio_parameter_parity": true,
+  "protocol_and_source_hashes": true,
+  "pre_audit_selection_sealed": true,
+  "splits": {
+    "selection": {
+      "n_cell_months": 4480,
+      "metrics_and_saved_predictions_match": true,
+      "gate": {
+        "monthly_improvement": true,
+        "cell_noninferiority": true,
+        "regional_noninferiority": true
+      }
+    },
+    "known_benchmark": {
+      "n_cell_months": 6944,
+      "metrics_and_saved_predictions_match": true,
+      "gate": {
+        "monthly_improvement": true,
+        "cell_noninferiority": true,
+        "regional_noninferiority": true
+      }
+    },
+    "backward_audit": {
+      "n_cell_months": 2240,
+      "metrics_and_saved_predictions_match": true,
+      "gate": {
+        "monthly_improvement": true,
+        "cell_noninferiority": true,
+        "regional_noninferiority": false
+      }
+    }
+  },
+  "conditional_mean_minimum": 2.56490033468427,
+  "no_reference_or_year_input_leakage": true,
+  "spatial_noninferiority_5pct": true,
+  "paired_event_guarded_improvement": true,
+  "production_changed": false,
+  "production_snapshot_sha256": {
+    "models/harmonization.pkl": "29894ab5ab85c3230fa9b5e04917a7ddd3586c813b96130d47b071c367c6229f",
+    "data/processed/analysis.json": "ec745cb74ff3f78cc85277c1ca81b31cd839ba4b12f3b5c3310ec36b6cc39813",
+    "data/processed/analysis.json.gz": "b38cb37c1a40dbb020e451c6f9f5e973624b47eaa50d71768f750e6b11dac5e3"
+  },
+  "automated_tests": {
+    "command": ".venv/bin/python -m pytest tests -q",
+    "passed": 62,
+    "failed": 0
+  }
+}

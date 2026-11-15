@@ -1,0 +1,31 @@
+{
+  "rows": 67200,
+  "features_added": [
+    "subcell_occupancy",
+    "spatial_components",
+    "largest_component",
+    "largest_component_fraction",
+    "frp_q25",
+    "frp_q50",
+    "frp_q90",
+    "contrast_mean",
+    "contrast_max",
+    "confidence_mean",
+    "daily_max",
+    "daily_concentration",
+    "reports_per_occupied_subcell",
+    "neighbor1_modis_count",
+    "neighbor2_modis_count",
+    "neighbor1_frp_sum",
+    "neighbor2_frp_sum",
+    "previous_modis_count",
+    "previous3_modis_count",
+    "previous_frp_sum",
+    "previous3_frp_sum"
+  ],
+  "input_sha256": {
+    "data/research/harmonization_v2/cells.csv.gz": "0631ab309be4fff5f823ef08046c4d2fa1d4bd7ff4114f64315be38f7038a72e",
+    "data/processed/hotspots.csv": "5b8bb68d89e3e0eff1e7b294760f40f843acd7c90e66d6a1d9d38028743380d9"
+  },
+  "cells_sha256": "2e58153aab298b64e7a369d78af25900413078ba818ddb11ca23eebd03966ee4"
+}

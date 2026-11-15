@@ -1,0 +1,28 @@
+{
+  "candidate": "hurdle_rich__w1.0",
+  "empirically_better_forward": true,
+  "production_changed": false,
+  "metrics": {
+    "selection": {
+      "baseline_mae": 730.7132571804266,
+      "candidate_mae": 666.3324174099739,
+      "improvement": 0.08810684511031919
+    },
+    "known_benchmark": {
+      "baseline_mae": 291.3320525184665,
+      "candidate_mae": 259.7392020279391,
+      "improvement": 0.10844275532821734
+    },
+    "backward_audit": {
+      "baseline_mae": 204.77384915435434,
+      "candidate_mae": 165.37189843684405,
+      "improvement": 0.19241690714037374
+    }
+  },
+  "limitations": [
+    "Inspected historical periods and multiple comparisons; prospective confirmation needed.",
+    "Worse Northern California 2012.",
+    "Worse combined zero-MODIS absolute error.",
+    "Shorter-training temporal CV is unfavorable."
+  ]
+}

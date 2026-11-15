@@ -1,0 +1,4384 @@
+{
+  "protocol": {
+    "purpose": "Supplementary transfer diagnostic, specified while main development fits were running, before final selection/benchmark results",
+    "train_years": [
+      2013,
+      2020
+    ],
+    "evaluation_years": [
+      2023,
+      2025
+    ],
+    "audit_cells": "California centers latitude >=39.5",
+    "train_cells": "Keep only centers with maximum-coordinate distance >2 degrees from every audit center, so 5x5 patches (radius 1 degree) do not overlap spatially",
+    "models": "Same seven families as main protocol; neural epochs fixed by main development, three seeds. No new tuning or effect on main selection.",
+    "limitation": "Main epoch selection saw northern California in earlier development years; this is a refit transfer diagnostic, not a wholly unseen-geography model-development exercise. Known 2023-2025 benchmark is already inspected."
+  },
+  "train_rows": 353125,
+  "train_cells": 129,
+  "evaluation_rows": 51920,
+  "minimum_center_separation_degrees": 2.5,
+  "metrics": {
+    "seasonal_ratio": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.32654157280921936,
+      "monthly_mae": 141.3243865966797,
+      "monthly_wape": 0.1560872197151184,
+      "bias_total": -2811.6279296875,
+      "reference_total": 28068.0,
+      "predicted_total": 25256.373046875,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.32654157280921936,
+        "monthly_mae": 141.3243865966797,
+        "monthly_wape": 0.1560872197151184,
+        "bias_total": -2811.6279296875,
+        "reference_total": 28068.0,
+        "predicted_total": 25256.373046875
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.07591928541660309,
+        "monthly_mae": 123.67742156982422,
+        "monthly_wape": 1.0,
+        "bias_total": -3834.0,
+        "reference_total": 3834.0,
+        "predicted_total": 0.0
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.3349573612213135,
+        "monthly_mae": 123.67742156982422,
+        "monthly_wape": 1.0,
+        "bias_total": -3834.0,
+        "reference_total": 3834.0,
+        "predicted_total": 0.0
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 5.149177074432373,
+        "bias_total": -2811.6279296875,
+        "reference_total": 28068.0,
+        "predicted_total": 25256.37109375
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 0.6508828401565552,
+        "bias_total": -811.0,
+        "reference_total": 811.0,
+        "predicted_total": 0.0
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 496.4258117675781,
+        "bias_total": -1120.5980224609375,
+        "reference_total": 8852.0,
+        "predicted_total": 7731.40234375
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 7.848753452301025,
+        "monthly_mae": 503.93377685546875,
+        "monthly_wape": 0.19162437319755554,
+        "bias_total": -2491.57421875,
+        "reference_total": 13149.0,
+        "predicted_total": 10657.4267578125
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 60.88235092163086
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 155.0975799560547
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 11.415472984313965
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 293.4205627441406
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 252.8754119873047
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 376.0418701171875
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 102.08256530761719
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 6621.6142578125
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 3008.38232421875
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 781.1285400390625
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 853.721923828125
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 555.4054565429688
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 52.9411735534668
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 37.13603973388672
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 316.77935791015625
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 315.2710266113281
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 2830.336181640625
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 491.5722961425781
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 312.1622009277344
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 352.0588073730469
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 72.08760833740234
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 196.9169158935547
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 393.30841064453125
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 276.47711181640625
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 144.01605224609375
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 3000.498046875
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 1271.8343505859375
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 1261.9736328125
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 353.52801513671875
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 205.40676879882812
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 300.0
+        }
+      ]
+    },
+    "boost_point": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.4277336671984764,
+      "monthly_mae": 479.4667739476306,
+      "monthly_wape": 0.5295521587707193,
+      "bias_total": -14508.884795057947,
+      "reference_total": 28068.0,
+      "predicted_total": 13559.115204942053,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.4277336671984764,
+        "monthly_mae": 479.4667739476306,
+        "monthly_wape": 0.5295521587707193,
+        "bias_total": -14508.884795057947,
+        "reference_total": 28068.0,
+        "predicted_total": 13559.115204942053
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.11306992155641578,
+        "monthly_mae": 62.65697308463132,
+        "monthly_wape": 0.5066161099696325,
+        "bias_total": -1732.183236667776,
+        "reference_total": 3834.0,
+        "predicted_total": 2101.8167633322237
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.2662385338575914,
+        "monthly_mae": 120.03753782561826,
+        "monthly_wape": 0.9705695546672317,
+        "bias_total": -3721.1636725941653,
+        "reference_total": 3834.0,
+        "predicted_total": 112.83632740583474
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 10.65696240248296,
+        "bias_total": -14508.884795057947,
+        "reference_total": 28068.0,
+        "predicted_total": 13559.115204942053
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 1.4353420268270602,
+        "bias_total": 659.1718587728612,
+        "reference_total": 811.0,
+        "predicted_total": 1470.1718587728612
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 1574.7937648647094,
+        "bias_total": -4724.381294594128,
+        "reference_total": 8852.0,
+        "predicted_total": 4127.618705405871
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 14.146297242599088,
+        "monthly_mae": 1625.4646529652014,
+        "monthly_wape": 0.6180943999411368,
+        "bias_total": -8123.111019855977,
+        "reference_total": 13149.0,
+        "predicted_total": 5025.888980144024
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 97.44326569896025
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 121.44022426861544
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 73.47905653633804
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 201.91734206784128
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 192.1826212758315
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 269.8319835333824
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 128.50133751085707
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 2387.9716239987647
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 1040.7346008392062
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 538.7324874075372
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 471.6701224258646
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 377.4816063533587
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 105.63485259159681
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 87.48022107872245
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 193.05627338913698
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 211.465107409122
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 2519.568173654223
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 320.87712312964163
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 184.81792438560979
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 185.49870615137633
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 92.20633969519479
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 136.88811107059553
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 257.36168386299147
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 219.31532792321212
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 135.78987797164126
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 1375.742555827852
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 504.31418501799016
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 513.3351425263035
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 250.48680568864324
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 172.52226774889732
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 191.36825390274439
+        }
+      ]
+    },
+    "boost_context": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.33919342614304915,
+      "monthly_mae": 159.35848371948933,
+      "monthly_wape": 0.17600516585806503,
+      "bias_total": -3471.472813352358,
+      "reference_total": 28068.0,
+      "predicted_total": 24596.52718664764,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.33919342614304915,
+        "monthly_mae": 159.35848371948933,
+        "monthly_wape": 0.17600516585806503,
+        "bias_total": -3471.472813352358,
+        "reference_total": 28068.0,
+        "predicted_total": 24596.52718664764
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.13150783711829245,
+        "monthly_mae": 45.6752896644103,
+        "monthly_wape": 0.36930985383326015,
+        "bias_total": -221.3480988555993,
+        "reference_total": 3834.0,
+        "predicted_total": 3612.6519011444007
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.1079965708443154,
+        "monthly_mae": 109.71919393032647,
+        "monthly_wape": 0.887140065685999,
+        "bias_total": -3401.29501184012,
+        "reference_total": 3834.0,
+        "predicted_total": 432.70498815987986
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 5.761936121143455,
+        "bias_total": -3471.4728133523577,
+        "reference_total": 28068.0,
+        "predicted_total": 24596.52718664764
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 1.6353258176737855,
+        "bias_total": 1192.2898118633914,
+        "reference_total": 811.0,
+        "predicted_total": 2003.2898118633914
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 527.9606117227808,
+        "bias_total": -1309.5971337275694,
+        "reference_total": 8852.0,
+        "predicted_total": 7542.40286627243
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 8.039641832197919,
+        "monthly_mae": 529.654760890505,
+        "monthly_wape": 0.20140495889060195,
+        "bias_total": -2634.493678696034,
+        "reference_total": 13149.0,
+        "predicted_total": 10514.506321303967
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 127.10145681091797
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 171.9379674640345
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 97.59475250233932
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 254.6374454692233
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 250.40400476970325
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 327.32460229868985
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 155.3621492739144
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 6350.916163864127
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 2968.866310802141
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 625.702233257682
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 639.463515860807
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 435.3287679211678
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 131.4141359756409
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 109.74598482436991
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 279.5667413588321
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 258.06324073974224
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 2907.974670567487
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 425.2319751116183
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 261.96011320641827
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 339.8892805429808
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 127.42180463921687
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 191.22371437866485
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 314.8706232163001
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 238.49113592798378
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 166.58368837748299
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 3004.5730631289107
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 1337.3939661867432
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 1333.0428488873038
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 298.1432712708052
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 223.56645014635262
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 242.7311078660399
+        }
+      ]
+    },
+    "mlp_poisson": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.3894565999507904,
+      "monthly_mae": 161.18280029296875,
+      "monthly_wape": 0.17802006006240845,
+      "bias_total": -688.8765258789062,
+      "reference_total": 28068.0,
+      "predicted_total": 27379.125,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.3894565999507904,
+        "monthly_mae": 161.18280029296875,
+        "monthly_wape": 0.17802006006240845,
+        "bias_total": -688.8765258789062,
+        "reference_total": 28068.0,
+        "predicted_total": 27379.125
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.1646520048379898,
+        "monthly_mae": 69.17475891113281,
+        "monthly_wape": 0.5593159794807434,
+        "bias_total": 1023.4381103515625,
+        "reference_total": 3834.0,
+        "predicted_total": 4857.4384765625
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.2203569412231445,
+        "monthly_mae": 117.60731506347656,
+        "monthly_wape": 0.9509198665618896,
+        "bias_total": -3645.826171875,
+        "reference_total": 3834.0,
+        "predicted_total": 188.17384338378906
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 6.340399742126465,
+        "bias_total": -688.8765869140625,
+        "reference_total": 28068.0,
+        "predicted_total": 27379.123046875
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 2.601336717605591,
+        "bias_total": 2720.76708984375,
+        "reference_total": 811.0,
+        "predicted_total": 3531.76708984375
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 364.5814514160156,
+        "bias_total": -992.003173828125,
+        "reference_total": 8852.0,
+        "predicted_total": 7859.99658203125
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 8.12405014038086,
+        "monthly_mae": 501.3411560058594,
+        "monthly_wape": 0.19063851237297058,
+        "bias_total": -2474.03466796875,
+        "reference_total": 13149.0,
+        "predicted_total": 10674.96484375
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 196.5657958984375
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 246.27645874023438
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 163.6964569091797
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 328.1936950683594
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 325.25042724609375
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 401.00439453125
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 240.55857849121094
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 6676.27587890625
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 2985.319091796875
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 804.5070190429688
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 791.0516357421875
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 578.8572998046875
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 197.39822387695312
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 171.93084716796875
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 351.406005859375
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 352.2633361816406
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 3058.62451171875
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 559.4659423828125
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 383.0296325683594
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 392.2979736328125
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 185.37750244140625
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 284.99884033203125
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 393.8328552246094
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 350.2101135253906
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 260.62322998046875
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 2885.200439453125
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 1322.8203125
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 1329.3663330078125
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 452.7176208496094
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 319.37518310546875
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 390.6278381347656
+        }
+      ]
+    },
+    "cnn_poisson": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.3495577573776245,
+      "monthly_mae": 138.14894104003906,
+      "monthly_wape": 0.15258006751537323,
+      "bias_total": -2614.72607421875,
+      "reference_total": 28068.0,
+      "predicted_total": 25453.2734375,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.3495577573776245,
+        "monthly_mae": 138.14894104003906,
+        "monthly_wape": 0.15258006751537323,
+        "bias_total": -2614.72607421875,
+        "reference_total": 28068.0,
+        "predicted_total": 25453.2734375
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.13463011384010315,
+        "monthly_mae": 50.69336700439453,
+        "monthly_wape": 0.4098837673664093,
+        "bias_total": -616.4002685546875,
+        "reference_total": 3834.0,
+        "predicted_total": 3217.599609375
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.2580254077911377,
+        "monthly_mae": 119.60250091552734,
+        "monthly_wape": 0.9670520424842834,
+        "bias_total": -3707.677734375,
+        "reference_total": 3834.0,
+        "predicted_total": 126.32229614257812
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 5.754470348358154,
+        "bias_total": -2614.7255859375,
+        "reference_total": 28068.0,
+        "predicted_total": 25453.2734375
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 1.8207037448883057,
+        "bias_total": 1524.940185546875,
+        "reference_total": 811.0,
+        "predicted_total": 2335.9404296875
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 391.7203674316406,
+        "bias_total": -348.7763671875,
+        "reference_total": 8852.0,
+        "predicted_total": 8503.2236328125
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 7.828736782073975,
+        "monthly_mae": 419.18646240234375,
+        "monthly_wape": 0.15939861536026,
+        "bias_total": -1893.9771728515625,
+        "reference_total": 13149.0,
+        "predicted_total": 11255.0234375
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 130.18751525878906
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 160.9906768798828
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 103.59120178222656
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 254.87648010253906
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 239.21438598632812
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 330.9664001464844
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 160.33523559570312
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 6992.4716796875
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 3024.45849609375
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 586.5430297851562
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 634.7324829101562
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 411.6569519042969
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 124.55496978759766
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 110.01380920410156
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 287.6087646484375
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 245.98133850097656
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 3093.177001953125
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 384.4791259765625
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 261.312744140625
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 305.22509765625
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 125.27296447753906
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 195.37550354003906
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 309.0718688964844
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 237.05442810058594
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 169.00625610351562
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 3211.142822265625
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 1328.8924560546875
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 1276.302734375
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 299.4946594238281
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 209.78773498535156
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 249.49600219726562
+        }
+      ]
+    },
+    "cnn_nb": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.3563818633556366,
+      "monthly_mae": 160.34959411621094,
+      "monthly_wape": 0.17709980905056,
+      "bias_total": -1260.8599853515625,
+      "reference_total": 28068.0,
+      "predicted_total": 26807.140625,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.3563818633556366,
+        "monthly_mae": 160.34959411621094,
+        "monthly_wape": 0.17709980905056,
+        "bias_total": -1260.8599853515625,
+        "reference_total": 28068.0,
+        "predicted_total": 26807.140625
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.14585870504379272,
+        "monthly_mae": 56.577083587646484,
+        "monthly_wape": 0.45745688676834106,
+        "bias_total": 588.1292114257812,
+        "reference_total": 3834.0,
+        "predicted_total": 4422.12890625
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.0711820125579834,
+        "monthly_mae": 108.93549346923828,
+        "monthly_wape": 0.8808034062385559,
+        "bias_total": -3377.000732421875,
+        "reference_total": 3834.0,
+        "predicted_total": 456.9992980957031
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 6.030023097991943,
+        "bias_total": -1260.85986328125,
+        "reference_total": 28068.0,
+        "predicted_total": 26807.140625
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 1.927834153175354,
+        "bias_total": 1687.0196533203125,
+        "reference_total": 811.0,
+        "predicted_total": 2498.01953125
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 526.13671875,
+        "bias_total": -213.8056640625,
+        "reference_total": 8852.0,
+        "predicted_total": 8638.1943359375
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 7.77345085144043,
+        "monthly_mae": 492.44024658203125,
+        "monthly_wape": 0.18725387752056122,
+        "bias_total": -1917.94970703125,
+        "reference_total": 13149.0,
+        "predicted_total": 11231.05078125
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 127.1058120727539
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 172.36508178710938
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 93.26783752441406
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 323.89263916015625
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 303.88702392578125
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 422.3836669921875
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 184.65252685546875
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 6679.30712890625
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 3044.55859375
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 692.2062377929688
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 769.01806640625
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 472.2950744628906
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 108.87846374511719
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 101.2946548461914
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 360.1064453125
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 295.5998840332031
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 3348.89794921875
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 431.13739013671875
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 274.5692443847656
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 374.6871643066406
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 129.480712890625
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 222.80665588378906
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 399.8021240234375
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 269.5091857910156
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 183.08221435546875
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 3528.413330078125
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 1401.7939453125
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 1309.994384765625
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 318.2719421386719
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 219.7323455810547
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 244.14279174804688
+        }
+      ]
+    },
+    "cnn_poisson_aggregate": {
+      "n": 51920,
+      "months": 31,
+      "cell_daily_mae": 0.32979440689086914,
+      "monthly_mae": 136.3045196533203,
+      "monthly_wape": 0.1505429595708847,
+      "bias_total": -2954.7978515625,
+      "reference_total": 28068.0,
+      "predicted_total": 25113.203125,
+      "north": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.32979440689086914,
+        "monthly_mae": 136.3045196533203,
+        "monthly_wape": 0.1505429595708847,
+        "bias_total": -2954.7978515625,
+        "reference_total": 28068.0,
+        "predicted_total": 25113.203125
+      },
+      "south": null,
+      "zero_modis_daily": {
+        "n": 50501,
+        "months": 31,
+        "cell_daily_mae": 0.10961029678583145,
+        "monthly_mae": 68.63169860839844,
+        "monthly_wape": 0.5549250841140747,
+        "bias_total": -2007.780029296875,
+        "reference_total": 3834.0,
+        "predicted_total": 1826.219970703125
+      },
+      "zero_modis_viirs_positive_daily": {
+        "n": 1642,
+        "months": 31,
+        "cell_daily_mae": 2.2969579696655273,
+        "monthly_mae": 121.66468048095703,
+        "monthly_wape": 0.9837258458137512,
+        "bias_total": -3771.60498046875,
+        "reference_total": 3834.0,
+        "predicted_total": 62.39501190185547
+      },
+      "cell_month": {
+        "n": 1705,
+        "mae": 5.258960247039795,
+        "bias_total": -2954.797119140625,
+        "reference_total": 28068.0,
+        "predicted_total": 25113.203125
+      },
+      "zero_modis_month": {
+        "n": 1246,
+        "mae": 1.2718085050582886,
+        "bias_total": 549.0845947265625,
+        "reference_total": 811.0,
+        "predicted_total": 1360.0845947265625
+      },
+      "high_activity_month": {
+        "n": 3,
+        "mae": 432.676513671875,
+        "bias_total": -336.875244140625,
+        "reference_total": 8852.0,
+        "predicted_total": 8515.125
+      },
+      "large_event_daily": {
+        "n": 616,
+        "months": 5,
+        "cell_daily_mae": 7.737945079803467,
+        "monthly_mae": 393.45404052734375,
+        "monthly_wape": 0.14961367845535278,
+        "bias_total": -1736.6090087890625,
+        "reference_total": 13149.0,
+        "predicted_total": 11412.3916015625
+      },
+      "monthly": [
+        {
+          "month": "2023-01",
+          "viirs_count": 111.0,
+          "prediction": 93.71266174316406
+        },
+        {
+          "month": "2023-02",
+          "viirs_count": 195.0,
+          "prediction": 135.0824432373047
+        },
+        {
+          "month": "2023-03",
+          "viirs_count": 24.0,
+          "prediction": 64.4068603515625
+        },
+        {
+          "month": "2023-04",
+          "viirs_count": 298.0,
+          "prediction": 244.57656860351562
+        },
+        {
+          "month": "2023-05",
+          "viirs_count": 207.0,
+          "prediction": 219.25393676757812
+        },
+        {
+          "month": "2023-06",
+          "viirs_count": 196.0,
+          "prediction": 321.20208740234375
+        },
+        {
+          "month": "2023-07",
+          "viirs_count": 83.0,
+          "prediction": 122.02342987060547
+        },
+        {
+          "month": "2023-08",
+          "viirs_count": 7900.0,
+          "prediction": 7027.607421875
+        },
+        {
+          "month": "2023-09",
+          "viirs_count": 3810.0,
+          "prediction": 3113.59619140625
+        },
+        {
+          "month": "2023-10",
+          "viirs_count": 950.0,
+          "prediction": 598.2322387695312
+        },
+        {
+          "month": "2023-11",
+          "viirs_count": 748.0,
+          "prediction": 653.404296875
+        },
+        {
+          "month": "2023-12",
+          "viirs_count": 522.0,
+          "prediction": 409.87078857421875
+        },
+        {
+          "month": "2024-01",
+          "viirs_count": 133.0,
+          "prediction": 85.50666809082031
+        },
+        {
+          "month": "2024-02",
+          "viirs_count": 79.0,
+          "prediction": 73.69717407226562
+        },
+        {
+          "month": "2024-03",
+          "viirs_count": 245.0,
+          "prediction": 276.3233947753906
+        },
+        {
+          "month": "2024-04",
+          "viirs_count": 228.0,
+          "prediction": 234.22132873535156
+        },
+        {
+          "month": "2024-08",
+          "viirs_count": 3224.0,
+          "prediction": 3085.182861328125
+        },
+        {
+          "month": "2024-10",
+          "viirs_count": 502.0,
+          "prediction": 369.7123718261719
+        },
+        {
+          "month": "2024-12",
+          "viirs_count": 324.0,
+          "prediction": 237.60809326171875
+        },
+        {
+          "month": "2025-01",
+          "viirs_count": 474.0,
+          "prediction": 287.8918762207031
+        },
+        {
+          "month": "2025-02",
+          "viirs_count": 111.0,
+          "prediction": 93.87265014648438
+        },
+        {
+          "month": "2025-03",
+          "viirs_count": 176.0,
+          "prediction": 172.03521728515625
+        },
+        {
+          "month": "2025-04",
+          "viirs_count": 333.0,
+          "prediction": 304.3433837890625
+        },
+        {
+          "month": "2025-05",
+          "viirs_count": 237.0,
+          "prediction": 217.43597412109375
+        },
+        {
+          "month": "2025-06",
+          "viirs_count": 149.0,
+          "prediction": 139.68948364257812
+        },
+        {
+          "month": "2025-07",
+          "viirs_count": 3052.0,
+          "prediction": 3250.386474609375
+        },
+        {
+          "month": "2025-08",
+          "viirs_count": 1151.0,
+          "prediction": 1322.827392578125
+        },
+        {
+          "month": "2025-09",
+          "viirs_count": 1268.0,
+          "prediction": 1278.676513671875
+        },
+        {
+          "month": "2025-10",
+          "viirs_count": 393.0,
+          "prediction": 278.5731201171875
+        },
+        {
+          "month": "2025-11",
+          "viirs_count": 499.0,
+          "prediction": 176.90023803710938
+        },
+        {
+          "month": "2025-12",
+          "viirs_count": 446.0,
+          "prediction": 225.34962463378906
+        }
+      ]
+    }
+  },
+  "seed_metrics": {
+    "mlp_poisson": {
+      "42": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.38808688521385193,
+        "monthly_mae": 185.39100646972656,
+        "monthly_wape": 0.20475706458091736,
+        "bias_total": -2222.396240234375,
+        "reference_total": 28068.0,
+        "predicted_total": 25845.60546875,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.38808688521385193,
+          "monthly_mae": 185.39100646972656,
+          "monthly_wape": 0.20475706458091736,
+          "bias_total": -2222.396240234375,
+          "reference_total": 28068.0,
+          "predicted_total": 25845.60546875
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.16268011927604675,
+          "monthly_mae": 65.54463958740234,
+          "monthly_wape": 0.5299644470214844,
+          "bias_total": 899.3573608398438,
+          "reference_total": 3834.0,
+          "predicted_total": 4733.357421875
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.2278172969818115,
+          "monthly_mae": 118.00244140625,
+          "monthly_wape": 0.9541146755218506,
+          "bias_total": -3658.075927734375,
+          "reference_total": 3834.0,
+          "predicted_total": 175.9241943359375
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 6.726481914520264,
+          "bias_total": -2222.396240234375,
+          "reference_total": 28068.0,
+          "predicted_total": 25845.60546875
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 2.556464195251465,
+          "bias_total": 2655.7890625,
+          "reference_total": 811.0,
+          "predicted_total": 3466.7890625
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 491.5633544921875,
+          "bias_total": -1474.6900634765625,
+          "reference_total": 8852.0,
+          "predicted_total": 7377.31005859375
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 8.388771057128906,
+          "monthly_mae": 649.9725952148438,
+          "monthly_wape": 0.24715666472911835,
+          "bias_total": -3219.345458984375,
+          "reference_total": 13149.0,
+          "predicted_total": 9929.654296875
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 192.0693817138672
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 236.688720703125
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 156.08804321289062
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 320.634033203125
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 316.52337646484375
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 394.2111511230469
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 234.82296752929688
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6169.02001953125
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 2744.24169921875
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 758.9241943359375
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 759.6376953125
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 555.6990966796875
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 191.23345947265625
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 164.9173583984375
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 339.86944580078125
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 341.34991455078125
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 2960.728515625
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 534.669189453125
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 366.4091796875
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 382.3627014160156
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 179.3646240234375
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 274.49652099609375
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 384.71771240234375
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 338.66278076171875
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 251.7720184326172
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 2711.729736328125
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1236.9053955078125
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1229.685546875
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 436.6205139160156
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 307.2220458984375
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 374.3270263671875
+          }
+        ]
+      },
+      "43": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.39485394954681396,
+        "monthly_mae": 139.9821014404297,
+        "monthly_wape": 0.1546047180891037,
+        "bias_total": 872.076904296875,
+        "reference_total": 28068.0,
+        "predicted_total": 28940.076171875,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.39485394954681396,
+          "monthly_mae": 139.9821014404297,
+          "monthly_wape": 0.1546047180891037,
+          "bias_total": 872.076904296875,
+          "reference_total": 28068.0,
+          "predicted_total": 28940.076171875
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.16610638797283173,
+          "monthly_mae": 71.7704086303711,
+          "monthly_wape": 0.5803032517433167,
+          "bias_total": 1114.23046875,
+          "reference_total": 3834.0,
+          "predicted_total": 4948.23046875
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.215075731277466,
+          "monthly_mae": 117.32756805419922,
+          "monthly_wape": 0.9486579298973083,
+          "bias_total": -3637.154296875,
+          "reference_total": 3834.0,
+          "predicted_total": 196.84576416015625
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 6.057642936706543,
+          "bias_total": 872.0767211914062,
+          "reference_total": 28068.0,
+          "predicted_total": 28940.078125
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 2.6224007606506348,
+          "bias_total": 2758.679443359375,
+          "reference_total": 811.0,
+          "predicted_total": 3569.679443359375
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 277.6585998535156,
+          "bias_total": -513.615966796875,
+          "reference_total": 8852.0,
+          "predicted_total": 8338.3837890625
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 8.101367950439453,
+          "monthly_mae": 366.9393615722656,
+          "monthly_wape": 0.13953128457069397,
+          "bias_total": -1711.014892578125,
+          "reference_total": 13149.0,
+          "predicted_total": 11437.9853515625
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 201.66268920898438
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 258.1412353515625
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 169.04786682128906
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 334.17767333984375
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 330.4549865722656
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 400.1751403808594
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 243.26351928710938
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 7153.43359375
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3239.22314453125
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 860.1514282226562
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 839.112548828125
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 616.4589233398438
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 203.88665771484375
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 178.035400390625
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 365.08135986328125
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 362.162841796875
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3184.029296875
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 588.1203002929688
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 406.6611633300781
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 410.0687561035156
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 191.17115783691406
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 296.4820861816406
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 401.32666015625
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 357.5380554199219
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 265.9761047363281
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3024.712646484375
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1403.008544921875
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1435.28466796875
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 471.5310363769531
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 335.6379699707031
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 414.0586853027344
+          }
+        ]
+      },
+      "44": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.3898688554763794,
+        "monthly_mae": 160.64730834960938,
+        "monthly_wape": 0.17742861807346344,
+        "bias_total": -716.3106689453125,
+        "reference_total": 28068.0,
+        "predicted_total": 27351.689453125,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.3898688554763794,
+          "monthly_mae": 160.64730834960938,
+          "monthly_wape": 0.17742861807346344,
+          "bias_total": -716.3106689453125,
+          "reference_total": 28068.0,
+          "predicted_total": 27351.689453125
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.16516947746276855,
+          "monthly_mae": 70.20922088623047,
+          "monthly_wape": 0.5676801800727844,
+          "bias_total": 1056.7266845703125,
+          "reference_total": 3834.0,
+          "predicted_total": 4890.7265625
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.2181782722473145,
+          "monthly_mae": 117.49188232421875,
+          "monthly_wape": 0.9499865174293518,
+          "bias_total": -3642.24853515625,
+          "reference_total": 3834.0,
+          "predicted_total": 191.75155639648438
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 6.373405456542969,
+          "bias_total": -716.310546875,
+          "reference_total": 28068.0,
+          "predicted_total": 27351.689453125
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 2.629167318344116,
+          "bias_total": 2747.8330078125,
+          "reference_total": 811.0,
+          "predicted_total": 3558.8330078125
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 375.860107421875,
+          "bias_total": -987.703857421875,
+          "reference_total": 8852.0,
+          "predicted_total": 7864.2958984375
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 8.131278038024902,
+          "monthly_mae": 504.881103515625,
+          "monthly_wape": 0.19198459386825562,
+          "bias_total": -2491.74462890625,
+          "reference_total": 13149.0,
+          "predicted_total": 10657.2548828125
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 195.96536254882812
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 243.9993896484375
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 165.95346069335938
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 329.76934814453125
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 328.77288818359375
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 408.62689208984375
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 243.58924865722656
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6706.3740234375
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 2972.49267578125
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 794.4453735351562
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 774.4046020507812
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 564.4139404296875
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 197.07455444335938
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 172.83975219726562
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 349.2671813964844
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 353.27728271484375
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3031.115234375
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 555.6082763671875
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 376.0185546875
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 384.4625244140625
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 185.59674072265625
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 284.0179443359375
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 395.4541015625
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 354.429443359375
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 264.1215515136719
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 2919.158935546875
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1328.5465087890625
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1323.129150390625
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 450.00128173828125
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 315.2657165527344
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 383.497802734375
+          }
+        ]
+      }
+    },
+    "cnn_poisson": {
+      "42": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.35390734672546387,
+        "monthly_mae": 144.80010986328125,
+        "monthly_wape": 0.15992601215839386,
+        "bias_total": -2422.361328125,
+        "reference_total": 28068.0,
+        "predicted_total": 25645.63671875,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.35390734672546387,
+          "monthly_mae": 144.80010986328125,
+          "monthly_wape": 0.15992601215839386,
+          "bias_total": -2422.361328125,
+          "reference_total": 28068.0,
+          "predicted_total": 25645.63671875
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.13507334887981415,
+          "monthly_mae": 51.68870162963867,
+          "monthly_wape": 0.41793158650398254,
+          "bias_total": -606.3446044921875,
+          "reference_total": 3834.0,
+          "predicted_total": 3227.655517578125
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.261779308319092,
+          "monthly_mae": 119.80134582519531,
+          "monthly_wape": 0.9686598181724548,
+          "bias_total": -3713.841796875,
+          "reference_total": 3834.0,
+          "predicted_total": 120.15818786621094
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.88057279586792,
+          "bias_total": -2422.361328125,
+          "reference_total": 28068.0,
+          "predicted_total": 25645.638671875
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.839508295059204,
+          "bias_total": 1554.2171630859375,
+          "reference_total": 811.0,
+          "predicted_total": 2365.21728515625
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 438.628173828125,
+          "bias_total": 56.795654296875,
+          "reference_total": 8852.0,
+          "predicted_total": 8908.794921875
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 8.045112609863281,
+          "monthly_mae": 455.35296630859375,
+          "monthly_wape": 0.1731511801481247,
+          "bias_total": -1828.8043212890625,
+          "reference_total": 13149.0,
+          "predicted_total": 11320.1962890625
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 133.76312255859375
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 169.0171661376953
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 109.4254379272461
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 255.07652282714844
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 244.11502075195312
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 331.9261474609375
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 166.21681213378906
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6952.7099609375
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 2927.076416015625
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 565.3349609375
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 602.6778564453125
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 406.8955078125
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 131.02197265625
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 115.36097717285156
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 282.4884033203125
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 256.3994140625
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3224.721435546875
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 391.46990966796875
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 270.77435302734375
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 311.9712219238281
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 129.9990234375
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 203.52626037597656
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 312.30517578125
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 250.6901092529297
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 178.25157165527344
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3346.511474609375
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1332.8255615234375
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1267.783203125
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 300.9172058105469
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 214.15721130371094
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 260.2288513183594
+          }
+        ]
+      },
+      "43": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.345365047454834,
+        "monthly_mae": 132.3858184814453,
+        "monthly_wape": 0.14621491730213165,
+        "bias_total": -2714.741455078125,
+        "reference_total": 28068.0,
+        "predicted_total": 25353.2578125,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.345365047454834,
+          "monthly_mae": 132.3858184814453,
+          "monthly_wape": 0.14621491730213165,
+          "bias_total": -2714.741455078125,
+          "reference_total": 28068.0,
+          "predicted_total": 25353.2578125
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.12971757352352142,
+          "monthly_mae": 51.360862731933594,
+          "monthly_wape": 0.41528084874153137,
+          "bias_total": -866.0582275390625,
+          "reference_total": 3834.0,
+          "predicted_total": 2967.94189453125
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.2585031986236572,
+          "monthly_mae": 119.6278305053711,
+          "monthly_wape": 0.9672568440437317,
+          "bias_total": -3708.46240234375,
+          "reference_total": 3834.0,
+          "predicted_total": 125.53739929199219
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.596072196960449,
+          "bias_total": -2714.741455078125,
+          "reference_total": 28068.0,
+          "predicted_total": 25353.2578125
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.7000854015350342,
+          "bias_total": 1314.929443359375,
+          "reference_total": 811.0,
+          "predicted_total": 2125.92919921875
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 347.2709045410156,
+          "bias_total": -360.468994140625,
+          "reference_total": 8852.0,
+          "predicted_total": 8491.53125
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.841030597686768,
+          "monthly_mae": 369.97821044921875,
+          "monthly_wape": 0.14068682491779327,
+          "bias_total": -1728.5164794921875,
+          "reference_total": 13149.0,
+          "predicted_total": 11420.4833984375
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 115.17544555664062
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 145.64439392089844
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 88.92814636230469
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 242.95211791992188
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 224.72679138183594
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 318.4889831542969
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 149.33995056152344
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 7168.7236328125
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3124.49658203125
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 580.363037109375
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 641.5501708984375
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 397.0548400878906
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 108.7088394165039
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 95.72068786621094
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 278.8821105957031
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 228.77159118652344
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3045.319580078125
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 367.3377990722656
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 242.7244873046875
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 291.056884765625
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 111.48814392089844
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 178.36021423339844
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 293.6250915527344
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 217.9357147216797
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 153.93698120117188
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3191.276123046875
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1349.529296875
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1289.98486328125
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 284.84832763671875
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 195.8094940185547
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 230.4978485107422
+          }
+        ]
+      },
+      "44": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.3530055284500122,
+        "monthly_mae": 138.61172485351562,
+        "monthly_wape": 0.1530911922454834,
+        "bias_total": -2707.074462890625,
+        "reference_total": 28068.0,
+        "predicted_total": 25360.92578125,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.3530055284500122,
+          "monthly_mae": 138.61172485351562,
+          "monthly_wape": 0.1530911922454834,
+          "bias_total": -2707.074462890625,
+          "reference_total": 28068.0,
+          "predicted_total": 25360.92578125
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.13909941911697388,
+          "monthly_mae": 49.56095504760742,
+          "monthly_wape": 0.40072759985923767,
+          "bias_total": -376.7979736328125,
+          "reference_total": 3834.0,
+          "predicted_total": 3457.2021484375
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.253793478012085,
+          "monthly_mae": 119.37834930419922,
+          "monthly_wape": 0.9652396440505981,
+          "bias_total": -3700.728759765625,
+          "reference_total": 3834.0,
+          "predicted_total": 133.27130126953125
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.831846237182617,
+          "bias_total": -2707.07421875,
+          "reference_total": 28068.0,
+          "predicted_total": 25360.92578125
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.9311672449111938,
+          "bias_total": 1705.674560546875,
+          "reference_total": 811.0,
+          "predicted_total": 2516.67431640625
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 401.7307434082031,
+          "bias_total": -742.6558837890625,
+          "reference_total": 8852.0,
+          "predicted_total": 8109.34423828125
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.825311660766602,
+          "monthly_mae": 432.22821044921875,
+          "monthly_wape": 0.16435782611370087,
+          "bias_total": -2124.610595703125,
+          "reference_total": 13149.0,
+          "predicted_total": 11024.3896484375
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 141.6239776611328
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 168.31045532226562
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 112.4200439453125
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 266.600830078125
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 248.80136108398438
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 342.48406982421875
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 165.44895935058594
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6855.97998046875
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3021.80224609375
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 613.9310913085938
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 659.96923828125
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 431.02056884765625
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 133.93414306640625
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 118.95975494384766
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 301.4557800292969
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 252.77296447753906
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3009.489013671875
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 394.6296691894531
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 270.439453125
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 312.6470947265625
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 134.3317413330078
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 204.24008178710938
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 321.2852478027344
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 242.53750610351562
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 174.83023071289062
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3095.640625
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1304.322265625
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1271.1405029296875
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 312.7183532714844
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 219.39654541015625
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 257.7613525390625
+          }
+        ]
+      }
+    },
+    "cnn_nb": {
+      "42": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.36351847648620605,
+        "monthly_mae": 167.2298126220703,
+        "monthly_wape": 0.18469873070716858,
+        "bias_total": -701.6321411132812,
+        "reference_total": 28068.0,
+        "predicted_total": 27366.3671875,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.36351847648620605,
+          "monthly_mae": 167.2298126220703,
+          "monthly_wape": 0.18469873070716858,
+          "bias_total": -701.6321411132812,
+          "reference_total": 28068.0,
+          "predicted_total": 27366.3671875
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.1541316956281662,
+          "monthly_mae": 63.344791412353516,
+          "monthly_wape": 0.5121774673461914,
+          "bias_total": 1077.423828125,
+          "reference_total": 3834.0,
+          "predicted_total": 4911.423828125
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.0515992641448975,
+          "monthly_mae": 107.66627502441406,
+          "monthly_wape": 0.8705410957336426,
+          "bias_total": -3337.65478515625,
+          "reference_total": 3834.0,
+          "predicted_total": 496.34527587890625
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 6.148858070373535,
+          "bias_total": -701.632568359375,
+          "reference_total": 28068.0,
+          "predicted_total": 27366.3671875
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 2.112534523010254,
+          "bias_total": 1982.0921630859375,
+          "reference_total": 811.0,
+          "predicted_total": 2793.09228515625
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 579.6064453125,
+          "bias_total": -191.408203125,
+          "reference_total": 8852.0,
+          "predicted_total": 8660.591796875
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.6857781410217285,
+          "monthly_mae": 507.3124084472656,
+          "monthly_wape": 0.1929091215133667,
+          "bias_total": -1925.4437255859375,
+          "reference_total": 13149.0,
+          "predicted_total": 11223.5556640625
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 138.8483123779297
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 186.28807067871094
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 105.79438018798828
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 342.3608703613281
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 323.4984436035156
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 446.3390808105469
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 200.02256774902344
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6559.60498046875
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3183.47900390625
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 695.2674560546875
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 762.9471435546875
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 491.4413146972656
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 121.47484588623047
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 113.6033706665039
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 380.4220275878906
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 318.0833740234375
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3394.6748046875
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 450.21630859375
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 293.8726501464844
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 397.8899230957031
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 141.97520446777344
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 240.16751098632812
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 420.1752014160156
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 292.0518493652344
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 199.85647583007812
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3644.513916015625
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1396.8861083984375
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1299.02490234375
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 329.3330993652344
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 237.9879913330078
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 258.2661437988281
+          }
+        ]
+      },
+      "43": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.36156076192855835,
+        "monthly_mae": 176.4366455078125,
+        "monthly_wape": 0.1948673278093338,
+        "bias_total": -2166.85791015625,
+        "reference_total": 28068.0,
+        "predicted_total": 25901.142578125,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.36156076192855835,
+          "monthly_mae": 176.4366455078125,
+          "monthly_wape": 0.1948673278093338,
+          "bias_total": -2166.85791015625,
+          "reference_total": 28068.0,
+          "predicted_total": 25901.142578125
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.15071426331996918,
+          "monthly_mae": 64.83509826660156,
+          "monthly_wape": 0.5242274403572083,
+          "bias_total": 898.076171875,
+          "reference_total": 3834.0,
+          "predicted_total": 4732.076171875
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.05761456489563,
+          "monthly_mae": 107.56584930419922,
+          "monthly_wape": 0.8697290420532227,
+          "bias_total": -3334.541015625,
+          "reference_total": 3834.0,
+          "predicted_total": 499.4587707519531
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 6.4064412117004395,
+          "bias_total": -2166.85791015625,
+          "reference_total": 28068.0,
+          "predicted_total": 25901.140625
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 2.0584874153137207,
+          "bias_total": 1874.265869140625,
+          "reference_total": 811.0,
+          "predicted_total": 2685.265869140625
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 577.9898071289062,
+          "bias_total": -943.140380859375,
+          "reference_total": 8852.0,
+          "predicted_total": 7908.85986328125
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.9583845138549805,
+          "monthly_mae": 585.6714477539062,
+          "monthly_wape": 0.2227056920528412,
+          "bias_total": -2909.9697265625,
+          "reference_total": 13149.0,
+          "predicted_total": 10239.0302734375
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 138.1641387939453
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 183.24588012695312
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 109.21957397460938
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 332.0105285644531
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 314.3616027832031
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 426.1012878417969
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 199.32058715820312
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6333.349609375
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 2884.646728515625
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 696.6807250976562
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 779.7207641601562
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 472.1651306152344
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 124.04875183105469
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 115.47429656982422
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 373.032470703125
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 302.67559814453125
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 2962.337158203125
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 437.391845703125
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 282.427978515625
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 384.28033447265625
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 142.64328002929688
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 232.59368896484375
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 410.6318359375
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 282.1930847167969
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 192.68882751464844
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3344.830810546875
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1383.6768798828125
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1267.466796875
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 317.97149658203125
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 222.58633422851562
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 253.20339965820312
+          }
+        ]
+      },
+      "44": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.3587600588798523,
+        "monthly_mae": 155.68380737304688,
+        "monthly_wape": 0.17194664478302002,
+        "bias_total": -914.0902099609375,
+        "reference_total": 28068.0,
+        "predicted_total": 27153.91015625,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.3587600588798523,
+          "monthly_mae": 155.68380737304688,
+          "monthly_wape": 0.17194664478302002,
+          "bias_total": -914.0902099609375,
+          "reference_total": 28068.0,
+          "predicted_total": 27153.91015625
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.13290387392044067,
+          "monthly_mae": 44.89125442504883,
+          "monthly_wape": 0.3629705011844635,
+          "bias_total": -211.11233520507812,
+          "reference_total": 3834.0,
+          "predicted_total": 3622.8876953125
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.1096742153167725,
+          "monthly_mae": 111.57438659667969,
+          "monthly_wape": 0.9021403193473816,
+          "bias_total": -3458.80615234375,
+          "reference_total": 3834.0,
+          "predicted_total": 375.1938171386719
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.974797248840332,
+          "bias_total": -914.0899658203125,
+          "reference_total": 28068.0,
+          "predicted_total": 27153.91015625
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.6353883743286133,
+          "bias_total": 1204.700927734375,
+          "reference_total": 811.0,
+          "predicted_total": 2015.700927734375
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 519.1398315429688,
+          "bias_total": 493.13134765625,
+          "reference_total": 8852.0,
+          "predicted_total": 9345.130859375
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 8.617311477661133,
+          "monthly_mae": 427.018798828125,
+          "monthly_wape": 0.16237691044807434,
+          "bias_total": -918.4352416992188,
+          "reference_total": 13149.0,
+          "predicted_total": 12230.5654296875
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 104.30496215820312
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 147.561279296875
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 64.78956604003906
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 297.3065185546875
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 273.8009948730469
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 394.7105712890625
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 154.61439514160156
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 7144.96484375
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3065.5498046875
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 684.6704711914062
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 764.3861083984375
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 453.2787780761719
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 81.11180114746094
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 74.80628204345703
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 326.8648681640625
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 266.040771484375
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3689.681396484375
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 405.80401611328125
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 247.40721130371094
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 341.89117431640625
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 103.82361602783203
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 195.65870666503906
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 368.5992736816406
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 234.28257751464844
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 156.70132446289062
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3595.896240234375
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1424.8187255859375
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1363.491455078125
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 307.5113220214844
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 198.62269592285156
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 220.9587860107422
+          }
+        ]
+      }
+    },
+    "cnn_poisson_aggregate": {
+      "42": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.33018675446510315,
+        "monthly_mae": 140.25962829589844,
+        "monthly_wape": 0.15491123497486115,
+        "bias_total": -3052.168701171875,
+        "reference_total": 28068.0,
+        "predicted_total": 25015.83203125,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.33018675446510315,
+          "monthly_mae": 140.25962829589844,
+          "monthly_wape": 0.15491123497486115,
+          "bias_total": -3052.168701171875,
+          "reference_total": 28068.0,
+          "predicted_total": 25015.83203125
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.10832160711288452,
+          "monthly_mae": 70.56157684326172,
+          "monthly_wape": 0.5705292224884033,
+          "bias_total": -2079.42822265625,
+          "reference_total": 3834.0,
+          "predicted_total": 1754.5716552734375
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.2989578247070312,
+          "monthly_mae": 121.7706069946289,
+          "monthly_wape": 0.9845824241638184,
+          "bias_total": -3774.888916015625,
+          "reference_total": 3834.0,
+          "predicted_total": 59.11111068725586
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.311007499694824,
+          "bias_total": -3052.168701171875,
+          "reference_total": 28068.0,
+          "predicted_total": 25015.830078125
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.2438349723815918,
+          "bias_total": 498.9522705078125,
+          "reference_total": 811.0,
+          "predicted_total": 1309.9522705078125
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 429.1537170410156,
+          "bias_total": 230.266845703125,
+          "reference_total": 8852.0,
+          "predicted_total": 9082.2666015625
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.901200771331787,
+          "monthly_mae": 363.360107421875,
+          "monthly_wape": 0.1381702423095703,
+          "bias_total": -1353.5517578125,
+          "reference_total": 13149.0,
+          "predicted_total": 11795.4482421875
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 88.03269958496094
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 128.35899353027344
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 62.23833084106445
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 224.81787109375
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 204.03024291992188
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 297.95001220703125
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 116.15695190429688
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 7220.01611328125
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3096.557861328125
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 538.9134521484375
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 586.348388671875
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 372.79571533203125
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 81.99043273925781
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 70.69473266601562
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 253.71328735351562
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 220.3764190673828
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3183.808837890625
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 343.15399169921875
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 222.17544555664062
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 269.7061767578125
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 88.87261962890625
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 162.31834411621094
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 280.8959655761719
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 207.06373596191406
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 132.47216796875
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3363.62060546875
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1305.2606201171875
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1258.8685302734375
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 256.6779479980469
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 165.8974151611328
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 212.04713439941406
+          }
+        ]
+      },
+      "43": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.33317363262176514,
+        "monthly_mae": 129.2786865234375,
+        "monthly_wape": 0.14278320968151093,
+        "bias_total": -2490.13134765625,
+        "reference_total": 28068.0,
+        "predicted_total": 25577.869140625,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.33317363262176514,
+          "monthly_mae": 129.2786865234375,
+          "monthly_wape": 0.14278320968151093,
+          "bias_total": -2490.13134765625,
+          "reference_total": 28068.0,
+          "predicted_total": 25577.869140625
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.11084480583667755,
+          "monthly_mae": 67.02515411376953,
+          "monthly_wape": 0.5419352650642395,
+          "bias_total": -1941.1055908203125,
+          "reference_total": 3834.0,
+          "predicted_total": 1892.8944091796875
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.2956390380859375,
+          "monthly_mae": 121.59481048583984,
+          "monthly_wape": 0.9831609725952148,
+          "bias_total": -3769.439453125,
+          "reference_total": 3834.0,
+          "predicted_total": 64.56047058105469
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.2328877449035645,
+          "bias_total": -2490.130859375,
+          "reference_total": 28068.0,
+          "predicted_total": 25577.8671875
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.3009721040725708,
+          "bias_total": 599.1151123046875,
+          "reference_total": 811.0,
+          "predicted_total": 1410.115234375
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 432.8768005371094,
+          "bias_total": -548.67041015625,
+          "reference_total": 8852.0,
+          "predicted_total": 8303.3291015625
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.710742473602295,
+          "monthly_mae": 400.80523681640625,
+          "monthly_wape": 0.15240901708602905,
+          "bias_total": -1861.4132080078125,
+          "reference_total": 13149.0,
+          "predicted_total": 11287.5869140625
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 99.49276733398438
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 146.4109344482422
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 67.2817611694336
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 262.8647766113281
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 234.7542724609375
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 341.4026794433594
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 129.1984100341797
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6959.75048828125
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3163.535400390625
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 644.7479858398438
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 711.1215209960938
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 446.99639892578125
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 91.27760314941406
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 78.2103271484375
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 296.84942626953125
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 253.5558624267578
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3064.0703125
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 401.2108459472656
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 259.4447326660156
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 311.7969055175781
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 100.12264251708984
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 184.95387268066406
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 327.50146484375
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 233.8970489501953
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 149.1560821533203
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3222.337158203125
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1350.9539794921875
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1307.3109130859375
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 300.07342529296875
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 191.46768188476562
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 246.12176513671875
+          }
+        ]
+      },
+      "44": {
+        "n": 51920,
+        "months": 31,
+        "cell_daily_mae": 0.32959842681884766,
+        "monthly_mae": 141.2355194091797,
+        "monthly_wape": 0.15598906576633453,
+        "bias_total": -3322.091796875,
+        "reference_total": 28068.0,
+        "predicted_total": 24745.908203125,
+        "north": {
+          "n": 51920,
+          "months": 31,
+          "cell_daily_mae": 0.32959842681884766,
+          "monthly_mae": 141.2355194091797,
+          "monthly_wape": 0.15598906576633453,
+          "bias_total": -3322.091796875,
+          "reference_total": 28068.0,
+          "predicted_total": 24745.908203125
+        },
+        "south": null,
+        "zero_modis_daily": {
+          "n": 50501,
+          "months": 31,
+          "cell_daily_mae": 0.10966449975967407,
+          "monthly_mae": 68.38619232177734,
+          "monthly_wape": 0.5529400110244751,
+          "bias_total": -2002.806396484375,
+          "reference_total": 3834.0,
+          "predicted_total": 1831.193603515625
+        },
+        "zero_modis_viirs_positive_daily": {
+          "n": 1642,
+          "months": 31,
+          "cell_daily_mae": 2.296276807785034,
+          "monthly_mae": 121.62860870361328,
+          "monthly_wape": 0.9834342002868652,
+          "bias_total": -3770.486328125,
+          "reference_total": 3834.0,
+          "predicted_total": 63.513450622558594
+        },
+        "cell_month": {
+          "n": 1705,
+          "mae": 5.306874752044678,
+          "bias_total": -3322.091796875,
+          "reference_total": 28068.0,
+          "predicted_total": 24745.908203125
+        },
+        "zero_modis_month": {
+          "n": 1246,
+          "mae": 1.2709269523620605,
+          "bias_total": 549.1864624023438,
+          "reference_total": 811.0,
+          "predicted_total": 1360.1865234375
+        },
+        "high_activity_month": {
+          "n": 3,
+          "mae": 435.9989929199219,
+          "bias_total": -692.2218017578125,
+          "reference_total": 8852.0,
+          "predicted_total": 8159.7783203125
+        },
+        "large_event_daily": {
+          "n": 616,
+          "months": 5,
+          "cell_daily_mae": 7.784645080566406,
+          "monthly_mae": 416.1963806152344,
+          "monthly_wape": 0.15826161205768585,
+          "bias_total": -1994.862060546875,
+          "reference_total": 13149.0,
+          "predicted_total": 11154.1376953125
+        },
+        "monthly": [
+          {
+            "month": "2023-01",
+            "viirs_count": 111.0,
+            "prediction": 93.61251831054688
+          },
+          {
+            "month": "2023-02",
+            "viirs_count": 195.0,
+            "prediction": 130.4773712158203
+          },
+          {
+            "month": "2023-03",
+            "viirs_count": 24.0,
+            "prediction": 63.700496673583984
+          },
+          {
+            "month": "2023-04",
+            "viirs_count": 298.0,
+            "prediction": 246.04713439941406
+          },
+          {
+            "month": "2023-05",
+            "viirs_count": 207.0,
+            "prediction": 218.977294921875
+          },
+          {
+            "month": "2023-06",
+            "viirs_count": 196.0,
+            "prediction": 324.2536315917969
+          },
+          {
+            "month": "2023-07",
+            "viirs_count": 83.0,
+            "prediction": 120.71492767333984
+          },
+          {
+            "month": "2023-08",
+            "viirs_count": 7900.0,
+            "prediction": 6903.056640625
+          },
+          {
+            "month": "2023-09",
+            "viirs_count": 3810.0,
+            "prediction": 3080.695068359375
+          },
+          {
+            "month": "2023-10",
+            "viirs_count": 950.0,
+            "prediction": 611.0350952148438
+          },
+          {
+            "month": "2023-11",
+            "viirs_count": 748.0,
+            "prediction": 662.742919921875
+          },
+          {
+            "month": "2023-12",
+            "viirs_count": 522.0,
+            "prediction": 409.8200988769531
+          },
+          {
+            "month": "2024-01",
+            "viirs_count": 133.0,
+            "prediction": 83.25200653076172
+          },
+          {
+            "month": "2024-02",
+            "viirs_count": 79.0,
+            "prediction": 72.18643188476562
+          },
+          {
+            "month": "2024-03",
+            "viirs_count": 245.0,
+            "prediction": 278.4074401855469
+          },
+          {
+            "month": "2024-04",
+            "viirs_count": 228.0,
+            "prediction": 228.73165893554688
+          },
+          {
+            "month": "2024-08",
+            "viirs_count": 3224.0,
+            "prediction": 3007.66943359375
+          },
+          {
+            "month": "2024-10",
+            "viirs_count": 502.0,
+            "prediction": 364.772216796875
+          },
+          {
+            "month": "2024-12",
+            "viirs_count": 324.0,
+            "prediction": 231.20411682128906
+          },
+          {
+            "month": "2025-01",
+            "viirs_count": 474.0,
+            "prediction": 282.172607421875
+          },
+          {
+            "month": "2025-02",
+            "viirs_count": 111.0,
+            "prediction": 92.62268829345703
+          },
+          {
+            "month": "2025-03",
+            "viirs_count": 176.0,
+            "prediction": 168.83338928222656
+          },
+          {
+            "month": "2025-04",
+            "viirs_count": 333.0,
+            "prediction": 304.6327209472656
+          },
+          {
+            "month": "2025-05",
+            "viirs_count": 237.0,
+            "prediction": 211.3471221923828
+          },
+          {
+            "month": "2025-06",
+            "viirs_count": 149.0,
+            "prediction": 137.44020080566406
+          },
+          {
+            "month": "2025-07",
+            "viirs_count": 3052.0,
+            "prediction": 3165.201416015625
+          },
+          {
+            "month": "2025-08",
+            "viirs_count": 1151.0,
+            "prediction": 1312.267578125
+          },
+          {
+            "month": "2025-09",
+            "viirs_count": 1268.0,
+            "prediction": 1269.8502197265625
+          },
+          {
+            "month": "2025-10",
+            "viirs_count": 393.0,
+            "prediction": 278.968017578125
+          },
+          {
+            "month": "2025-11",
+            "viirs_count": 499.0,
+            "prediction": 173.3356475830078
+          },
+          {
+            "month": "2025-12",
+            "viirs_count": 446.0,
+            "prediction": 217.87998962402344
+          }
+        ]
+      }
+    }
+  }
+}

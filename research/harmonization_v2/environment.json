@@ -1,0 +1,21 @@
+{
+  "python": "3.11.9",
+  "packages": {
+    "numpy": "2.4.6",
+    "pandas": "3.1.1",
+    "scipy": "1.17.1",
+    "scikit-learn": "1.9.1",
+    "shapely": "2.2.0",
+    "pyhdf": "0.11.7",
+    "pyproj": "3.7.2",
+    "h5py": "3.16.0"
+  },
+  "source_sha256": {
+    "backend/harmonization_v2.py": "c75ed08d03b241b689a944daf3345c5d20363745b80410ca3d6e2d2b9976f1ba",
+    "scripts/prepare_harmonization_v2.py": "bf08c60f678d2217585dbe77306cf1972c3a4a04fea37d9c76f9cf5d9d32e094",
+    "scripts/train_harmonization_v2.py": "0a7dee09f6d05e32461b1f7e7593e6bc79787c350516cb496f5be9b8e855ed43",
+    "scripts/fetch_observation_mask_pilot.py": "96e5414ad9e3bc57710043e42c6a3d8006683bb21b494119653ff8f07ab6dad6",
+    "scripts/fetch_viirs_mask_pilot.py": "760d970e1a7ae2d51b4a7c2b7d84d3e831ff816e0fe4281cb653798235d421f3",
+    "research/harmonization_v2/protocol.json": "8933a69555b5982c1c9a13c371fef8f39e575ce8d0789dd6d9bd6ec73665280d"
+  }
+}

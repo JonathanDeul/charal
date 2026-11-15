@@ -1,0 +1,52 @@
+{
+  "source": "https://cmr.earthdata.nasa.gov/search/granules.json",
+  "swath": "A2020233.1936",
+  "files": [
+    {
+      "product": "VNP14IMG",
+      "url": "https://data.lpdaac.earthdatacloud.nasa.gov/lp-prod-protected/VNP14IMG.002/VNP14IMG.A2020233.1936.002.2024066023814/VNP14IMG.A2020233.1936.002.2024066023814.nc",
+      "granule": "VNP14IMG.A2020233.1936.002.2024066023814.nc",
+      "status": "downloaded",
+      "bytes": 3000154,
+      "sha256": "f408483750490d2931807bf4190598cc79dcab7bfdb186cdc9d99d7787740d43"
+    },
+    {
+      "product": "VNP03IMG",
+      "url": "https://data.laadsdaac.earthdatacloud.nasa.gov/prod-lads/VNP03IMG/VNP03IMG.A2020233.1936.002.2021124235417.nc",
+      "granule": "VNP03IMG.A2020233.1936.002.2021124235417.nc",
+      "status": "downloaded",
+      "bytes": 166621676,
+      "sha256": "f4cc56a54d8f21ca69b10d9bd180b284ae14b55d75636fde6bc8f043c88e3cea"
+    }
+  ],
+  "status": "acquired_and_geolocated",
+  "limitations": [
+    "One six-minute daytime swath, not full-day or full-period reference exposure.",
+    "Bowtie, glint, cloudy and unprocessed classes are retained separately.",
+    "375m swath and 1km daily maximum MODIS composites have different spatial/temporal supports.",
+    "Masks are not fitted as full-period predictors; historical model remains hotspot-only."
+  ],
+  "swath_shape": [
+    6464,
+    6400
+  ],
+  "mask_classes": {
+    "0": "not processed",
+    "1": "bowtie",
+    "2": "glint",
+    "3": "water",
+    "4": "cloud",
+    "5": "clear land",
+    "6": "unclassified",
+    "7": "low-confidence fire",
+    "8": "nominal-confidence fire",
+    "9": "high-confidence fire"
+  },
+  "pixels_by_class": {
+    "1": 25476,
+    "3": 3649,
+    "4": 2440,
+    "5": 69842
+  },
+  "cells": 20
+}

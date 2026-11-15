@@ -1,0 +1,82 @@
+{
+  "sources": [
+    {
+      "path": "data/raw/modis_2012_United_States.csv.gz",
+      "sha256": "653ef95e0abe78a6d3b629c3e5f6a0cff20e129ecb63b0d3f54baa8835c5ef6e"
+    },
+    {
+      "path": "data/raw/modis_2013_United_States.csv.gz",
+      "sha256": "3393e79f03719ae7e4f1360e112e553e3b2fce3f98c7e5faaf54c68e4a61b8b1"
+    },
+    {
+      "path": "data/raw/modis_2014_United_States.csv.gz",
+      "sha256": "9f96e5bc2a5cdf07044bd80d33f616cb893d60d222506f28e3cefdbc721b4a91"
+    },
+    {
+      "path": "data/raw/modis_2015_United_States.csv.gz",
+      "sha256": "6b9c4f5061f526afd237ab56a48945e9001c82c8e67f1aad6247f7eefd5f9ef3"
+    },
+    {
+      "path": "data/raw/modis_2016_United_States.csv.gz",
+      "sha256": "191bf106927ba658d72fd00dc30bba4a9eb8bfcdf602e386d5a5ef2d8b5a2e96"
+    },
+    {
+      "path": "data/raw/modis_2017_United_States.csv.gz",
+      "sha256": "458d60d17259b63e5891bbb00312174a9f8318aefc3f1342cc45bab35eee183c"
+    },
+    {
+      "path": "data/raw/modis_2018_United_States.csv.gz",
+      "sha256": "bb28918c706040f99c12e27966d82506f7cf3c05f968200135b37ad0330fb052"
+    },
+    {
+      "path": "data/raw/modis_2019_United_States.csv.gz",
+      "sha256": "a81fd7299f3e51b0f6d9816495f40713fd0911aea8f56a889d85515a320d0f06"
+    },
+    {
+      "path": "data/raw/modis_2020_United_States.csv.gz",
+      "sha256": "2d6d7cce37fb2942a937ddfe53ef232344020a643592575466b388a386b2fc1b"
+    },
+    {
+      "path": "data/raw/modis_2021_United_States.csv.gz",
+      "sha256": "87d4634abf9067e5f0c8102771ffc0c3bffb5b00ceea060647b97f7124bef8dc"
+    },
+    {
+      "path": "data/raw/modis_2022_United_States.csv.gz",
+      "sha256": "7de2e8b6f55ba07c8ad56ea7a0d7a223b855cd3074977cb3c739f7ef588a317a"
+    },
+    {
+      "path": "data/raw/modis_2023_United_States.csv.gz",
+      "sha256": "b328b0a9b1889ae6b19d8f593ba848988813447befcadcaf7136a0ee2f6e5462"
+    },
+    {
+      "path": "data/raw/modis_2024_United_States.csv.gz",
+      "sha256": "852e460f673a04bbacaa582c6a7fb5b0c927aa64d9ad0a7f551adae71ab6f80b"
+    },
+    {
+      "path": "data/raw/modis_2025_United_States.csv.gz",
+      "sha256": "839f0f6582fbf0d586c0e5f32e972b16524f3ad827046043be4e93cce5017d63"
+    }
+  ],
+  "channels": [
+    "Terra count",
+    "Aqua count",
+    "FRP sum MW",
+    "daytime count"
+  ],
+  "shape": [
+    5114,
+    24,
+    25,
+    4
+  ],
+  "ca_cells": 224,
+  "daily_ca_rows": 1145536,
+  "daily_sha256": "ddb296dd8b7ab2bb93876b87ac400c645408b64df30b5d42ae74e17c476971c1",
+  "target_source_sha256": "5b8bb68d89e3e0eff1e7b294760f40f843acd7c90e66d6a1d9d38028743380d9",
+  "monthly_parity_with_v2": "passed for every full reference month 2012-02 through 2025-12",
+  "limitations": [
+    "Availability channel measures source/split support, not overpass/cloud exposure.",
+    "Context outside the five-state union is unavailable.",
+    "Monthly outage exclusions are conservative and shared with v2."
+  ]
+}

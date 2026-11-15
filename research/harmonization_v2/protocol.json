@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "created": "2026-11-15",
+  "target": "Suomi-NPP VIIRS reported detections per state-clipped 0.5 degree cell-month",
+  "states": ["CA", "OR", "WA", "NV", "AZ"],
+  "development_folds": [{"train": [2013, 2016], "validate": [2017, 2018]}, {"train": [2013, 2018], "validate": [2019, 2020]}],
+  "fit_years": [2013, 2020],
+  "selection_years": [2021, 2022],
+  "known_benchmark_years": [2023, 2025],
+  "backward_audit": ["2012-02", "2012-12"],
+  "backward_audit_status": "Newly reserved for this experiment; not a guaranteed never-inspected test. Earlier published monthly artifacts include 2012.",
+  "spatial_audit": "Fit only latitude <39.5 in all states, evaluate California latitude >=39.5, 2023-2025. Remove all training cells within 0.5 degrees of audit cells to prevent cross-state boundary leakage.",
+  "models": ["seasonal_ratio", "nb_gam_ca", "nb_gam_west", "nb_gam_west_adapted", "poisson_gam_ca", "boosted_correction_ca"],
+  "gam_penalties": [0.01, 0.1],
+  "nb_dispersion": 1.0,
+  "baseline": "California training-only month-specific ratios; pooled-west model uses west training-only ratios; adapted model uses state ratios with global fallback.",
+  "candidate_selection": "Select GAM penalty using mean California statewide monthly MAE across the two development folds. Select final model by California 2021-2022 monthly MAE. Baseline wins ties.",
+  "promotion_gate": "At least 5% lower California selection monthly MAE than baseline AND selection cell-month MAE and north/south monthly MAE each no more than 5% worse than baseline. Known benchmark and backward/spatial audits are disclosed, never used for selection.",
+  "quality": "Same vegetation/confidence predicate as v1; omit any paired month with listed MODIS or SNPP missing days. Missing/unavailable targets are never zeros.",
+  "exposure_policy": "Hotspot-only acquisition/geometry features describe detected pixels, not observation exposure. Mask pilot is separate and is not fed into a full-period model unless matched coverage is available across its fitting and application periods.",
+  "no_test_tuning": true
+}

@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "benchmark_years": [
+    2021,
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "training_years": [
+    2013,
+    2014,
+    2015,
+    2016,
+    2017,
+    2018,
+    2019,
+    2020
+  ],
+  "threshold": 95,
+  "season_days": 30,
+  "windows": [
+    {
+      "window_days": 1,
+      "anchor_windows": 125,
+      "cell_mae": 0.3289400165905675,
+      "statewide_mae": 41.48348803422408,
+      "wape": 0.5174046662848092,
+      "active_score_mae": 64.24077862163402,
+      "active_outlier_agreement": 0.610130904951622,
+      "active_comparisons": 1757
+    },
+    {
+      "window_days": 3,
+      "anchor_windows": 124,
+      "cell_mae": 0.8341146621937666,
+      "statewide_mae": 93.54819399235102,
+      "wape": 0.43576596116188726,
+      "active_score_mae": 59.208390880329716,
+      "active_outlier_agreement": 0.746,
+      "active_comparisons": 3500
+    },
+    {
+      "window_days": 7,
+      "anchor_windows": 122,
+      "cell_mae": 1.6215680445666496,
+      "statewide_mae": 152.34720410111413,
+      "wape": 0.34345179670700016,
+      "active_score_mae": 51.30843145568704,
+      "active_outlier_agreement": 0.8172996486531705,
+      "active_comparisons": 5977
+    },
+    {
+      "window_days": 14,
+      "anchor_windows": 117,
+      "cell_mae": 2.9005394676849865,
+      "statewide_mae": 201.64067346548796,
+      "wape": 0.26869795471735936,
+      "active_score_mae": 44.807975685178484,
+      "active_outlier_agreement": 0.8539759036144579,
+      "active_comparisons": 8300
+    }
+  ],
+  "note": "Ranks compare held-out MODIS estimates and observed VIIRS targets against the same VIIRS-only reference, excluding all calendar years touched by each target window. Measurement windows are wholly within 2021\u20132025. Active comparisons have reports in either sensor. Overlapping windows/cells are correlated; agreement is descriptive, not independent-trial accuracy. This already-inspected period is a known benchmark, not a pristine test or proof of pre-2012 transfer.",
+  "daily_artifact_sha256": "607fe634ca58b4a247c259a43f0b451e990d398c889415ca0ff67d432fea860d"
+}
