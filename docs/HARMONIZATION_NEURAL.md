@@ -1,6 +1,6 @@
 # MPS neural harmonization experiments
 
-**Best completed neural candidate: v7 / plr_mlp_conditional.** Statewide 2021–2022 monthly MAE: **475.51**. Target <500: **True**. This is the average of three fixed neural seeds, not a lucky selected seed. Production remains unchanged.
+**Best completed neural candidate: v7 / plr_mlp_conditional.** Statewide 2021–2022 monthly MAE: **475.51**. Target <500: **True**. This is the average of three fixed neural seeds, not a lucky selected seed. This neural candidate was not promoted. The later [regional historical release](HISTORICAL_TRANSFER_RELEASE.md) now supplies the monthly calendar, with newly calibrated uncertainty.
 
 ## GPU verification and evaluation policy
 
@@ -62,7 +62,7 @@ Deployed seasonal calibration: selection MAE 730.71, known benchmark 291.33, bac
 
 Seed differences show optimizer sensitivity, not independent-data confidence intervals. Greater attention capacity is not assumed to improve calibration: unfavorable full Transformer results are retained.
 
-## Material tradeoffs and unexecuted follow-up
+## Material tradeoffs and platform follow-up
 
 Meeting the <500 statewide target does not satisfy every earlier production safeguard. The best v7 neural ensemble increases selection cell-month MAE from 7.67 to 8.23 (+7.3%). On the known benchmark, northern monthly MAE increases from 92.45 to 97.68 (+5.7%), while statewide and overall cell errors improve. Backward northern 2012 MAE increases from 62.20 to 110.96; statewide backward MAE nevertheless improves. These failures prevent describing this as a uniformly superior spatial reconstruction or silently replacing the deployed model.
 
@@ -70,7 +70,7 @@ Selection signed monthly bias is approximately −418 detections/month, so the l
 
 The initial v7 batch-two implementation was stopped before final selection and benchmark scoring when it was found to differ from the frozen batch-eight protocol. Its artifacts remain under `harmonization_v7_batch2_aborted`, explicitly excluded from the candidate search and result tables. Corrected batch-eight runs produced the results above.
 
-A separate Terra/Aqua feature preparation and modality-fusion architecture were prepared as a possible next round, but v8 was not trained after the v7 ensemble met the requested threshold. A public NASA POWER availability probe also succeeded; no POWER/weather values were used in any reported fit. The new raw-platform descriptors describe detected pixels, not cloud-free exposure.
+The separate Terra/Aqua modality-fusion round (v8) subsequently completed three configurations on MPS. Its selected Transformer scores 679.41 on2021–2022,265.80 on the known2023–2025 benchmark and199.07 in2012. It remains a research candidate; details are in the [historical release report](HISTORICAL_TRANSFER_RELEASE.md). A public NASA POWER availability probe also succeeded; no POWER/weather values were used in any reported fit. The new raw-platform descriptors describe detected pixels, not cloud-free exposure.
 
 ## Artifacts and sources
 

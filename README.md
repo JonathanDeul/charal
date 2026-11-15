@@ -25,6 +25,12 @@ npm --prefix frontend ci
 
 The compact prepared dataset is included under `data/processed/`: `observations.npz`, `events.json.gz`, `analysis.json.gz`, `california.geojson`, and `map-context.geojson`. These suffice to run the app. The full local NASA CSV and cached US archives are intentionally excluded from deployment.
 
+## Active monthly harmonization
+
+The local calendar now uses **historical-transfer-1**: the original seasonal calibration in northern cells, and a learned conditional-count model in southern cells, selected using forward/backward folds within 2013–2020. Statewide monthly MAE improves from **730.71 to 674.31** on 2021–2022, **291.33 to 256.00** on the known 2023–2025 benchmark, and **204.77 to 111.93** in the 2012 backward check. Northern estimates remain unchanged. All historical audit periods have been inspected; these are exploratory transfer results, not prospective confirmation.
+
+New empirical residual bands and 39 block-bootstrap refits quantify separate aspects of uncertainty. Pre-July-2002 Terra-only estimates retain the original calibration; raw observations, observed VIIRS and outage masks remain unchanged. The neural MLP still achieves the best 2021–2022 statewide score (475.51), but its local/northern transfer failures prevent a blanket historical replacement. The regional release does not meet that <500 target. See [release results, uncertainty and restoration](docs/HISTORICAL_TRANSFER_RELEASE.md). Daily/event outlier methods remain separate.
+
 ## What works
 
 - NASA hotspot map with both sensors or individual sensor layers. Prepared Census geography and city labels work without map API keys.
@@ -33,7 +39,7 @@ The compact prepared dataset is included under `data/processed/`: `observations.
 - Monthly burning calendar for 2001–2025; click any month to update the map and historical comparison.
 - Preset regions, two-corner map selection, and keyboard-accessible coordinate entry.
 - Observed MODIS/VIIRS counts and a VIIRS-reference historical activity series. Known incomplete sensor-months stay explicitly unavailable.
-- Trained boosted-tree candidate, ratio baseline, seasonal control, validation selection, untouched future-year results, and a geographic holdout check.
+- Regional transfer calibration, original controls, known historical audits, geographic checks and explicit uncertainty diagnostics.
 - Fire-area tail fitting, threshold estimation, bootstrap compatibility tests, empirical parameter intervals, lognormal/exponential comparisons, and complex-record sensitivity.
 - Monthly CSV, selected perimeter-record CSV, sampled map-detection CSV, scientific chart SVG, analysis/provenance JSON.
 - Source and method explanations in the app. Responsive desktop/mobile layouts.
@@ -42,7 +48,7 @@ The compact prepared dataset is included under `data/processed/`: `observations.
 
 The prepared archive contains **1,315,630** state-clipped NASA detections. A documented vegetation/confidence rule retains **1,169,069** (297,730 MODIS; 871,339 Suomi NPP VIIRS). The CAL FIRE source provides **8,699 perimeter records**, not a guaranteed set of independent fires.
 
-The model families and time split were fixed before final reporting. Independently sourced NASA outage flags exclude incomplete paired months. Training: 2013–2020; validation: 2021–2022; untouched test: 2023–2025. The clean test has 31 months.
+In the original v1 study, model families and the time split were fixed before final reporting. Independently sourced NASA outage flags exclude incomplete paired months. Training: 2013–2020; validation: 2021–2022; original test: 2023–2025. The clean original test had 31 months; subsequent studies treat those years as a known benchmark.
 
 | Method | Test monthly MAE | Test WAPE |
 | --- | ---: | ---: |
@@ -50,15 +56,15 @@ The model families and time split were fixed before final reporting. Independent
 | Trained boosted-tree ML | 513.29 | 23.27% |
 | Seasonal mean | 3516.66 | 159.42% |
 
-Validation selects the ratio baseline, which the calendar uses. The ML candidate is preserved and evaluated; it is not presented as an improvement. `models/boosted_candidate.pkl` contains its trained weights locally. Future training runs preserve the candidate alongside the selected estimator.
+Original v1 validation selected the ratio baseline. That estimator is preserved at `models/harmonization.pkl`, and its original ML control at `models/boosted_candidate.pkl`. The later active release described above supersedes the original calendar calibration.
 
-A separate [harmonization v2 experiment](docs/HARMONIZATION_V2.md), completed on 15 November, reprocessed 2.37 million detections across five western states and trained baseline-anchored Negative-Binomial/Poisson GAMs and a boosted correction. The pooled West model reduced statewide validation MAE by 7.9% but worsened regional and cell errors, failing its predeclared promotion gate. The calendar therefore retains the original calibration. Real MODIS/VIIRS observation masks were acquired as a bounded pilot; they are not yet full-period model inputs. The already-inspected 2023–2025 scores are explicitly labeled a known benchmark in this follow-up.
+A separate [harmonization v2 experiment](docs/HARMONIZATION_V2.md), completed on 15 November, reprocessed 2.37 million detections across five western states and trained baseline-anchored Negative-Binomial/Poisson GAMs and a boosted correction. The pooled West model reduced statewide validation MAE by 7.9% but worsened regional and cell errors, failing its predeclared promotion gate. At the end of v2 the calendar retained the original calibration. Real MODIS/VIIRS observation masks were acquired as a bounded pilot; they are not yet full-period model inputs. The already-inspected 2023–2025 scores are explicitly labeled a known benchmark in this follow-up.
 
-The [daily context experiment (v3)](docs/HARMONIZATION_V3.md) compares point and 7-day/5×5-patch inputs for boosting and small neural networks, with three neural seeds and CAL FIRE event-boundary guards. Context lowers boosting monthly MAE by 14.0% on 2021–2022 and 8.7% on the known 2023–2025 benchmark. The first CNN configurations do not consistently improve statewide performance; they show some benefit in a buffered geographic-transfer diagnostic. V3's purged training population differs substantially from v1, so within-v3 controls and the unchanged deployed reference are reported separately. Production remains unchanged.
+The [daily context experiment (v3)](docs/HARMONIZATION_V3.md) compares point and 7-day/5×5-patch inputs for boosting and small neural networks, with three neural seeds and CAL FIRE event-boundary guards. Context lowers boosting monthly MAE by 14.0% on 2021–2022 and 8.7% on the known 2023–2025 benchmark. The first CNN configurations do not consistently improve statewide performance; they show some benefit in a buffered geographic-transfer diagnostic. V3's purged training population differs substantially from v1, so within-v3 controls and the unchanged deployed reference are reported separately. At that stage production remained unchanged.
 
-[Harmonization v4](docs/HARMONIZATION_V4.md) found an improved **exploratory candidate**: a two-stage boosted count mean with finer MODIS descriptors. Using the original baseline's eligible 2013–2020 observations, its statewide monthly MAE improves from 730.71 to 666.33 on 2021–2022 and from 291.33 to 259.74 on the known 2023–2025 benchmark; north/south and overall cell errors improve in both periods. Paired CAL FIRE-purged sensitivity fits confirm the forward improvement. Important failures remain: Northern California in 2012, combined zero-MODIS cell errors, and shorter-training development folds. Multiple comparisons and previously inspected periods require prospective confirmation. The trained candidate and research backcasts are saved separately; the app retains v1 and its original uncertainty bands.
+[Harmonization v4](docs/HARMONIZATION_V4.md) found an improved **exploratory candidate**: a two-stage boosted count mean with finer MODIS descriptors. Using the original baseline's eligible 2013–2020 observations, its statewide monthly MAE improves from 730.71 to 666.33 on 2021–2022 and from 291.33 to 259.74 on the known 2023–2025 benchmark; north/south and overall cell errors improve in both periods. Paired CAL FIRE-purged sensitivity fits confirm the forward improvement. Important failures remain: Northern California in 2012, combined zero-MODIS cell errors, and shorter-training development folds. Multiple comparisons and previously inspected periods require prospective confirmation. The trained candidate and research backcasts were saved separately; v4 alone did not replace v1. The later regional release above adds new uncertainty calibration.
 
-The [MPS neural experiments](docs/HARMONIZATION_NEURAL.md) tested 13 neural configurations, including spatial, temporal-patch and feature-token Transformers. A three-seed MLP ensemble with piecewise-linear numeric embeddings reaches **475.51 monthly MAE on 2021–2022**, below the requested500, and271.47 on the known2023–2025 benchmark. It is a genuine neural count model with a training-only seasonal count offset and no boosted teacher. Local tradeoffs remain: selection cell errors increase7.3%, known-benchmark northern error increases5.7%, and northern2012 backcasts worsen. The production calendar is unchanged. Portable inference is available through `backend.neural_candidate.NeuralCandidate(root).predict(derived_modis_frame)`; the frozen checkpoint manifest is under `data/research/neural_summary/`.
+The [MPS neural experiments](docs/HARMONIZATION_NEURAL.md) tested 13 neural configurations, including spatial, temporal-patch and feature-token Transformers. A three-seed MLP ensemble with piecewise-linear numeric embeddings reaches **475.51 monthly MAE on 2021–2022**, below the requested500, and271.47 on the known2023–2025 benchmark. It is a genuine neural count model with a training-only seasonal count offset and no boosted teacher. Local tradeoffs remain: selection cell errors increase7.3%, known-benchmark northern error increases5.7%, and northern2012 backcasts worsen. The neural candidate was not promoted into the calendar. Portable inference is available through `backend.neural_candidate.NeuralCandidate(root).predict(derived_modis_frame)`; the frozen checkpoint manifest is under `data/research/neural_summary/`.
 
 The full-period perimeter sample has 1,966 records above the 300-acre floor. Its fitted tail starts at about 130.6 ha (1,918 records), with density exponent α≈1.544. A semiparametric compatibility bootstrap gives **p=0.005 (199 replicates)**, rejecting a simple power-law description at this selected threshold. The conditional lognormal has higher likelihood; removing linked/named complex records preserves the qualitative conclusion. A power law is a tested hypothesis, not a promised finding.
 
@@ -81,10 +87,11 @@ These commands use public official endpoints. Existing `.env` keys are not neede
 .venv/bin/python scripts/fetch_data.py
 .venv/bin/python scripts/fetch_coverage.py
 .venv/bin/python scripts/analyze.py --bootstrap 199 --grid 0.5
+.venv/bin/python scripts/promote_historical_transfer.py
 .venv/bin/python scripts/pack_data.py
 ```
 
-The downloader caches approximately 800 MB of US archives before clipping California. Review `scripts/fetch_data.py --help` for available options. Geography for the prepared basemap is already included; exact source queries are in [docs/MAP_DATA.md](docs/MAP_DATA.md).
+The downloader caches approximately 800 MB of US archives before clipping California. The promotion step requires the locally trained release package and matching source hashes; a fresh checkout must first reproduce the research features/experts using the [release instructions](docs/HISTORICAL_TRANSFER_RELEASE.md). `analyze.py` alone rebuilds v1. Review `scripts/fetch_data.py --help` for available options. Geography for the prepared basemap is already included; exact source queries are in [docs/MAP_DATA.md](docs/MAP_DATA.md).
 
 ## Verification
 

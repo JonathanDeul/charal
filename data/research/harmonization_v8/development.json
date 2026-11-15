@@ -1,0 +1,2363 @@
+{
+  "protocol": {
+    "created": "2026-11-15",
+    "purpose": "Additional physical sensor separation if previous neural rounds miss MAE500: Terra/Aqua features and modality-fusion Transformer",
+    "training": [
+      2013,
+      2020
+    ],
+    "development_training": [
+      2013,
+      2018
+    ],
+    "development_validation": [
+      2019,
+      2020
+    ],
+    "selection": [
+      2021,
+      2022
+    ],
+    "known_benchmark": [
+      2023,
+      2025
+    ],
+    "backward_audit": [
+      2012,
+      2012
+    ],
+    "features": "V5 fine features plus42 separate Terra/Aqua count, day/night count, FRP, thermal contrast, confidence, geometry, detection-day occupancy and approximate solar acquisition time descriptors from existing raw MODIS data. Detector-only, not exposure masks.",
+    "architecture": "Two training-only month-specific reference-per-platform count scales; neural corrections and learned softmax fusion weights. MLP control or full two-layer32dim4head Transformer over Terra/Aqua modality tokens plus CLS. Pure neural count mean, no boosted teacher.",
+    "configs": [
+      {
+        "name": "platform_mlp_cond005",
+        "architecture": "platform_mlp",
+        "local_weight": 0.05
+      },
+      {
+        "name": "platform_transformer_cond005",
+        "architecture": "platform_transformer",
+        "local_weight": 0.05
+      },
+      {
+        "name": "platform_transformer_cond001",
+        "architecture": "platform_transformer",
+        "local_weight": 0.01
+      }
+    ],
+    "optimizer": "MPS AdamW lr .001 weight_decay .01, dropout .1, clip5, cosine .0001 floor over320 epochs, eight full months per batch",
+    "epoch_candidates": [
+      20,
+      40,
+      80,
+      160,
+      320
+    ],
+    "seeds": [
+      42,
+      43,
+      44
+    ],
+    "loss": "Same v7 positive-only conditional Poisson, .2 BCE and direct statewide/regional monthly losses, coefficient per config.",
+    "selection_rule": "Choose epoch on2019-2020 ensemble MAE, refit2013-2020, select config on2021-2022 only. Seal choice before new winner benchmark. No known-benchmark tuning.",
+    "limits": "Exploratory repeated historical selection. Different nominal Terra/Aqua observation times motivate feature separation, not a claim that either sensor is always superior. Historical Terra-only periods are an unvalidated platform-availability shift. No production promotion."
+  },
+  "protocol_sha256": "b03f36e0afba34ed83f95b3ebab7d4650dcb7da4af8f5f639fc1d8084f8c77c6",
+  "device": "mps",
+  "development": {
+    "platform_mlp_cond005": {
+      "20": {
+        "monthly_mae": 1023.0440228780111,
+        "monthly_rmse": 2543.3325655071585,
+        "monthly_wape": 0.10266844749119698,
+        "monthly_bias": -516.1441942850748,
+        "cell_month_mae": 9.831345438990477,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 518.8037223815918,
+            "monthly_rmse": 1314.8733380848346,
+            "monthly_wape": 0.10914428640315392,
+            "monthly_bias": -115.12272834777832,
+            "cell_month_mae": 14.644082538332,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 552.5096677144369,
+            "monthly_rmse": 1395.1423873595202,
+            "monthly_wape": 0.10602417904776988,
+            "monthly_bias": -401.02126185099286,
+            "cell_month_mae": 8.265070051630808,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 640.2657470703125
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 344.2828674316406
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 552.1408081054688
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 680.7611694335938
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 658.818359375
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1063.182373046875
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 784.7850952148438
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1540.9581298828125
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6197.169921875
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3849.66650390625
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2102.820556640625
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 627.9851684570312
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 758.3192138671875
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1789.2314453125
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1433.7177734375
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 872.2645263671875
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 534.1512451171875
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 891.35791015625
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3894.628173828125
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 46802.17578125
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 129577.2734375
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 16891.3515625
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2505.847412109375
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1768.3841552734375
+          }
+        ],
+        "largest_three_reference_months_mae": 6918.915364583333
+      },
+      "40": {
+        "monthly_mae": 1076.5131034851074,
+        "monthly_rmse": 2755.0471629252397,
+        "monthly_wape": 0.10803438226228242,
+        "monthly_bias": -591.2614682515463,
+        "cell_month_mae": 9.899362271124986,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 563.8322189648947,
+            "monthly_rmse": 1478.8394095849264,
+            "monthly_wape": 0.11861723911218758,
+            "monthly_bias": -103.269677956899,
+            "cell_month_mae": 15.473584440666619,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 596.5225512186686,
+            "monthly_rmse": 1532.6897210507657,
+            "monthly_wape": 0.11447005812236581,
+            "monthly_bias": -487.9911410013835,
+            "cell_month_mae": 8.08526629878895,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 660.9879760742188
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 351.9591979980469
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 565.1200561523438
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 696.0391235351562
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 656.552001953125
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1036.5303955078125
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 766.2737426757812
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1514.959716796875
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5990.4072265625
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3812.414794921875
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2091.57470703125
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 631.0762329101562
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 758.0033569335938
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1793.165283203125
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1436.926513671875
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 873.0699462890625
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 538.8104858398438
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 866.6962890625
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3790.356201171875
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 45069.578125
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 129605.3828125
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17168.69921875
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2492.07666015625
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1792.064697265625
+          }
+        ],
+        "largest_three_reference_months_mae": 7413.368489583333
+      },
+      "80": {
+        "monthly_mae": 898.8698895772299,
+        "monthly_rmse": 2650.137894431979,
+        "monthly_wape": 0.0902068474041435,
+        "monthly_bias": -748.231143951416,
+        "cell_month_mae": 9.907928149204789,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 485.8867197036743,
+            "monthly_rmse": 1316.6449116776837,
+            "monthly_wape": 0.10221931147945919,
+            "monthly_bias": -214.5391461054484,
+            "cell_month_mae": 15.227448639047868,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 645.575366973877,
+            "monthly_rmse": 1553.846134269441,
+            "monthly_wape": 0.12388307806451727,
+            "monthly_bias": -533.6920382181803,
+            "cell_month_mae": 8.176723256060592,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 668.8197021484375
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 354.4886779785156
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 587.1256713867188
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 737.6856689453125
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 670.8811645507812
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1055.058349609375
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 795.244873046875
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1507.668212890625
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5900.39501953125
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3920.75244140625
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2202.948974609375
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 627.914306640625
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 761.485107421875
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1886.377685546875
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1532.8594970703125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 910.3209228515625
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 557.0596313476562
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 896.5222778320312
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3873.910400390625
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 44672.6328125
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 125214.2109375
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17350.62890625
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2617.368896484375
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1889.0924072265625
+          }
+        ],
+        "largest_three_reference_months_mae": 6071.842447916667
+      },
+      "160": {
+        "monthly_mae": 1160.1093368530273,
+        "monthly_rmse": 2913.6328125749687,
+        "monthly_wape": 0.1164237529091598,
+        "monthly_bias": -1009.8558883666992,
+        "cell_month_mae": 9.868713510560891,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 520.6772836049398,
+            "monthly_rmse": 1369.462098877528,
+            "monthly_wape": 0.1095384402882036,
+            "monthly_bias": -415.5567092895508,
+            "cell_month_mae": 15.487780783731829,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 676.2897783915201,
+            "monthly_rmse": 1654.901363476364,
+            "monthly_wape": 0.12977703874209617,
+            "monthly_bias": -594.2994753519694,
+            "cell_month_mae": 8.040022977872125,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 663.6190185546875
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 351.92742919921875
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 587.0678100585938
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 762.9378662109375
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 667.8690185546875
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1042.3782958984375
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 802.17431640625
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1489.5899658203125
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5834.154296875
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3998.630126953125
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2109.824951171875
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 624.5076293945312
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 747.7163696289062
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1927.2073974609375
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1561.2286376953125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 914.0526733398438
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 559.2095947265625
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 886.651611328125
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4117.0263671875
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 46433.7265625
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 116886.28125
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17484.6640625
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2572.87353515625
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1887.139892578125
+          }
+        ],
+        "largest_three_reference_months_mae": 8216.109375
+      },
+      "320": {
+        "monthly_mae": 1327.3165893554688,
+        "monthly_rmse": 3473.9595047008097,
+        "monthly_wape": 0.13320397804101733,
+        "monthly_bias": -1205.6343536376953,
+        "cell_month_mae": 10.383247632799405,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 662.8199149767557,
+            "monthly_rmse": 1844.9568226165957,
+            "monthly_wape": 0.13944195755158298,
+            "monthly_bias": -571.0037080446879,
+            "cell_month_mae": 17.314532422861365,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 703.3439852396647,
+            "monthly_rmse": 1701.6799343560372,
+            "monthly_wape": 0.1349686222355195,
+            "monthly_bias": -634.6304562886556,
+            "cell_month_mae": 8.12750406206918,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 646.3734130859375
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 335.03607177734375
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 568.8743286132812
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 760.7409057617188
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 662.392333984375
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1037.8421630859375
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 790.629150390625
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1538.246826171875
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5711.07861328125
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3979.41259765625
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2022.9315185546875
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 600.4598388671875
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 728.3897094726562
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1936.17626953125
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1551.883544921875
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 908.4483642578125
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 551.3030395507812
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 874.6696166992188
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4067.9921875
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 43402.2734375
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 115079.640625
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 18072.294921875
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2520.94580078125
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1865.740234375
+          }
+        ],
+        "largest_three_reference_months_mae": 9632.930338541666
+      }
+    },
+    "platform_transformer_cond005": {
+      "20": {
+        "monthly_mae": 867.9627888997396,
+        "monthly_rmse": 2261.101201883477,
+        "monthly_wape": 0.08710513919603992,
+        "monthly_bias": -561.2054799397787,
+        "cell_month_mae": 9.76166831937042,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 447.7400110562642,
+            "monthly_rmse": 1116.6485420684112,
+            "monthly_wape": 0.09419412755279444,
+            "monthly_bias": -150.13918002446493,
+            "cell_month_mae": 13.890635041440978,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 531.7077522277832,
+            "monthly_rmse": 1322.3255612746773,
+            "monthly_wape": 0.10203238281148493,
+            "monthly_bias": -411.06552759806317,
+            "cell_month_mae": 8.417921753016097,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 635.7589721679688
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 369.50714111328125
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 568.450439453125
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 699.35107421875
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 665.7930908203125
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1033.1114501953125
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 765.1005249023438
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1504.6241455078125
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6145.34033203125
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3876.204833984375
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2141.82275390625
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 625.0775756835938
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 764.9257202148438
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1816.2025146484375
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1465.21875
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 899.8615112304688
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 531.7884521484375
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 890.5311279296875
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3899.74267578125
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 48088.04296875
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 127196.1875
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 16787.509765625
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2553.29931640625
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1756.6158447265625
+          }
+        ],
+        "largest_three_reference_months_mae": 5731.211588541667
+      },
+      "40": {
+        "monthly_mae": 1178.1476987202961,
+        "monthly_rmse": 3331.135532168672,
+        "monthly_wape": 0.11823400795858276,
+        "monthly_bias": -1085.7426414489746,
+        "cell_month_mae": 10.347248806537772,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 486.68043343226117,
+            "monthly_rmse": 1397.7062673670737,
+            "monthly_wape": 0.1023862904635677,
+            "monthly_bias": -336.3700852394104,
+            "cell_month_mae": 15.375123704879574,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 829.3428993225098,
+            "monthly_rmse": 2061.7164150827293,
+            "monthly_wape": 0.15914726056017714,
+            "monthly_bias": -749.3725878397623,
+            "cell_month_mae": 8.71095815914843,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 620.3821411132812
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 353.4222106933594
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 554.2523803710938
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 707.5026245117188
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 660.58740234375
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 976.38330078125
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 727.8067626953125
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1453.214111328125
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5603.638671875
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3624.74169921875
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2152.533203125
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 624.4442749023438
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 724.933837890625
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1750.154541015625
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1415.9952392578125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 876.2609252929688
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 533.25
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 864.3795776367188
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3467.501220703125
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 41312.6640625
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 123160.171875
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 16607.091796875
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2532.06689453125
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1787.7978515625
+          }
+        ],
+        "largest_three_reference_months_mae": 8124.357421875
+      },
+      "80": {
+        "monthly_mae": 808.0093027750651,
+        "monthly_rmse": 2167.3688909687394,
+        "monthly_wape": 0.08108845642926193,
+        "monthly_bias": -638.0977121988932,
+        "cell_month_mae": 9.731787886093592,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 453.81163851420087,
+            "monthly_rmse": 1310.1540800114099,
+            "monthly_wape": 0.09547145733593518,
+            "monthly_bias": -259.92698605855304,
+            "cell_month_mae": 14.876896827013203,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 479.5947265625,
+            "monthly_rmse": 1203.0334703059555,
+            "monthly_wape": 0.09203212202561806,
+            "monthly_bias": -378.1710027058919,
+            "cell_month_mae": 8.057344147924487,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 635.969482421875
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 345.745361328125
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 569.3051147460938
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 769.49365234375
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 672.6184692382812
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1020.4220581054688
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 765.4985961914062
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1505.08935546875
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5829.10888671875
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 4118.9345703125
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2193.831787109375
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 643.5781860351562
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 731.2516479492188
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1809.7889404296875
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1526.069580078125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 903.9043579101562
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 545.00244140625
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 862.3933715820312
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4066.962158203125
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 47738.51171875
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 124355.1015625
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17537.841796875
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2722.2275390625
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1966.0042724609375
+          }
+        ],
+        "largest_three_reference_months_mae": 5273.848307291667
+      },
+      "160": {
+        "monthly_mae": 1040.2366053263347,
+        "monthly_rmse": 2685.7617047111416,
+        "monthly_wape": 0.10439382363226286,
+        "monthly_bias": -825.1122156778971,
+        "cell_month_mae": 10.469502945208834,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 600.611147403717,
+            "monthly_rmse": 1556.288058702928,
+            "monthly_wape": 0.12635467376416062,
+            "monthly_bias": -463.6944327354431,
+            "cell_month_mae": 16.649759025487935,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 579.1428171793619,
+            "monthly_rmse": 1497.4971392876475,
+            "monthly_wape": 0.1111349634783053,
+            "monthly_bias": -361.4182891845703,
+            "cell_month_mae": 8.458177001922735,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 645.0855102539062
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 335.78057861328125
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 575.1286010742188
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 787.1929321289062
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 684.9022827148438
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1050.7269287109375
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 817.8703002929688
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1503.9703369140625
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6055.90283203125
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 4474.2568359375
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2149.708740234375
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 638.1983642578125
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 732.4017333984375
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1902.65966796875
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1605.1270751953125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 938.59521484375
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 552.6799926757812
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 872.22509765625
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4277.27734375
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 50987.91015625
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 115162.84375
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17868.27734375
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2685.09521484375
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 2042.489990234375
+          }
+        ],
+        "largest_three_reference_months_mae": 7144.65625
+      },
+      "320": {
+        "monthly_mae": 999.2526626586914,
+        "monthly_rmse": 2623.9856754353154,
+        "monthly_wape": 0.10028084543029071,
+        "monthly_bias": -797.2477798461914,
+        "cell_month_mae": 10.614858807591233,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 612.6726449330648,
+            "monthly_rmse": 1670.8027882535182,
+            "monthly_wape": 0.1288921334700218,
+            "monthly_bias": -481.5889180501302,
+            "cell_month_mae": 17.498179237680002,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 490.6675338745117,
+            "monthly_rmse": 1274.0039909121456,
+            "monthly_wape": 0.09415694512575784,
+            "monthly_bias": -315.6586405436198,
+            "cell_month_mae": 8.374724939810866,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 663.4141845703125
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 347.30975341796875
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 588.4188232421875
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 781.8472290039062
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 678.4466552734375
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1052.0037841796875
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 835.4268798828125
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1554.43212890625
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5948.0634765625
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 4329.23291015625
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2128.533203125
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 632.7127685546875
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 749.8618774414062
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1929.149658203125
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1651.2999267578125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 966.1290893554688
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 553.9033203125
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 867.7863159179688
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4312.5068359375
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 51323.76171875
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 115049.796875
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 18401.0625
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2661.29248046875
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 2008.660888671875
+          }
+        ],
+        "largest_three_reference_months_mae": 6892.79296875
+      }
+    },
+    "platform_transformer_cond001": {
+      "20": {
+        "monthly_mae": 753.259349822998,
+        "monthly_rmse": 2118.1930083352995,
+        "monthly_wape": 0.07559397863153078,
+        "monthly_bias": -637.8955217997233,
+        "cell_month_mae": 9.56498048657834,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 384.31363503138226,
+            "monthly_rmse": 975.3605451236245,
+            "monthly_wape": 0.08085068714994761,
+            "monthly_bias": -180.83414379755655,
+            "cell_month_mae": 13.29691421924667,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 560.0936915079752,
+            "monthly_rmse": 1361.873347821274,
+            "monthly_wape": 0.10747951991069983,
+            "monthly_bias": -457.0619812011719,
+            "cell_month_mae": 8.350445839851963,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 624.9606323242188
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 364.1382141113281
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 575.588134765625
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 717.6214599609375
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 670.8343505859375
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1019.73681640625
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 743.7883911132812
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1440.8499755859375
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 5997.55908203125
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3843.22314453125
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2132.00048828125
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 597.4803466796875
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 763.986572265625
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1828.2098388671875
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1518.59912109375
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 925.2379150390625
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 523.7652587890625
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 884.8553466796875
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3828.39111328125
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 49256.5546875
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 124731.078125
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 16595.927734375
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2527.540283203125
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1727.5804443359375
+          }
+        ],
+        "largest_three_reference_months_mae": 4956.479817708333
+      },
+      "40": {
+        "monthly_mae": 1442.0309321085613,
+        "monthly_rmse": 3685.7445349698123,
+        "monthly_wape": 0.14471623285318136,
+        "monthly_bias": -246.92279815673828,
+        "cell_month_mae": 10.43285763991021,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 737.8813273111979,
+            "monthly_rmse": 2102.3922016626575,
+            "monthly_wape": 0.1552331400975513,
+            "monthly_bias": 99.9110336303711,
+            "cell_month_mae": 17.83451522685813,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 742.3031857808431,
+            "monthly_rmse": 1780.5776897047635,
+            "monthly_wape": 0.1424447217412946,
+            "monthly_bias": -346.8339042663574,
+            "cell_month_mae": 8.024034164867986,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 616.6312866210938
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 341.5308837890625
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 548.8906860351562
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 711.4874267578125
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 639.0151977539062
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1003.2463989257812
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 719.3535766601562
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1515.12548828125
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6177.15966796875
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3899.91064453125
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2269.317138671875
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 605.7180786132812
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 736.9055786132812
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1865.7470703125
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1518.9427490234375
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 903.9444580078125
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 497.05120849609375
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 866.2428588867188
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 3794.5107421875
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 44009.65625
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 137547.265625
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17829.650390625
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2721.4541015625
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1884.0953369140625
+          }
+        ],
+        "largest_three_reference_months_mae": 10193.652994791666
+      },
+      "80": {
+        "monthly_mae": 876.940497080485,
+        "monthly_rmse": 2221.9017633634107,
+        "monthly_wape": 0.08800610468758657,
+        "monthly_bias": -710.7804298400879,
+        "cell_month_mae": 9.843188591162852,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 412.9960509936015,
+            "monthly_rmse": 1196.0224032460078,
+            "monthly_wape": 0.0868848031122311,
+            "monthly_bias": -295.0151909192403,
+            "cell_month_mae": 13.911353129780654,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 504.69465891520184,
+            "monthly_rmse": 1382.8227974663407,
+            "monthly_wape": 0.09684868882499795,
+            "monthly_bias": -415.76477305094403,
+            "cell_month_mae": 8.519229717648182,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 604.461181640625
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 331.9901428222656
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 564.9378662109375
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 787.3861694335938
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 679.2491455078125
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1037.6527099609375
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 770.6571044921875
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1400.056640625
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6023.2734375
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 3914.47265625
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2287.079833984375
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 630.3414306640625
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 701.9940185546875
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1837.039794921875
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1588.1715087890625
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 924.1092529296875
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 535.8634033203125
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 874.3390502929688
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4021.485595703125
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 49625.203125
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 122073.0546875
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 16329.87109375
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2638.55029296875
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 1909.029541015625
+          }
+        ],
+        "largest_three_reference_months_mae": 5808.290364583333
+      },
+      "160": {
+        "monthly_mae": 773.0672136942545,
+        "monthly_rmse": 1928.4334443241166,
+        "monthly_wape": 0.0775818135499714,
+        "monthly_bias": -369.8066062927246,
+        "cell_month_mae": 9.929583558834912,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 379.1523774464925,
+            "monthly_rmse": 808.1205409388889,
+            "monthly_wape": 0.07976487810166304,
+            "monthly_bias": -189.55613390604654,
+            "cell_month_mae": 13.742920421989577,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 662.3560104370117,
+            "monthly_rmse": 1613.1869675865146,
+            "monthly_wape": 0.12710320985774365,
+            "monthly_bias": -180.2511978149414,
+            "cell_month_mae": 8.688556769050848,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 603.855712890625
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 322.8030090332031
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 551.4752197265625
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 817.1885375976562
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 721.5640869140625
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1102.278564453125
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 864.3598022460938
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1443.5386962890625
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6454.2314453125
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 4236.1533203125
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2329.00634765625
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 629.3707885742188
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 714.0689697265625
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 1946.8585205078125
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1724.397705078125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 994.3186645507812
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 555.5477905273438
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 943.51708984375
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4429.2529296875
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 56494.37890625
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 119858.3125
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17726.828125
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2735.303955078125
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 2075.03076171875
+          }
+        ],
+        "largest_three_reference_months_mae": 4797.412760416667
+      },
+      "320": {
+        "monthly_mae": 835.0579732259115,
+        "monthly_rmse": 2334.2203489369267,
+        "monthly_wape": 0.08380294861120839,
+        "monthly_bias": -579.5916900634766,
+        "cell_month_mae": 10.627494700923783,
+        "n_months": 24,
+        "n_cell_months": 5376,
+        "regions": {
+          "north": {
+            "monthly_mae": 474.0851581096649,
+            "monthly_rmse": 1126.1552845645158,
+            "monthly_wape": 0.09973653627362977,
+            "monthly_bias": -305.4327488740285,
+            "cell_month_mae": 15.338547562548158,
+            "n_months": 24,
+            "n_cell_months": 1320
+          },
+          "south": {
+            "monthly_mae": 629.8901405334473,
+            "monthly_rmse": 1542.7566881074526,
+            "monthly_wape": 0.12087315198774054,
+            "monthly_bias": -274.15879185994464,
+            "cell_month_mae": 9.09431181696319,
+            "n_months": 24,
+            "n_cell_months": 4056
+          }
+        },
+        "monthly": [
+          {
+            "date": "2019-01-01",
+            "actual": 571.0,
+            "predicted": 606.134765625
+          },
+          {
+            "date": "2019-02-01",
+            "actual": 303.0,
+            "predicted": 321.798095703125
+          },
+          {
+            "date": "2019-03-01",
+            "actual": 648.0,
+            "predicted": 549.009521484375
+          },
+          {
+            "date": "2019-04-01",
+            "actual": 830.0,
+            "predicted": 794.9131469726562
+          },
+          {
+            "date": "2019-05-01",
+            "actual": 800.0,
+            "predicted": 698.0175170898438
+          },
+          {
+            "date": "2019-06-01",
+            "actual": 1007.0,
+            "predicted": 1052.940673828125
+          },
+          {
+            "date": "2019-07-01",
+            "actual": 839.0,
+            "predicted": 843.9781494140625
+          },
+          {
+            "date": "2019-08-01",
+            "actual": 1184.0,
+            "predicted": 1488.232666015625
+          },
+          {
+            "date": "2019-09-01",
+            "actual": 5632.0,
+            "predicted": 6163.19287109375
+          },
+          {
+            "date": "2019-10-01",
+            "actual": 4387.0,
+            "predicted": 4114.35595703125
+          },
+          {
+            "date": "2019-11-01",
+            "actual": 1839.0,
+            "predicted": 2319.284912109375
+          },
+          {
+            "date": "2019-12-01",
+            "actual": 604.0,
+            "predicted": 613.6136474609375
+          },
+          {
+            "date": "2020-01-01",
+            "actual": 872.0,
+            "predicted": 712.5708618164062
+          },
+          {
+            "date": "2020-02-01",
+            "actual": 2159.0,
+            "predicted": 2036.730224609375
+          },
+          {
+            "date": "2020-03-01",
+            "actual": 1688.0,
+            "predicted": 1742.1680908203125
+          },
+          {
+            "date": "2020-04-01",
+            "actual": 961.0,
+            "predicted": 1017.3997192382812
+          },
+          {
+            "date": "2020-05-01",
+            "actual": 590.0,
+            "predicted": 524.4887084960938
+          },
+          {
+            "date": "2020-06-01",
+            "actual": 1032.0,
+            "predicted": 919.5966186523438
+          },
+          {
+            "date": "2020-07-01",
+            "actual": 3836.0,
+            "predicted": 4303.9609375
+          },
+          {
+            "date": "2020-08-01",
+            "actual": 54985.0,
+            "predicted": 55086.21484375
+          },
+          {
+            "date": "2020-09-01",
+            "actual": 125290.0,
+            "predicted": 116537.4453125
+          },
+          {
+            "date": "2020-10-01",
+            "actual": 25178.0,
+            "predicted": 17923.076171875
+          },
+          {
+            "date": "2020-11-01",
+            "actual": 2490.0,
+            "predicted": 2779.92724609375
+          },
+          {
+            "date": "2020-12-01",
+            "actual": 1424.0,
+            "predicted": 2089.748779296875
+          }
+        ],
+        "largest_three_reference_months_mae": 5369.564453125
+      }
+    }
+  },
+  "selection": {},
+  "known_benchmark": {},
+  "backward_audit": {},
+  "selected_epochs": {
+    "platform_mlp_cond005": 80,
+    "platform_transformer_cond005": 80,
+    "platform_transformer_cond001": 20
+  }
+}

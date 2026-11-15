@@ -1,0 +1,14 @@
+{
+  "purpose": "Larger factorized spatiotemporal Transformer; implementation only, not yet trained",
+  "development_training": [2013, 2018],
+  "duration_selection": [2019, 2020],
+  "final_training": [2013, 2020],
+  "audits": {"selection": [2021, 2022], "known_benchmark": [2023, 2025], "backward": [2012, 2012]},
+  "default_architecture": "width128, 8heads, 3temporal and3spatial layers, feedforward4x, dropout.1",
+  "inputs": "5x5 ordered neighborhood, daily Terra/Aqua counts FRP daytime counts, target month plus3days each side; source support/outage masks; relative day and cyclic day-of-year; multiscale Fourier absolute location and relative offsets/distance; local rich monthly MODIS features;5component training-only MODIS seasonal reference",
+  "seasonal_reference": "For each cell and calendar month: mean/std log1p count, positive frequency, mean log1p FRP, log1p number of years. Exclude the entire example year when it is among fitted years. No VIIRS climatology or future-year reference.",
+  "target": "Expected retained monthly SNPP VIIRS count per0.5degree CA cell",
+  "training": "AdamW .0003, weight decay.01, cosine floor5%, clip1, up to600epochs, validation every5epochs, patience60epochs; duration chosen only by2019-2020 monthly MAE, final refit for selected duration",
+  "loss": "Conditional positive-count deviance weighted1/sqrt(y+1), binary presence BCE, log1p count smoothL1; no direct aggregate loss in this version",
+  "limits": "Retrospective symmetric context, not causal forecasting. Daily context available2012-2025 only; no pre2012 backcast claim. Source masks are not cloud/overpass exposure. Context geography follows cached western-state union, monthly targets remain state-clipped. All audit periods previously inspected. No promotion or training performed during implementation."
+}

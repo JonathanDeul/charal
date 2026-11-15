@@ -1,5 +1,7 @@
 # Harmonization v4 — improved exploratory candidate
 
+This report preserves the original v4 experiment. The later [historical-transfer release](HISTORICAL_TRANSFER_RELEASE.md) now uses its southern component after training-period regional transfer selection and new uncertainty calibration. Statements about unchanged production below describe the end of the original v4 study.
+
 **Frozen candidate: `hurdle_rich__w1.0`.** A two-stage boosted conditional-mean model improves statewide monthly MAE on both 2021–2022 and the already-known 2023–2025 benchmark. It also improves aggregate north/south errors and overall cell-month MAE in both periods. This is an empirical improvement on inspected historical data, not proof of prospective superiority. Production is preserved.
 
 ## Model and inputs

@@ -1,0 +1,56 @@
+{
+  "verified_at": "2026-11-15T17:51:36.126608+00:00",
+  "release": "historical-transfer-1",
+  "all_checks_passed": true,
+  "checks": [
+    "training-only OOF choice reproduced",
+    "disjoint whole-year folds",
+    "protocol and package hashes",
+    "saved predictions and all metric reports reproduced",
+    "reference/year input invariance",
+    "residual coverage reproduced",
+    "39 block-bootstrap quantiles reproduced after aggregation",
+    "raw counts, observed reference, outage masks and other science preserved",
+    "Terra-only fallback unchanged",
+    "northern baseline exact",
+    "cell sums and packed runtime parity",
+    "real-data API and custom AOI interval scope",
+    "CSV baseline comparison"
+  ],
+  "exact_rollback_and_reapply_verified": true,
+  "artifacts": {
+    "data/processed/analysis.json": "db58b5ae2d070b5965a0c3448b5384e35b9f230e4b375a1a7ac59c692a06b7be",
+    "data/processed/analysis.json.gz": "a4c9ea2e7204898e74f167c1510576614afd0474b7e5f0444e748bf8da4506aa",
+    "data/research/harmonization_release/report.json": "ffd7781df6bf7631e62ce0e92939c097c52d91b3dd3c1675400130d26944a602",
+    "data/research/harmonization_release/training_selection.json": "f63363c37a93551a08b09aa3e785ebfebd9d78ec164222579591f820fbaeb632",
+    "data/research/harmonization_release/uncertainty.json": "f6391e7125f402f9d0dcf29f05f7dec7b78f22f0d7ed68e95193278bcf2fcf5d",
+    "data/research/harmonization_release/bootstrap_predictions.npz": "6a27447a6e489306db0916f8fee095db17032bc3eb21d55d94db9d362ba31871",
+    "models/harmonization_release/candidate.pkl": "d7892a60d86b3b96705903bf6383add54d7cf419def60d9244c0465e4e76a7e9"
+  },
+  "limits": [
+    "Historical periods were repeatedly inspected, not a fresh independent test.",
+    "No verified predictive coverage before 2012; southern nominal 80% band undercovers the known benchmark."
+  ],
+  "validation": {
+    "pytest": {
+      "command": ".venv/bin/python -m pytest tests -q",
+      "passed": 100,
+      "failed": 0,
+      "warnings": [
+        "Existing Starlette/httpx deprecation"
+      ]
+    },
+    "frontend_typecheck": "passed",
+    "frontend_static_generation": "passed",
+    "browser": "Observed active release label, known audit chart, MAE256 vs291.3 and empirical interval caveat in localhost:3000; no public deployment"
+  },
+  "code_hashes": {
+    "backend/historical_transfer.py": "0886c2f57792311d9b0e13539a502aed7372d231ef429c4bac4cc09757debf3a",
+    "backend/harmonization_uncertainty.py": "459fa4bb7b0d9397c300040d431995b4a634c3fdb562aa0bbfb4abda3f703ae6",
+    "backend/release_export.py": "f3f535a613d416b2b76598c805f5c13b2fe28ae3521f946b865a79f7e24345d1",
+    "scripts/train_harmonization_release.py": "a0d3940b0ba638cdab1d0779caee3d37336cb7c19b3ff977281fdb5bdba9de2a",
+    "scripts/quantify_historical_transfer.py": "d17fa893b4f715dcc06b78b2818bfe1bf64ce00e15483b5229798cb6f6feb6d3",
+    "scripts/promote_historical_transfer.py": "2f3331b9c47bf2e3cdcf5c450e1c7a6345564e8029e2ac7416dc7daf59fd3f6f",
+    "scripts/verify_historical_transfer.py": "1bd23e1785a36bb592a40773add6a7869a290a9b32da0ccd19b293680189c491"
+  }
+}

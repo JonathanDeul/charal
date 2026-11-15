@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { mapDetail } from "~/utils/mapDetail"
 import { Info, RefreshCw, Download, Search } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, Rectangle } from 'leaflet'
 const props = defineProps<{ bbox: number[]; period: string; boundary?: any; context?: any }>()
@@ -32,17 +33,14 @@ let L: typeof import('leaflet')
 let sequence = 0
 let controller: AbortController | undefined
 const cellLayers = new Map<string, Rectangle>()
-function textNode(lines: string[]) { const node = document.createElement('div'); node.style.whiteSpace = 'pre-line'; node.textContent = lines.join('\n'); return node }
 function cellKey(cell: Cell) { return `${cell.latitude},${cell.longitude}` }
 function detail(cell: Cell) {
-  return textNode([`Seasonal activity score: ${fmt(cell.score, 2)} / 100`,
-    `${result.value.start_date} – ${result.value.end_date} UTC`,
-    `Activity: ${fmt(cell.activity)} reference-scale detections`,
-    `Historical median: ${fmt(cell.typical_activity)}`,
-    `VIIRS-only reference score: ${fmt(cell.viirs_reference_score, 2)}`,
-    `${result.value.reference_years.length} reference years · seasonal ±${result.value.season_days} days`,
-    ...(cell.reference_sensitive ? ['Outlier classification changes with reference choice.'] : []),
-    'Score describes activity in this 0.5° cell, not an individual fire or hazard.'])
+  return mapDetail('Seasonal activity · 0.5° cell', `${result.value.start_date} – ${result.value.end_date} UTC`, [
+    ['Activity score', `${fmt(cell.score, 2)} / 100`], ['Activity', `${fmt(cell.activity)} reference-scale detections`],
+    ['Historical median', fmt(cell.typical_activity)], ['VIIRS-only score', fmt(cell.viirs_reference_score, 2)],
+    ['Reference', `${result.value.reference_years.length} years · seasonal ±${result.value.season_days} days`],
+  ], [...(cell.reference_sensitive ? ['Outlier classification changes with reference choice.'] : []),
+    'Score describes activity in this cell, not an individual fire or hazard.'])
 }
 function draw() {
   if (!map || !L) return
@@ -52,7 +50,7 @@ function draw() {
     if (onlyOutliers.value && !cell.outlier) continue
     const b = cell.bounds
     const layer = L.rectangle([[b[1], b[0]], [b[3], b[2]]], { color: '#fffef7', weight: .8, fillColor: color(cell.score), fillOpacity: cell.activity > 0 ? .72 : .15 })
-    layer.bindTooltip(() => detail(cell)); layer.bindPopup(() => detail(cell)); next.addLayer(layer)
+    layer.bindTooltip(() => detail(cell), { className: 'map-detail-tooltip' }); layer.bindPopup(() => detail(cell), { className: 'map-detail-popup', maxWidth: 360 }); next.addLayer(layer)
     cellLayers.set(cellKey(cell), layer)
   }
   if (showDetections.value) for (const row of detections.value?.footprints || []) {
@@ -60,7 +58,7 @@ function draw() {
     const cell = result.value?.cells.find((c: Cell) => lat >= c.bounds[1]! && lat < c.bounds[3]! && lon >= c.bounds[0]! && lon < c.bounds[2]!)
     if (!cell || (onlyOutliers.value && !cell.outlier)) continue
     const point = L.circleMarker([lat, lon], { radius: 2.5, stroke: false, fillColor: '#253f38', fillOpacity: .8 })
-    point.bindPopup(() => detail(cell)); next.addLayer(point)
+    point.bindPopup(() => detail(cell), { className: 'map-detail-popup', maxWidth: 360 }); next.addLayer(point)
   }
   next.addTo(map); layers?.remove(); layers = next
 }

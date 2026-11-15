@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { mapDetail } from "~/utils/mapDetail"
 import { Info, RefreshCw, Download, Search } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, CircleMarker } from 'leaflet'
 const props = defineProps<{ bbox: number[]; period: string; boundary?: any; context?: any }>()
@@ -28,21 +29,20 @@ let L:typeof import('leaflet')
 let request = 0
 let controller:AbortController|undefined
 const markers = new Map<number,CircleMarker>()
-function textNode(lines:string[]) { const node=document.createElement('div');node.style.whiteSpace='pre-line';node.textContent=lines.join('\n');return node }
 function reason(event:Event) { return event.first_recorded ? 'First recorded locally' : event.reasons.includes('rare_occurrence') && event.reasons.includes('unusual_activity') ? 'Occurrence + activity outlier' : event.reasons.includes('rare_occurrence') ? 'Rare occurrence' : event.reasons.includes('unusual_activity') ? 'Unusual activity' : 'Below thresholds' }
-function detail(event:Event) {
-  return textNode([event.associations.length ? `CAL FIRE overlap: ${event.label} · inferred event ${event.id}` : `Inferred activity event ${event.id}`,
-    `${result.value.start_date} – ${result.value.end_date} UTC`,
-    `Occurrence: ${fmt(event.occurrence_score,2)} / 100 · Activity: ${fmt(event.activity_score,2)} / 100`,
-    reason(event),
-    `Own event activity in 10 km comparison area: ${fmt(event.activity)}`,
-    `${event.scored_observations} local observations / ${event.observations} across the event window`,
-    `Reference: ${event.reference_years.length} years; ${event.active_reference_years.length} active locally`,
-    ...(event.first_recorded ? [`No earlier retained observation from another event here; ${event.prior_observed_years} years of preceding archive. This is not proof of no earlier fires.`] : []),
-    ...(event.regional_activity_weight ? [`Activity score uses ${fmt(100*event.regional_activity_weight,0)}% regional reference support. Occurrence score is unaffected.`] : []),
-    ...(event.support==='limited' ? ['Limited reference support; novelty remains an outlier.'] : []),
-    ...(event.season_sensitive ? ['Classification changes with the seasonal reference window.'] : []),
-    'Tracking may merge nearby fires or split an event after observation gaps. Circles are comparison areas, not fire perimeters.'])
+function detail(event:Event, expanded = false) {
+  return mapDetail(event.associations.length ? `CAL FIRE overlap: ${event.label}` : `Inferred activity event ${event.id}`,
+    `${event.associations.length ? `Inferred event ${event.id} · ` : ''}${result.value.start_date} – ${result.value.end_date} UTC`, [
+      ['Classification', reason(event)], ['Occurrence score', `${fmt(event.occurrence_score,2)} / 100`],
+      ['Activity score', `${fmt(event.activity_score,2)} / 100`], ['Event activity', `${fmt(event.activity)} detections in 10 km area`],
+      ['Observations', `${event.scored_observations} local / ${event.observations} across event window`],
+      ['Reference', `${event.reference_years.length} years · ${event.active_reference_years.length} active locally`],
+    ], expanded ? [
+      ...(event.first_recorded ? [`No earlier retained observation from another event here; ${event.prior_observed_years} years of preceding archive. This is not proof of no earlier fires.`] : []),
+      ...(event.regional_activity_weight ? [`Activity score uses ${fmt(100*event.regional_activity_weight,0)}% regional reference support. Occurrence score is unaffected.`] : []),
+      ...(event.support==='limited' ? ['Limited reference support; novelty remains an outlier.'] : []),
+      ...(event.season_sensitive ? ['Classification changes with the seasonal reference window.'] : []),
+      'Tracking may merge nearby fires or split an event after observation gaps. Circles are comparison areas, not fire perimeters.'] : ['Click for reference details and interpretation.'])
 }
 function draw() {
   if(!map||!L)return
@@ -50,16 +50,16 @@ function draw() {
   for(const event of visible.value) {
     const tint=color(score(event))
     const area=L.circle([event.latitude,event.longitude],{radius:10000,color:tint,weight:1,fillColor:tint,fillOpacity:.1})
-    area.bindTooltip(()=>detail(event));area.bindPopup(()=>detail(event));next.addLayer(area)
+    area.bindTooltip(()=>detail(event), { className: 'map-detail-tooltip' });area.bindPopup(()=>detail(event, true), { className: 'map-detail-popup', maxWidth: 360 });next.addLayer(area)
     const marker=L.circleMarker([event.latitude,event.longitude],{radius:event.first_recorded?6:5,color:event.outlier?'#233f36':'#fffef7',weight:1.3,fillColor:tint,fillOpacity:.95})
-    marker.bindTooltip(()=>detail(event));marker.bindPopup(()=>detail(event));next.addLayer(marker);markers.set(event.id,marker)
+    marker.bindTooltip(()=>detail(event), { className: 'map-detail-tooltip' });marker.bindPopup(()=>detail(event, true), { className: 'map-detail-popup', maxWidth: 360 });next.addLayer(marker);markers.set(event.id,marker)
   }
   if(showPoints.value) {
     const lookup=new Map(visible.value.map(event=>[event.id,event]))
     for(const [lat,lon,id] of result.value?.points||[]) {
       const event=lookup.get(id);if(!event)continue
       const dot=L.circleMarker([lat,lon],{radius:2,stroke:false,fillColor:color(score(event)),fillOpacity:.9})
-      dot.bindPopup(()=>detail(event));next.addLayer(dot)
+      dot.bindPopup(()=>detail(event, true), { className: 'map-detail-popup', maxWidth: 360 });next.addLayer(dot)
     }
   }
   next.addTo(map);layers?.remove();layers=next

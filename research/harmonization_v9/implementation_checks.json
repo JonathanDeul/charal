@@ -1,0 +1,30 @@
+{
+  "status": "implemented_not_trained",
+  "optimization_steps_executed": 0,
+  "checks": {
+    "focused_tests": 4,
+    "full_suite_passed": 112,
+    "real_data_cpu_forward": "passed",
+    "real_data_mps_forward": "passed",
+    "parameters": 1234435,
+    "input_daily_shape": [
+      2,
+      25,
+      37,
+      9
+    ],
+    "static_features": 39,
+    "cli_help": "passed"
+  },
+  "source_hashes": {
+    "backend/harmonization_v9.py": "f33fba5cf21736dcd066b47105850f9a7ffb64f00e79c697bca6da15a200a879",
+    "scripts/train_harmonization_v9.py": "3d8928f646e5d6cc75c5dc0a9db415c4c1adf4ba2ac22e3eba6a2289eecbf43e",
+    "research/harmonization_v9/protocol.json": "0b6c3a1c249f7c50094f40fa642b065707f5d5dec34d4b0a341210a12b05f589",
+    "tests/test_harmonization_v9.py": "bb6e95103a9beaeab8c5c7104a7ec1c81c8cb6d2b819ed74f6768e0481ca287e"
+  },
+  "limits": [
+    "No full training, convergence or predictive-quality measurement.",
+    "No measured training peak memory or duration.",
+    "Daily context starts2012; pre2012 preparation is still required."
+  ]
+}

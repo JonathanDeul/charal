@@ -1,0 +1,33 @@
+{
+  "id": "historical-transfer-1",
+  "estimator": "models/harmonization_release/candidate.pkl",
+  "choice": {
+    "north": {
+      "expert": "seasonal_ratio",
+      "weight": 0.0,
+      "score": 251.1603519210443
+    },
+    "south": {
+      "expert": "v4_hurdle_rich",
+      "weight": 1.0,
+      "score": 354.236997500707,
+      "eligible": true
+    }
+  },
+  "original_model": "models/harmonization.pkl (preserved v1 baseline)",
+  "scientific_sha256": "db58b5ae2d070b5965a0c3448b5384e35b9f230e4b375a1a7ac59c692a06b7be",
+  "runtime_sha256": "a4c9ea2e7204898e74f167c1510576614afd0474b7e5f0444e748bf8da4506aa",
+  "source_hashes": {
+    "data/research/harmonization_v4/cells.csv.gz": "2e58153aab298b64e7a369d78af25900413078ba818ddb11ca23eebd03966ee4",
+    "models/harmonization_v4/hurdle_rich.pkl": "5ef24561b67f4a348088ecf3826f6b55edb640573a738a20f56f62728e3ce22e",
+    "models/harmonization.pkl": "29894ab5ab85c3230fa9b5e04917a7ddd3586c813b96130d47b071c367c6229f",
+    "research/harmonization_release/protocol.json": "bc42b18b20d14db19bce743d1601ca04d9bec43444eaa2bec149d8265f8353d4"
+  },
+  "restore_command": ".venv/bin/python scripts/promote_historical_transfer.py --restore",
+  "artifact_hashes": {
+    "models/harmonization_release/candidate.pkl": "d7892a60d86b3b96705903bf6383add54d7cf419def60d9244c0465e4e76a7e9",
+    "data/research/harmonization_release/report.json": "ffd7781df6bf7631e62ce0e92939c097c52d91b3dd3c1675400130d26944a602",
+    "data/research/harmonization_release/training_selection.json": "f63363c37a93551a08b09aa3e785ebfebd9d78ec164222579591f820fbaeb632",
+    "data/research/harmonization_release/uncertainty.json": "f6391e7125f402f9d0dcf29f05f7dec7b78f22f0d7ed68e95193278bcf2fcf5d"
+  }
+}

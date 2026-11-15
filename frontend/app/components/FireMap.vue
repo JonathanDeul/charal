@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { mapDetail } from "~/utils/mapDetail"
 import { Expand, MousePointer2, RotateCcw, Layers, MapPin, Play, Pause, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, Rectangle, LatLng, Canvas } from 'leaflet'
 const props = defineProps<{ bbox: number[]; period: string; sensor: string; boundary?: any; context?: any }>()
@@ -162,12 +163,6 @@ function valueColor(value: number | null, days = false) {
   const thresholds = days ? [2,4,8,16] : [10,50,200,1000]
   return (days ? dayColors : powerColors)[thresholds.filter(t => value >= t).length]!
 }
-function detail(lines: string[]) {
-  const node = document.createElement('div')
-  node.style.whiteSpace = 'pre-line'
-  node.textContent = lines.join('\n')
-  return node
-}
 function renderData() {
   if (!points || !map || !data.value) return
   const nextPoints = L.layerGroup()
@@ -180,24 +175,24 @@ function renderData() {
       const opacity = measure.value === 'combined' ? .25 + .65 * (cell.days - 1) / 30 : .75
       const b = cell.bounds
       const layer = L.rectangle([[b[1]!,b[0]!],[b[3]!,b[2]!]], { renderer, smoothFactor: 0, stroke: false, fillColor: color, fillOpacity: opacity })
-      const lines = ['1 km activity cell · detections assigned by center', `Maximum pixel FRP: ${mw(cell.max_frp)}`, `${cell.days} detection day(s) · ${cell.count} observations`, `First: ${cell.first} · Last: ${cell.last}`, `Sensor: ${cell.sources === 3 ? 'MODIS + VIIRS' : cell.sources === 1 ? 'MODIS' : 'VIIRS'}`, 'Detection dates do not establish continuous burning.']
-      layer.bindTooltip(() => detail(lines)); layer.bindPopup(() => detail(lines)); nextPoints.addLayer(layer)
+      const detail = () => mapDetail('1 km activity cell', 'Detections assigned by center', [['Maximum pixel FRP', mw(cell.max_frp)], ['Detection days', String(cell.days)], ['Observations', String(cell.count)], ['First detection', cell.first], ['Last detection', cell.last], ['Sensor', cell.sources === 3 ? 'MODIS + VIIRS' : cell.sources === 1 ? 'MODIS' : 'VIIRS']], ['Detection dates do not establish continuous burning.'])
+      layer.bindTooltip(detail, { className: 'map-detail-tooltip' }); layer.bindPopup(detail, { className: 'map-detail-popup', maxWidth: 360 }); nextPoints.addLayer(layer)
     }
   }
   for (const row of (grid && !showPoints.value ? [] : data.value.footprints)) {
     const [lat,lon,sensor,frp,date,scan,track,time,satellite] = row
     const color = source ? sourceColor(sensor ? 2 : 1) : valueColor(frp)
     const ageOpacity = displayedFrame.value?.timeline ? Math.pow(.55, utcDay(displayedFrame.value.date) - utcDay(date)) : 1
-    const lines = [`${sensor ? 'VIIRS' : 'MODIS'} · ${(['Terra','Aqua','Suomi-NPP'][satellite] || 'Unknown satellite')}`, `${date} ${time.slice(0,2)}:${time.slice(2)} UTC`, `Pixel FRP: ${mw(frp)}`, `Scan × track: ${scan} × ${track} km`, 'Approximate pixel footprint, not burned area.']
+    const detail = () => mapDetail(`${sensor ? 'VIIRS' : 'MODIS'} detection`, (['Terra','Aqua','Suomi-NPP'][satellite] || 'Unknown satellite'), [['Observed', `${date} ${time.slice(0,2)}:${time.slice(2)} UTC`], ['Pixel FRP', mw(frp)], ['Scan × track', `${scan} × ${track} km`]])
     if (geometry.value === 'pixels') {
       const dy = track / 111.195 / 2
       const dx = scan / (111.195 * Math.cos(lat * Math.PI / 180)) / 2
       const layer = L.rectangle([[lat-dy,lon-dx],[lat+dy,lon+dx]], { renderer, smoothFactor: 0, stroke: source, color, weight: .5, fillColor: color, fillOpacity: .55 * ageOpacity })
-      layer.bindTooltip(() => detail(lines)); layer.bindPopup(() => detail(lines)); nextPoints.addLayer(layer)
+      layer.bindTooltip(detail, { className: 'map-detail-tooltip' }); layer.bindPopup(detail, { className: 'map-detail-popup', maxWidth: 360 }); nextPoints.addLayer(layer)
     }
     if (showPoints.value || geometry.value === 'points') {
       const dot = L.circleMarker([lat,lon], { renderer, radius: 2.5, color: '#fffef7', weight: .5, fillColor: geometry.value === 'points' ? color : sourceColor(sensor ? 2 : 1), fillOpacity: .95 * ageOpacity })
-      dot.bindTooltip(() => detail(lines)); dot.bindPopup(() => detail(lines)); nextPoints.addLayer(dot)
+      dot.bindTooltip(detail, { className: 'map-detail-tooltip' }); dot.bindPopup(detail, { className: 'map-detail-popup', maxWidth: 360 }); nextPoints.addLayer(dot)
     }
   }
   // Attach the complete replacement before retiring the previous frame. Leaflet's

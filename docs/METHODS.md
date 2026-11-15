@@ -1,10 +1,12 @@
 # Scientific methods and interpretation
 
-This document describes the original production analysis (v1). The separate [15 November harmonization v2 experiment](HARMONIZATION_V2.md) adds model families and western-US data after the original test results were known. It uses a frozen follow-up protocol and labels 2023–2025 as a known benchmark. Its regional safeguards rejected promotion, so the production estimator and original analysis below remain unchanged.
+**Current monthly release:** [historical-transfer-1](HISTORICAL_TRANSFER_RELEASE.md) combines the original northern calibration and a southern conditional-count learner, with region weights selected on 2013–2020 forward/backward folds. It improves statewide and overall-cell MAE in the known 2021–2022, 2023–2025 and 2012 audits. It preserves original estimates in the unsupported pre-July-2002 Terra-only regime and observed VIIRS from February 2012. Newly calibrated aggregate residual bands and separate training-block bootstrap ranges replace the original monthly uncertainty summaries. All these historical periods have been inspected; no new independent test is claimed. Daily/event outlier and perimeter methods remain separate.
+
+The detailed sections below describe the **original v1 study and controls**. Their baseline estimator is preserved for comparison. The separate [15 November harmonization v2 experiment](HARMONIZATION_V2.md) added model families and western-US data after the original test results were known. Its regional safeguards rejected promotion at that stage.
 
 The later [daily spatial/temporal context comparison (v3)](HARMONIZATION_V3.md) adds matched contextual boosting/CNN inputs, CAL FIRE event-boundary purging and a buffered transfer diagnostic. It is a separate exploratory study with no production replacement. Its fitting population differs from v1; the previously inspected periods remain explicitly labeled.
 
-[V4](HARMONIZATION_V4.md) restores the original fitting population for direct comparison and finds a two-stage boosted candidate with better forward statewide, regional and overall cell metrics. Its full search, post-selection audits and failures are reported separately; repeated historical evaluation is not an untouched test. Candidate predictions do not replace the production calendar or inherit its residual bands.
+[V4](HARMONIZATION_V4.md) restores the original fitting population for direct comparison and finds a two-stage boosted candidate with better forward statewide, regional and overall cell metrics. Its full search, post-selection audits and failures are reported separately; repeated historical evaluation is not an untouched test. Candidate predictions did not replace the calendar at that stage or inherit its residual bands. The later regional release uses this learner only where training-period transfer checks support it.
 
 The subsequent [neural/MPS comparison](HARMONIZATION_NEURAL.md) reaches the exploratory 2021–2022 monthly-MAE target <500 with a fixed three-seed numeric-embedding MLP ensemble. It preserves original fitting years and outage policy, selects epochs on2019–2020, and explicitly reports the adverse local/northern/backward metrics as well as all Transformer failures. Repeatedly inspected periods do not provide independent prospective confirmation, and the neural candidate is not promoted into the calendar.
 
@@ -183,4 +185,11 @@ python scripts/analyze.py --bootstrap 199 --grid 0.5
 python -m pytest tests/test_science.py
 ```
 
-The script writes `data/processed/analysis.json`, a local trusted production estimator at `models/harmonization.pkl`, and the trained boosted-tree candidate at `models/boosted_candidate.pkl`, even when validation selects the simpler ratio method. The generated JSON is the runtime data contract. Its input SHA-256 digests, provenance, selected estimator, split years, errors, fitted-tail parameters and limitations are inspectable. Training libraries are imported lazily; the web API only needs NumPy/SciPy for exploratory tail fitting and can serve the precomputed calendar without loading a pickled model.
+The script writes the original v1 `data/processed/analysis.json`, a local trusted baseline estimator at `models/harmonization.pkl`, and the trained boosted-tree control at `models/boosted_candidate.pkl`, even when validation selects the simpler ratio method. Reapply the active monthly release afterwards using `scripts/promote_historical_transfer.py`; see its [reproduction and rollback instructions](HISTORICAL_TRANSFER_RELEASE.md). The generated JSON is the runtime data contract. Its input SHA-256 digests, provenance, selected estimator, split years, errors, fitted-tail parameters and limitations are inspectable. Training libraries are imported lazily; the web API only needs NumPy/SciPy for exploratory tail fitting and can serve the precomputed calendar without loading a pickled model.
+
+## Historical comparisons
+
+The calendar's annual ranking and the separate equal-age VIIRS event comparison
+are documented in [Historical comparisons](COMPARISONS.md), including gap
+handling, historical cutoff semantics, analogue selection and track limitations.
+Both use the existing frozen snapshot through 2025.

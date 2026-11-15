@@ -108,18 +108,24 @@ def selected_months(start: int, end: int, bounds: tuple):
                            'viirs_count': None if base['viirs_count'] is None else 0,
                            'harmonized_count': None if base['harmonized_count'] is None else 0,
                            'modeled_count': 0, 'lower': None, 'upper': None}
+        if 'baseline_modeled_count' in base:
+            result[date_key]['baseline_modeled_count'] = 0
+        for key in ('training_variability_lower90', 'training_variability_upper90'):
+            if key in base:
+                result[date_key][key] = None
+        result[date_key]['interval_scope'] = 'No calibrated aggregate interval for this custom AOI'
     matched = False
     for row in harmonization['cell_monthly']:
         if not (start <= row['year'] <= end and w <= row['longitude'] <= e and s <= row['latitude'] <= n):
             continue
         matched = True
         target = result[row['date'][:7]]
-        for key in ('modis_count', 'viirs_count', 'harmonized_count', 'modeled_count'):
+        for key in ('modis_count', 'viirs_count', 'harmonized_count', 'modeled_count', 'baseline_modeled_count'):
             if row.get(key) is not None and (key != 'harmonized_count' or target['harmonized_count'] is not None):
                 target[key] = (target[key] or 0) + row[key]
     if not matched:
         for target in result.values():
-            for key in ('modis_count', 'viirs_count', 'harmonized_count', 'modeled_count'):
+            for key in ('modis_count', 'viirs_count', 'harmonized_count', 'modeled_count', 'baseline_modeled_count'):
                 target[key] = None
             target['source'] = 'no_grid_coverage'
     return list(result.values())
@@ -370,7 +376,7 @@ def export(kind: str, start_year: int = 2001, end_year: int = 2025, bbox: str | 
                         headers={'Content-Disposition': f'attachment; filename="{suffix}.json"'})
     if kind == 'monthly':
         records = selected_months(start_year, end_year, bounds)
-        fields = ['date', 'year', 'month', 'modis_count', 'viirs_count', 'harmonized_count', 'modeled_count', 'source', 'lower', 'upper', 'partial_reference', 'known_gap', 'reference_complete', 'modis_complete', 'modis_missing_day_count', 'viirs_missing_day_count']
+        fields = ['date', 'year', 'month', 'modis_count', 'viirs_count', 'harmonized_count', 'modeled_count', 'baseline_modeled_count', 'source', 'lower', 'upper', 'sampling_regime', 'uncertainty_status', 'training_variability_lower90', 'training_variability_upper90', 'partial_reference', 'known_gap', 'reference_complete', 'modis_complete', 'modis_missing_day_count', 'viirs_missing_day_count']
     elif kind == 'fires':
         records = event_selection(start_year, end_year, bounds)
         fields = ['id', 'name', 'year', 'area_ha', 'latitude', 'longitude', 'complex_name', 'agency']
@@ -385,3 +391,35 @@ def export(kind: str, start_year: int = 2001, end_year: int = 2025, bbox: str | 
         writer.writerow(safe)
     return Response(stream.getvalue(), media_type='text/csv',
                     headers={'Content-Disposition': f'attachment; filename="{suffix}.csv"'})
+
+
+@app.get('/api/compare-years')
+def year_comparison(start_year: int = 2001, end_year: int = 2025, bbox: str | None = None,
+                    reference: str = 'viirs'):
+    from backend.comparisons import compare_years
+    validate_years(start_year, end_year)
+    if reference not in ('viirs', 'harmonized'):
+        raise HTTPException(422, 'Choose viirs or harmonized')
+    return compare_years(selected_months(start_year, end_year, parse_bbox(bbox)), start_year, end_year, reference)
+
+
+@lru_cache(maxsize=1)
+def fire_comparison_data():
+    from backend.comparisons import FireComparison
+    return FireComparison(event_scorer())
+
+
+@app.get('/api/compare-fire')
+def fire_comparison(as_of: date, event_id: int | None = None, bbox: str | None = None):
+    if not date(2013,1,1) <= as_of <= date(2025,12,31):
+        raise HTTPException(422, 'Choose a historical date in 2013–2025')
+    bounds = parse_bbox(bbox)
+    data = fire_comparison_data()
+    if event_id is None:
+        return {'events':data.list_events(as_of,bounds), 'as_of':as_of.isoformat()}
+    if event_id not in data.entries:
+        raise HTTPException(404, 'No supported VIIRS event with this ID')
+    try:
+        return data.compare(event_id,as_of)
+    except ValueError as error:
+        raise HTTPException(422,str(error)) from None

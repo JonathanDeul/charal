@@ -1,0 +1,19 @@
+{
+  "created":"2026-11-15",
+  "purpose":"Historically usable replacement with conservative regional transfer and explicit uncertainty",
+  "primary_training":[2013,2020],
+  "meta_folds":[
+    {"name":"forward_2017_2018","train":[2013,2016],"predict":[2017,2018],"direction":"forward"},
+    {"name":"forward_2019_2020","train":[2013,2018],"predict":[2019,2020],"direction":"forward"},
+    {"name":"backward_2013_2014","train":[2015,2020],"predict":[2013,2014],"direction":"backward"},
+    {"name":"backward_2015_2016","train":[2017,2020],"predict":[2015,2016],"direction":"backward"}
+  ],
+  "experts":["seasonal_ratio","v4_hurdle_rich","v7_embedding_mlp"],
+  "neural_fit":"Frozen v7 architecture, fine features, 160 epochs, seeds42/43/44. All preprocessing/count scales/quantile knots are fitted on each fold training data only. No boosted teacher.",
+  "mixing":"Separate north/south latitude39.5 controls, chosen from training-period OOF predictions only. Convex blends of baseline with either learned expert at weights0,.1,.25,.5,.75,1. Backward fold mean MAE receives70% weight, forward30%. Eligible blends must not worsen any regional fold monthly MAE or cell MAE more than5%; require at least5% weighted score gain, otherwise use baseline.",
+  "audit_periods":{"selection":[2021,2022],"known_benchmark":[2023,2025],"backward":[2012,2012]},
+  "promotion":"Require >=5% statewide monthly MAE improvement on both forward periods and2012 statewide; each north/south monthly MAE and overall cell MAE no more than5% worse than actual deployed baseline in every period. Do not tune weights against audit years. If no candidate passes, do not promote it. Further experiments remain separate and disclosed.",
+  "history_policy":"Before Aqua operation July2002, fall back to deployed count calibration and mark the sampling-regime extrapolation. Missing source months remain null; observed SNPP values fromFebruary2012 remain observed, not replaced with predictions.",
+  "uncertainty":"Empirical region/month residual bands on2021-2022 after freezing OOF selection, assessed on2023-2025 and2012; year-block bootstrap training-data variability separately. No confidence guarantee before2012 or under historical shift. All research periods were previously inspected; disclose repeated development.",
+  "production":"Only integrate a verified passing candidate. Back up exact original prepared payload/estimator, preserve observations/extremes/outage metadata, retain baseline comparison and reproducible restoration. No publication or deployment."
+}

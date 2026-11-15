@@ -22,6 +22,10 @@ models/harmonization_v5/
 models/harmonization_v6/
 models/harmonization_v7/
 models/harmonization_v8/
+models/harmonization_release/
+data/research/harmonization_release/*.csv*
+data/research/harmonization_release/*.npz
+data/research/harmonization_release/original*.json.gz
 data/research/harmonization_v8/*.csv*
 data/research/harmonization_v8/*.npz
 models/harmonization_v7_batch2_aborted/
@@ -44,3 +48,5 @@ data/research/harmonization_v2/masks/
 *.log
 .DS_Store
 
+
+models/harmonization_v9/

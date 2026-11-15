@@ -165,3 +165,16 @@ def test_fire_map_rejects_invalid_animation_windows(client, monkeypatch, params)
     for key in ('scan', 'track', 'time', 'satellite'):
         monkeypatch.setitem(obs, key, np.ones(4))
     assert client.get('/api/fire-map', params=params).status_code == 422
+
+
+def test_year_comparison_route_keeps_partial_year_unranked(client):
+    response=client.get('/api/compare-years',params={'start_year':2024,'end_year':2024})
+    assert response.status_code==200
+    assert response.json()['years'][0]['total'] is None
+    assert client.get('/api/compare-years',params={'reference':'all'}).status_code==422
+    assert client.get('/api/compare-years',params={'end_year':2026}).status_code==422
+
+
+@pytest.mark.parametrize('as_of',['2012-12-31','2026-01-01','invalid'])
+def test_fire_comparison_rejects_dates_outside_frozen_reference(client,as_of):
+    assert client.get('/api/compare-fire',params={'as_of':as_of}).status_code==422
