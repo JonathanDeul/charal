@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import { removeLeafletMap } from "~/utils/removeLeafletMap"
 import { mapDetail } from "~/utils/mapDetail"
 import { Info, RefreshCw, Download, Search } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, CircleMarker } from 'leaflet'
-const props = defineProps<{ bbox: number[]; period: string; boundary?: any; context?: any }>()
+const props = defineProps<{ bbox: number[]; period: string; initialWindow?: {anchor:string;days:number}; boundary?: any; context?: any }>()
 type Event = { id:number; label:string; associations:any[]; latitude:number; longitude:number; bounds:number[]; activity:number; observations:number; scored_observations:number; occurrence_score:number; seasonal_occurrence_score:number|null; activity_score:number|null; local_activity_score:number|null; first_recorded:boolean; no_seasonal_activity:boolean|null; reference_years:number[]; active_reference_years:number[]; prior_observed_years:number; regional_activity_weight:number; support:string; season_sensitive:boolean; reasons:string[]; outlier:boolean; first_detection:string; last_detection:string }
-const anchorDate = ref(`${props.period}-15`)
-const windowDays = ref(7)
+const anchorDate = ref(props.initialWindow?.anchor || `${props.period}-15`)
+const windowDays = ref(props.initialWindow?.days || 7)
 const seasonDays = ref(30)
-const reference = ref('viirs')
+const reference = ref(anchorDate.value < '2012-02-01' ? 'harmonized' : 'viirs')
 const threshold = ref(95)
 const measure = ref<'occurrence'|'activity'>('occurrence')
 const filter = ref('outliers')
@@ -92,7 +93,7 @@ onMounted(async()=>{
   map.fitBounds([[props.bbox[1]!,props.bbox[0]!],[props.bbox[3]!,props.bbox[2]!]])
   await load()
 })
-onBeforeUnmount(()=>{request++;controller?.abort();map?.remove()})
+onBeforeUnmount(()=>{request++;controller?.abort();removeLeafletMap(map)})
 </script>
 
 <template>
@@ -100,7 +101,7 @@ onBeforeUnmount(()=>{request++;controller?.abort();map?.remove()})
     <div class="panel-heading"><div><h2>Unusual events, explained</h2><p>Separate occurrence and activity scores · moving seasonal comparison</p></div><span class="tag">INFERRED EVENTS</span></div>
     <div class="activity-controls">
       <label>Anchor date<input v-model="anchorDate" type="date" min="2001-01-01" max="2025-12-31" aria-label="Event anchor date"></label>
-      <label>Measurement window<select v-model.number="windowDays" aria-label="Event measurement window"><option v-for="days in [1,3,7,14]" :key="days" :value="days">{{ days }} day{{days>1?'s':''}} · centered</option></select></label>
+      <label>Measurement window<select v-model.number="windowDays" aria-label="Event measurement window"><option v-for="days in [1,2,3,7,14,28,29,30,31]" :key="days" :value="days">{{ days }} day{{days>1?'s':''}} · centered</option></select></label>
       <label>Seasonal comparison<select v-model.number="seasonDays" aria-label="Event seasonal reference"><option v-for="days in [15,30,45,60]" :key="days" :value="days">±{{days}} days · soft weighting</option></select></label>
       <label>Historical reference<select v-model="reference" aria-label="Event historical reference"><option value="viirs">2012–2025 · VIIRS</option><option value="harmonized">2001–2025 · experimental MODIS + VIIRS</option></select></label>
       <label>Threshold<select v-model.number="threshold" aria-label="Event outlier threshold"><option :value="95">Score ≥95</option><option :value="99">Score ≥99</option></select></label>

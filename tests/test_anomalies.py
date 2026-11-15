@@ -155,10 +155,28 @@ def test_api_contract_and_parameter_validation(daily, monkeypatch):
         r = client.get('/api/activity-outliers', params={'anchor_date':'2020-11-30'})
         assert r.status_code == 200 and r.json()['status'] == 'ok'
         for params in [{'anchor_date':'2026-01-01'}, {'anchor_date':'2020-02-30'},
-                       {'anchor_date':'2020-11-30','window_days':2},
+                       {'anchor_date':'2020-11-30','window_days':32},
                        {'anchor_date':'2020-11-30','reference':'all'},
                        {'anchor_date':'2020-11-30','season_days':0},
                        {'anchor_date':'2020-11-30','threshold':101},
                        {'anchor_date':'2020-11-30','bbox':'nan,32,-114,42'}]:
             assert client.get('/api/activity-outliers', params=params).status_code == 422
+    api.selected_activity.cache_clear()
+
+@pytest.mark.parametrize('anchor,window,start,end', [
+    ('2021-02-14',28,'2021-02-01','2021-02-28'),
+    ('2020-02-15',29,'2020-02-01','2020-02-29'),
+    ('2020-09-15',30,'2020-09-01','2020-09-30'),
+    ('2020-07-16',31,'2020-07-01','2020-07-31'),
+    ('2020-09-01',2,'2020-09-01','2020-09-02'),
+])
+def test_map_window_handoff_preserves_exact_dates(daily, monkeypatch, anchor, window, start, end):
+    monkeypatch.setattr(api, 'activity_dataset', lambda: daily)
+    api.selected_activity.cache_clear()
+    with TestClient(api.app) as client:
+        response = client.get('/api/activity-outliers', params={'anchor_date':anchor, 'window_days':window})
+        assert response.status_code == 200
+        result = response.json()
+        assert (result['start_date'],result['end_date']) == (start,end)
+        assert result['summary']['activity'] == window*4
     api.selected_activity.cache_clear()

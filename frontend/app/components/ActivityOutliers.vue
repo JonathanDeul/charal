@@ -1,5 +1,5 @@
 <script setup lang="ts">
-const props = defineProps<{ bbox: number[]; period: string; boundary?: any; context?: any }>()
+const props = defineProps<{ bbox: number[]; period: string; initialWindow?: {anchor:string;days:number}; boundary?: any; context?: any }>()
 const view = ref('events')
 </script>
 <template>

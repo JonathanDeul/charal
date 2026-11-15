@@ -182,14 +182,14 @@ def selected_activity(anchor: date, window: int, radius: int, bounds: tuple, ref
 
 @app.get('/api/activity-outliers')
 def activity_outliers(anchor_date: date,
-                      window_days: Annotated[int, Query(ge=1, le=14)] = 7,
+                      window_days: Annotated[int, Query(ge=1, le=31)] = 7,
                       season_days: Annotated[int, Query(ge=15, le=60)] = 30,
                       reference: str = 'viirs', bbox: str | None = None,
                       threshold: Annotated[float, Query(ge=90, le=100)] = 95):
     if not date(2001, 1, 1) <= anchor_date <= date(2025, 12, 31):
         raise HTTPException(422, 'Anchor date must be within 2001–2025')
-    if window_days not in WINDOWS or reference not in ('harmonized', 'viirs'):
-        raise HTTPException(422, 'Choose a 1, 3, 7 or 14 day window and harmonized or viirs reference')
+    if window_days not in (*WINDOWS, 2, 28, 29, 30, 31) or reference not in ('harmonized', 'viirs'):
+        raise HTTPException(422, 'Choose a 1, 2, 3, 7, 14, 28, 29, 30 or 31 day window and harmonized or viirs reference')
     result = selected_activity(anchor_date, window_days, season_days, parse_bbox(bbox), reference, threshold)
     diagnostics = DATA / 'activity_diagnostics.json'
     metadata = DATA / 'activity_metadata.json'
@@ -218,15 +218,15 @@ def selected_event_activity(anchor, window, radius, bounds, reference, threshold
 
 @app.get('/api/event-outliers')
 def event_outliers(anchor_date: date,
-                   window_days: Annotated[int, Query(ge=1,le=14)] = 7,
+                   window_days: Annotated[int, Query(ge=1,le=31)] = 7,
                    season_days: Annotated[int, Query(ge=15,le=60)] = 30,
                    reference: str = 'viirs', bbox: str | None = None,
                    threshold: Annotated[float, Query(ge=90,le=100)] = 95,
                    include_points: bool = False):
     if not date(2001,1,1) <= anchor_date <= date(2025,12,31):
         raise HTTPException(422, 'Anchor date must be within 2001–2025')
-    if window_days not in WINDOWS or reference not in ('harmonized','viirs'):
-        raise HTTPException(422, 'Choose a 1, 3, 7 or 14 day window and harmonized or viirs reference')
+    if window_days not in (*WINDOWS, 2, 28, 29, 30, 31) or reference not in ('harmonized','viirs'):
+        raise HTTPException(422, 'Choose a 1, 2, 3, 7, 14, 28, 29, 30 or 31 day window and harmonized or viirs reference')
     result = selected_event_activity(anchor_date,window_days,season_days,parse_bbox(bbox),reference,threshold,include_points)
     metadata = DATA/'activity_metadata.json'
     return {**result,'calibration_metadata':json.loads(metadata.read_text()) if metadata.exists() else None}

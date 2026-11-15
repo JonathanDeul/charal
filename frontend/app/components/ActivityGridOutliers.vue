@@ -1,13 +1,14 @@
 <script setup lang="ts">
+import { removeLeafletMap } from "~/utils/removeLeafletMap"
 import { mapDetail } from "~/utils/mapDetail"
 import { Info, RefreshCw, Download, Search } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, Rectangle } from 'leaflet'
-const props = defineProps<{ bbox: number[]; period: string; boundary?: any; context?: any }>()
+const props = defineProps<{ bbox: number[]; period: string; initialWindow?: {anchor:string;days:number}; boundary?: any; context?: any }>()
 type Cell = { latitude: number; longitude: number; bounds: number[]; score: number; activity: number; typical_activity: number; viirs_reference_score: number | null; reference_sensitive: boolean; outlier: boolean }
-const anchorDate = ref(`${props.period}-15`)
-const windowDays = ref(7)
+const anchorDate = ref(props.initialWindow?.anchor || `${props.period}-15`)
+const windowDays = ref(props.initialWindow?.days || 7)
 const seasonDays = ref(30)
-const reference = ref('viirs')
+const reference = ref(anchorDate.value < '2012-02-01' ? 'harmonized' : 'viirs')
 const threshold = ref(95)
 const onlyOutliers = ref(false)
 const showDetections = ref(false)
@@ -104,7 +105,7 @@ onMounted(async () => {
   map.fitBounds([[props.bbox[1]!, props.bbox[0]!], [props.bbox[3]!, props.bbox[2]!]])
   await load()
 })
-onBeforeUnmount(() => { sequence++; controller?.abort(); map?.remove() })
+onBeforeUnmount(() => { sequence++; controller?.abort(); removeLeafletMap(map) })
 </script>
 
 <template>
@@ -112,7 +113,7 @@ onBeforeUnmount(() => { sequence++; controller?.abort(); map?.remove() })
     <div class="panel-heading"><div><h2>Unusual activity, in seasonal context</h2><p>Historical comparison around the same calendar date · no month boundaries</p></div><span class="tag">EXPLORATORY</span></div>
     <div class="activity-controls">
       <label>Event / anchor date<input v-model="anchorDate" type="date" min="2001-01-01" max="2025-12-31" aria-label="Outlier anchor date"></label>
-      <label>Measurement window<select v-model.number="windowDays" aria-label="Activity measurement window"><option v-for="days in [1,3,7,14]" :key="days" :value="days">{{ days }} day{{ days > 1 ? 's' : '' }} · centered</option></select></label>
+      <label>Measurement window<select v-model.number="windowDays" aria-label="Activity measurement window"><option v-for="days in [1,2,3,7,14,28,29,30,31]" :key="days" :value="days">{{ days }} day{{ days > 1 ? 's' : '' }} · centered</option></select></label>
       <label>Seasonal comparison<select v-model.number="seasonDays" aria-label="Seasonal reference window"><option v-for="days in [15,30,45,60]" :key="days" :value="days">±{{ days }} days · soft weighting</option></select></label>
       <label>Historical reference<select v-model="reference" aria-label="Activity historical reference"><option value="viirs">2012–2025 · VIIRS only</option><option value="harmonized">2001–2025 · experimental MODIS + VIIRS</option></select></label>
       <label>Outlier threshold<select v-model.number="threshold" aria-label="Outlier threshold"><option :value="95">Score ≥ 95</option><option :value="99">Score ≥ 99</option></select></label>

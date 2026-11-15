@@ -152,7 +152,7 @@ def test_event_endpoint_contract(monkeypatch):
         r=client.get('/api/event-outliers',params={'anchor_date':'2020-11-30','include_points':True})
         assert r.status_code==200 and len(r.json()['points'])==2
         assert r.json()['events'][0]['outlier']
-        for params in [{'anchor_date':'2026-01-01'},{'anchor_date':'2020-11-30','window_days':2},
+        for params in [{'anchor_date':'2026-01-01'},{'anchor_date':'2020-11-30','window_days':32},
                        {'anchor_date':'2020-11-30','reference':'all'},
                        {'anchor_date':'2020-11-30','bbox':'nan,32,-114,42'}]:
             assert client.get('/api/event-outliers',params=params).status_code==422
@@ -169,3 +169,21 @@ def test_mismatched_prepared_track_pair_is_rejected(tmp_path,monkeypatch):
         api.event_scorer()
     assert error.value.status_code==503
     api.event_scorer.cache_clear()
+
+@pytest.mark.parametrize('anchor,window,start,end', [
+    ('2021-02-14',28,'2021-02-01','2021-02-28'),
+    ('2020-02-15',29,'2020-02-01','2020-02-29'),
+    ('2020-09-15',30,'2020-09-01','2020-09-30'),
+    ('2020-07-16',31,'2020-07-01','2020-07-31'),
+    ('2020-09-01',2,'2020-09-01','2020-09-02'),
+])
+def test_event_map_window_handoff(monkeypatch, anchor, window, start, end):
+    scorer = make_scorer([('2019-01-01',1,0.,1)])
+    monkeypatch.setattr(api, 'event_scorer', lambda: scorer)
+    api.selected_event_activity.cache_clear()
+    with TestClient(api.app) as client:
+        response = client.get('/api/event-outliers',params={'anchor_date':anchor,'window_days':window})
+        assert response.status_code == 200
+        result = response.json()
+        assert (result['start_date'],result['end_date']) == (start,end)
+    api.selected_event_activity.cache_clear()

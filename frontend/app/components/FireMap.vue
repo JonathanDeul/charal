@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { removeLeafletMap } from "~/utils/removeLeafletMap"
 import { mapDetail } from "~/utils/mapDetail"
-import { Expand, MousePointer2, RotateCcw, Layers, MapPin, Play, Pause, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-vue-next'
+import { Expand, MousePointer2, RotateCcw, Layers, MapPin, Play, Pause, ChevronLeft, ChevronRight, ChevronDown, Maximize2, Minimize2 } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, Rectangle, LatLng, Canvas } from 'leaflet'
-const props = defineProps<{ bbox: number[]; period: string; sensor: string; boundary?: any; context?: any }>()
+const props = defineProps<{ bbox: number[]; period: string; sensor: string; focusCount?: number; boundary?: any; context?: any }>()
 const emit = defineEmits<{ select: [bbox: number[]]; reset: []; 'update:period': [period: string] }>()
+const expanded = ref(false)
+watch(expanded, async () => { await nextTick(); map?.invalidateSize() })
 const monthPicker = ref<HTMLDetailsElement>()
 const pickerYear = ref(props.period.slice(0, 4))
 const pickerMonth = ref(props.period.slice(5, 7))
@@ -38,7 +41,7 @@ type Footprint = [number, number, number, number | null, string, number, number,
 type Cell = { bounds: number[]; days: number; first: string; last: string; max_frp: number | null; sources: number; count: number }
 type MapData = { footprints: Footprint[]; cells: Cell[]; invalid_geometry: number; total: number }
 const data = shallowRef<MapData>()
-const displayedFrame = shallowRef<{ label: string; date: string; timeline: boolean }>()
+const displayedFrame = shallowRef<{ label: string; date: string; timeline: boolean; start: string; end: string }>()
 const measure = ref('power')
 const geometry = ref('pixels')
 const showPoints = ref(false)
@@ -229,7 +232,7 @@ async function loadPoints() {
   if (activeKey !== key) pendingFrames.get(activeKey)?.controller.abort()
   activeKey = key
   loading.value = !frameCache.has(key)
-  const frame = { label: timeLabel.value, date: selectedDate.value, timeline: timeline.value }
+  const frame = { label: timeLabel.value, date: selectedDate.value, timeline: timeline.value, start: timeline.value ? windowStart.value : monthStart(), end: timeline.value ? selectedDate.value : monthEnd() }
   try {
     const result = await fetchFrame(query)
     if (request !== generation) return
@@ -340,7 +343,20 @@ watch(() => props.bbox, () => {
   }
   fitRegion(); loadPoints()
 }, { deep: true })
+let viewportObserver: ResizeObserver | undefined
+function sizeMapToViewport() {
+  const shell = element.value?.parentElement
+  if (!shell || expanded.value) return
+  const top = shell.getBoundingClientRect().top + window.scrollY
+  shell.style.setProperty('--map-viewport-height', `${Math.max(240, window.innerHeight - top - 1)}px`)
+  map?.invalidateSize()
+}
 onMounted(async () => {
+  sizeMapToViewport()
+  window.addEventListener('resize', sizeMapToViewport)
+  viewportObserver = new ResizeObserver(sizeMapToViewport)
+  const main = element.value?.closest('main')
+  if (main) viewportObserver.observe(main)
   L = await import('leaflet')
   if (!element.value) return
   map = L.map(element.value, { zoomControl: false, preferCanvas: true, attributionControl: true, minZoom: 4, maxZoom: 13 })
@@ -365,16 +381,42 @@ onMounted(async () => {
   fitRegion()
   await loadPoints()
 })
-onBeforeUnmount(() => { cancelAreaDrag(); pause(); generation++; clearFrameCache(); map?.remove() })
+onBeforeUnmount(() => { viewportObserver?.disconnect(); window.removeEventListener('resize', sizeMapToViewport); cancelAreaDrag(); pause(); generation++; clearFrameCache(); removeLeafletMap(map) })
 </script>
 
 <template>
-  <div class="fire-map-explorer">
-    <div class="fire-map-controls">
-      <label>Color by<select v-model="measure" aria-label="Map color measure"><option value="power">Radiative power (FRP)</option><option v-if="!timeline" value="days">Detection days</option><option v-if="!timeline" value="combined">Power + detection days</option><option value="source">Sensor</option></select></label>
+  <div class="fire-map-explorer" :class="{'map-expanded':expanded}" @keydown.esc="expanded=false">
+    <div class="map-shell" :class="{ 'area-drawing': drawing, 'has-timeline':timeline }">
+    <div ref="element" class="map-canvas" aria-label="NASA fire detection pixel footprints and activity cells in California"
+      @pointerdown.capture="startAreaDrag" @pointermove.capture="moveAreaDrag" @pointerup.capture="finishAreaDrag"
+      @pointercancel="cancelAreaPointer" @lostpointercapture="cancelAreaPointer" />
+    <div class="map-toolbar">
+      <div class="map-date-controls">
+      <details ref="monthPicker" class="map-month-picker" @keydown.esc.prevent.stop="closeMonthPicker" @focusout="event => { if (!monthPicker?.contains(event.relatedTarget as Node)) monthPicker!.open = false }">
+        <summary class="map-period" aria-label="Change selected month" title="Change selected month" @click="openMonthPicker"><MapPin :size="13" /> {{ displayedFrame?.label || timeLabel }} <ChevronDown :size="13" /></summary>
+        <form class="map-month-form" aria-label="Choose map month" @submit.prevent="applyMonth">
+          <label>Month<select v-model="pickerMonth" aria-label="Map month"><option v-for="(name, index) in monthNames" :key="name" :value="String(index + 1).padStart(2, '0')">{{ name }}</option></select></label>
+          <label>Year<select v-model="pickerYear" aria-label="Map year"><option v-for="year in 25" :key="year" :value="String(2026 - year)">{{ 2026 - year }}</option></select></label>
+          <div><button type="button" @click="closeMonthPicker">Cancel</button><button type="submit">Show month</button></div>
+        </form>
+      </details>
+      <div class="map-time-toggle" role="group" aria-label="Map time mode">
+        <button :class="{active:!timeline}" :aria-pressed="!timeline" @click="timeline=false">Monthly</button>
+        <button :class="{active:timeline}" :aria-pressed="timeline" @click="timeline=true"><Play :size="13" /> Animate</button>
+      </div>
+      </div>
+      <div class="map-actions"><slot name="sensors" />    <div class="fire-map-controls map-visible-controls" aria-label="Map display controls">
+
       <label>Show<select v-model="geometry" aria-label="Map geometry"><option v-if="!gridRequired" value="pixels">NASA pixel footprints</option><option value="grid">Activity grid · 1 km</option><option v-if="!gridRequired" value="points">Observation points</option></select></label>
-      <label>Time<select v-model="timeline" aria-label="Map time mode"><option :value="false">Whole month</option><option :value="true">Daily animation · UTC</option></select></label> 
+       
     </div>
+<button :aria-label="expanded?'Exit expanded map':'Expand map'" :aria-pressed="expanded" @click="expanded=!expanded"><Minimize2 v-if="expanded" :size="15" /><Maximize2 v-else :size="15" /></button>
+        <button :class="{ active: drawing }" :aria-pressed="drawing" @click="setDrawing"><MousePointer2 :size="14" /> Select area</button>
+        <button aria-label="Fit selected region" title="Fit selected region" @click="fitRegion"><Expand :size="15" /></button>
+        <button aria-label="Reset to all California" title="Reset region" @click="resetSelection"><RotateCcw :size="15" /></button>
+      </div>
+    </div>
+    <slot name="overlay" :timeframe="{start:displayedFrame?.start || monthStart(),end:displayedFrame?.end || monthEnd()}" />
     <div v-if="timeline" class="fire-timeline">
       <div class="fire-timeline-settings">
         <label>From<input v-model="rangeStart" type="date" min="2001-01-01" max="2025-12-31" aria-label="Animation start date"></label>
@@ -391,33 +433,14 @@ onBeforeUnmount(() => { cancelAreaDrag(); pause(); generation++; clearFrameCache
         <output>{{ displayedFrame?.timeline ? displayedFrame.date : selectedDate }} UTC</output>
       </div>
     </div>
-    <!-- <p class="fire-measure-note">{{ measureNote }}</p> -->
-    <div class="map-shell" :class="{ 'area-drawing': drawing }">
-    <div ref="element" class="map-canvas" aria-label="NASA fire detection pixel footprints and activity cells in California"
-      @pointerdown.capture="startAreaDrag" @pointermove.capture="moveAreaDrag" @pointerup.capture="finishAreaDrag"
-      @pointercancel="cancelAreaPointer" @lostpointercapture="cancelAreaPointer" />
-    <div class="map-toolbar">
-      <details ref="monthPicker" class="map-month-picker" @keydown.esc.prevent.stop="closeMonthPicker" @focusout="event => { if (!monthPicker?.contains(event.relatedTarget as Node)) monthPicker!.open = false }">
-        <summary class="map-period" aria-label="Change selected month" title="Change selected month" @click="openMonthPicker"><MapPin :size="13" /> {{ displayedFrame?.label || timeLabel }} <ChevronDown :size="13" /></summary>
-        <form class="map-month-form" aria-label="Choose map month" @submit.prevent="applyMonth">
-          <label>Month<select v-model="pickerMonth" aria-label="Map month"><option v-for="(name, index) in monthNames" :key="name" :value="String(index + 1).padStart(2, '0')">{{ name }}</option></select></label>
-          <label>Year<select v-model="pickerYear" aria-label="Map year"><option v-for="year in 25" :key="year" :value="String(2026 - year)">{{ 2026 - year }}</option></select></label>
-          <div><button type="button" @click="closeMonthPicker">Cancel</button><button type="submit">Show month</button></div>
-        </form>
-      </details>
-      <div class="map-actions">
-        <button :class="{ active: drawing }" :aria-pressed="drawing" @click="setDrawing"><MousePointer2 :size="14" /> Select area</button>
-        <button aria-label="Fit selected region" title="Fit selected region" @click="fitRegion"><Expand :size="15" /></button>
-        <button aria-label="Reset to all California" title="Reset region" @click="resetSelection"><RotateCcw :size="15" /></button>
-      </div>
-    </div>
     <div v-if="drawing" class="map-instruction" style="pointer-events: none">{{ selectionError || (anchor ? 'Release to select the highlighted area.' : 'Click and drag to select an area. Release to finish. Or use the coordinate fields above.') }}</div>
     <div class="map-key fire-map-legend">
+      <label class="legend-color-control">Color by<select v-model="measure" aria-label="Map color measure"><option value="power">Radiative power (FRP)</option><option v-if="!timeline" value="days">Detection days</option><option v-if="!timeline" value="combined">Power + detection days</option><option value="source">Sensor</option></select></label>
       <template v-if="measure === 'source'"><span><i style="background:#dd7c4c" /> MODIS</span><span><i style="background:#7659a8" /> VIIRS</span><span v-if="geometry === 'grid'"><i style="background:#235e69" /> Both</span></template>
       <template v-else><strong>{{ measure === 'days' ? 'Detection days' : 'FRP · MW' }}</strong><span v-for="(color,i) in palette" :key="color"><i :style="{background:color}" />{{ bins[i] }}</span><span v-if="measure !== 'days'"><i style="background:#92998b" /> No FRP</span></template>
       <small v-if="measure === 'combined'">Detection days · opacity <span v-for="d in [1,8,16,24,31]" :key="d"><i :style="{background: '#b43828', opacity: .25 + .65 * (d-1)/30}" />{{ d }}</span></small>
     </div>
-    <div class="map-count"><Layers :size="13" /><span v-if="timeline && rangeError">Invalid date range</span><span v-else-if="loading">{{ data ? 'Buffering next frame · current observations remain visible' : 'Loading observations…' }}</span><span v-else-if="error">{{ error }} <button @click="loadPoints">Retry</button></span><span v-else>{{ fmt(total) }} observations · no sampling<span v-if="!total"> · Try another sensor or date</span></span></div>
+    <div class="map-count"><Layers :size="13" /><span v-if="timeline && rangeError">Invalid date range</span><span v-else-if="loading">{{ data ? 'Buffering next frame · current observations remain visible' : 'Loading observations…' }}</span><span v-else-if="error">{{ error }} <button @click="loadPoints">Retry</button></span><span v-else>{{ total===focusCount ? 'All selected observations' : `${fmt(total)} observations` }} · no sampling<span v-if="!total"> · Try another sensor or date</span></span></div>
     </div>
   </div>
 </template>
