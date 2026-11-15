@@ -1,0 +1,34 @@
+{
+  "architecture": "Piecewise-linear numeric embeddings, two64-unit ReLU layers, neural presence/conditional-count heads",
+  "seeds": [
+    42,
+    43,
+    44
+  ],
+  "weights": [
+    0.3333333333333333,
+    0.3333333333333333,
+    0.3333333333333333
+  ],
+  "boosted_teacher": false,
+  "training_years": [
+    2013,
+    2020
+  ],
+  "requires": "MODIS-derived v4 feature table; VIIRS/year ignored, no labels needed for inference",
+  "loader": "backend.neural_candidate.NeuralCandidate(root, device=\"cpu\" or \"mps\").predict(frame)",
+  "checkpoints": {
+    "42": {
+      "path": "models/harmonization_v7/final_plr_mlp_conditional_42.pt",
+      "sha256": "c2095d3d04129e24665b33019586bb4a51fe9342b8c3b96a1e3899d97859b7e0"
+    },
+    "43": {
+      "path": "models/harmonization_v7/final_plr_mlp_conditional_43.pt",
+      "sha256": "fe5165cc3a3be6d6192b8063790347ce3259e9d8dfa5bfa60c6351ff3449f7d7"
+    },
+    "44": {
+      "path": "models/harmonization_v7/final_plr_mlp_conditional_44.pt",
+      "sha256": "3a0407b56d3287c6853932688173a88eebd09f383b5e90eeda298f4fc4b1b63c"
+    }
+  }
+}

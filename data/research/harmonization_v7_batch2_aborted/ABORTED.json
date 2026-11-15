@@ -1,0 +1,5 @@
+{
+  "reason": "Implementation used batch2 while frozen protocol specifies batch8. Stopped before final selection/benchmark; preserved for audit, no scores used for model selection. Restarted corrected batch8 implementation.",
+  "prior_batch_size": 2,
+  "corrected_batch_size": 8
+}

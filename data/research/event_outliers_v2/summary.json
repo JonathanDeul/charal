@@ -1,0 +1,83 @@
+{
+  "protocol": {
+    "anchors": [
+      "2014-01-18",
+      "2014-08-14",
+      "2017-09-01",
+      "2018-11-11",
+      "2020-09-15",
+      "2021-06-21",
+      "2025-01-10"
+    ],
+    "measurement_days": 7,
+    "season_days": 30,
+    "reference": "viirs",
+    "threshold": 95,
+    "tracking_km": 3,
+    "tracking_days": 2,
+    "comparison_radius_km": 10,
+    "review_selection": "Up to five lowest event IDs in each reason category per fixed anchor; human judgments are deliberately blank.",
+    "status": "Known-case development audit, not an untouched benchmark or human validation."
+  },
+  "review_rows": 125,
+  "snapshots": [
+    {
+      "anchor_date": "2014-01-18",
+      "events_total": 42,
+      "outlier_events": 10,
+      "first_recorded_events": 2
+    },
+    {
+      "anchor_date": "2014-08-14",
+      "events_total": 57,
+      "outlier_events": 12,
+      "first_recorded_events": 2
+    },
+    {
+      "anchor_date": "2017-09-01",
+      "events_total": 75,
+      "outlier_events": 28,
+      "first_recorded_events": 0
+    },
+    {
+      "anchor_date": "2018-11-11",
+      "events_total": 64,
+      "outlier_events": 21,
+      "first_recorded_events": 0
+    },
+    {
+      "anchor_date": "2020-09-15",
+      "events_total": 74,
+      "outlier_events": 42,
+      "first_recorded_events": 0
+    },
+    {
+      "anchor_date": "2021-06-21",
+      "events_total": 71,
+      "outlier_events": 21,
+      "first_recorded_events": 1
+    },
+    {
+      "anchor_date": "2025-01-10",
+      "events_total": 127,
+      "outlier_events": 48,
+      "first_recorded_events": 0
+    }
+  ],
+  "first_recorded_preserved": true,
+  "perimeter_comparisons": 1484,
+  "input_sha256": {
+    "activity_events.npz": "93722e7f1bccdfdb31a99af71cfafe619254728b43a81762342d536f50b7dd31",
+    "activity_events.json": "191eed934c1ad7d02a334c11efa300e2898672501868aa05b203f97a19727ff1",
+    "observations.npz": "1b1dd69b0edd98210b95b89af0635c294378a286a6082b98a9f13a31caa94ea2",
+    "activity_daily.npz": "607fe634ca58b4a247c259a43f0b451e990d398c889415ca0ff67d432fea860d"
+  },
+  "previously_flagged_small_events": {
+    "n": 222,
+    "with_linked_reports_in_new_support": 220,
+    "old_median_linked_share": 0.3333333333333333,
+    "new_median_linked_share": 0.4444444444444444,
+    "new_fraction_share_below_half": 0.509090909090909,
+    "new_outliers": 187
+  }
+}

@@ -1,5 +1,7 @@
 # Seasonal activity outliers — 15 November 2026
 
+The [v2 event method](EVENT_OUTLIERS_V2.md) is now the default view. This document describes the original cell baseline, retained through “Original cell comparison.”
+
 The **Seasonal outliers** page answers: “How unusual is reported activity here
 for this time of year?” It does not score perimeter size or an individual
 fire's physical severity. Clicking a detection exposes its surrounding cell's

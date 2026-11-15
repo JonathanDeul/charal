@@ -6,6 +6,8 @@ The later [daily spatial/temporal context comparison (v3)](HARMONIZATION_V3.md) 
 
 [V4](HARMONIZATION_V4.md) restores the original fitting population for direct comparison and finds a two-stage boosted candidate with better forward statewide, regional and overall cell metrics. Its full search, post-selection audits and failures are reported separately; repeated historical evaluation is not an untouched test. Candidate predictions do not replace the production calendar or inherit its residual bands.
 
+The subsequent [neural/MPS comparison](HARMONIZATION_NEURAL.md) reaches the exploratory 2021–2022 monthly-MAE target <500 with a fixed three-seed numeric-embedding MLP ensemble. It preserves original fitting years and outage policy, selects epochs on2019–2020, and explicitly reports the adverse local/northern/backward metrics as well as all Transformer failures. Repeatedly inspected periods do not provide independent prospective confirmation, and the neural candidate is not promoted into the calendar.
+
 This proof of concept addresses two different questions for California, 2001–2025:
 
 1. How much of the apparent change in **reported hotspot detections** is associated with changing sensors, and how well can an empirical calibration reproduce one reference reporting scale?

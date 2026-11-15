@@ -1,8 +1,31 @@
 <script setup lang="ts">
-import { Expand, MousePointer2, RotateCcw, Layers, MapPin, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-vue-next'
+import { Expand, MousePointer2, RotateCcw, Layers, MapPin, Play, Pause, ChevronLeft, ChevronRight, ChevronDown } from 'lucide-vue-next'
 import type { Map as LMap, LayerGroup, Rectangle, LatLng, Canvas } from 'leaflet'
 const props = defineProps<{ bbox: number[]; period: string; sensor: string; boundary?: any; context?: any }>()
-const emit = defineEmits<{ select: [bbox: number[]]; reset: [] }>()
+const emit = defineEmits<{ select: [bbox: number[]]; reset: []; 'update:period': [period: string] }>()
+const monthPicker = ref<HTMLDetailsElement>()
+const pickerYear = ref(props.period.slice(0, 4))
+const pickerMonth = ref(props.period.slice(5, 7))
+const monthNames = Array.from({ length: 12 }, (_, i) => new Date(2000, i, 1).toLocaleDateString('en-US', { month: 'long' }))
+function openMonthPicker() {
+  if (!monthPicker.value?.open) {
+    pickerYear.value = props.period.slice(0, 4)
+    pickerMonth.value = props.period.slice(5, 7)
+  }
+}
+function closeMonthPicker() {
+  if (monthPicker.value) {
+    monthPicker.value.open = false
+    monthPicker.value.querySelector('summary')?.focus()
+  }
+}
+function applyMonth() {
+  pause()
+  // Choosing the current month also returns daily playback to the monthly view.
+  timeline.value = false
+  emit('update:period', `${pickerYear.value}-${pickerMonth.value}`)
+  closeMonthPicker()
+}
 const element = ref<HTMLElement>()
 const drawing = ref(false)
 const anchor = ref<LatLng | null>(null)
@@ -128,10 +151,10 @@ const palette = computed(() => measure.value === 'days' ? dayColors : powerColor
 const bins = computed(() => measure.value === 'days' ? ['1','2–3','4–7','8–15','16+'] : ['0–10','10–50','50–200','200–1k','1k+'])
 const gridRequired = computed(() => ['days', 'combined'].includes(measure.value))
 const measureNote = computed(() => ({
-  power: 'Pixel-integrated fire radiative power (MW), not temperature or fire severity. Grid view uses the maximum reported pixel FRP.',
-  days: 'Distinct UTC dates with a detection in each 1 km cell, not continuous burning duration. Repeated overpasses on one date count once.',
-  combined: 'Color shows maximum reported pixel FRP; opacity shows detection days (1–31). An exploratory view, not total energy or fire severity.',
-  source: 'MODIS and VIIRS remain separate observations. A shared cell means both sensors reported there, not necessarily at the same time.'
+  power: 'Pixel-integrated fire radiative power (MW)',
+  days: 'Distinct UTC dates with a detection in each 1 km cell', // 
+  combined: '',
+  source: ''
 }[measure.value]))
 function sourceColor(code: number) { return code === 1 ? '#dd7c4c' : code === 2 ? '#7659a8' : '#235e69' }
 function valueColor(value: number | null, days = false) {
@@ -225,6 +248,7 @@ async function loadPoints() {
 }
 
 function setDrawing() {
+  cancelAreaDrag()
   selectionError.value = ''
   drawing.value = !drawing.value
   anchor.value = null
@@ -232,8 +256,73 @@ function setDrawing() {
   else map?.dragging.enable()
 }
 function resetSelection() {
+  cancelAreaDrag()
   rectangle?.remove(); drawing.value=false; anchor.value=null; selectionError.value=''
   map?.dragging.enable(); emit('reset')
+}
+let preview: Rectangle | undefined
+let areaPointerId: number | null = null
+function cancelAreaDrag() {
+  const pointerId = areaPointerId
+  areaPointerId = null
+  anchor.value = null
+  preview?.remove()
+  preview = undefined
+  if (pointerId !== null && element.value?.hasPointerCapture(pointerId)) element.value.releasePointerCapture(pointerId)
+}
+function areaPoint(event: PointerEvent) {
+  const point = map!.mouseEventToContainerPoint(event)
+  const size = map!.getSize()
+  return map!.containerPointToLatLng(L.point(Math.max(0, Math.min(size.x, point.x)), Math.max(0, Math.min(size.y, point.y))))
+}
+function areaBounds(b: LatLng) {
+  const a = anchor.value!
+  return [Math.max(-124.5, Math.min(a.lng,b.lng)), Math.max(32.5, Math.min(a.lat,b.lat)), Math.min(-114.1, Math.max(a.lng,b.lng)), Math.min(42.1, Math.max(a.lat,b.lat))]
+}
+function startAreaDrag(event: PointerEvent) {
+  if (!drawing.value || !map || !event.isPrimary || event.button !== 0 || areaPointerId !== null) return
+  if ((event.target as HTMLElement).closest('.leaflet-control')) return
+  event.preventDefault()
+  event.stopPropagation()
+  selectionError.value = ''
+  areaPointerId = event.pointerId
+  anchor.value = areaPoint(event)
+  element.value!.setPointerCapture(event.pointerId)
+}
+function moveAreaDrag(event: PointerEvent) {
+  if (event.pointerId !== areaPointerId || !anchor.value || !map) return
+  event.preventDefault()
+  event.stopPropagation()
+  const bounds = areaBounds(areaPoint(event))
+  if (bounds[0]! >= bounds[2]! || bounds[1]! >= bounds[3]!) {
+    preview?.remove(); preview = undefined
+    return
+  }
+  const corners: [[number, number], [number, number]] = [[bounds[1]!, bounds[0]!], [bounds[3]!, bounds[2]!]]
+  if (preview) preview.setBounds(corners)
+  else preview = L.rectangle(corners, { color: '#23554a', fillOpacity: .16, weight: 2, dashArray: '5 5', interactive: false }).addTo(map)
+}
+function finishAreaDrag(event: PointerEvent) {
+  if (event.pointerId !== areaPointerId || !anchor.value) return
+  event.preventDefault()
+  event.stopPropagation()
+  const bounds = areaBounds(areaPoint(event))
+  cancelAreaDrag()
+  if (bounds[0]! >= bounds[2]! || bounds[1]! >= bounds[3]!) {
+    selectionError.value = 'Select an area inside the prepared California region.'
+    return
+  }
+  if (bounds[2]! - bounds[0]! < .05 || bounds[3]! - bounds[1]! < .05) {
+    selectionError.value = 'Click and drag to select a larger area.'
+    return
+  }
+  selectionError.value = ''
+  drawing.value = false
+  map?.dragging.enable()
+  emit('select', bounds)
+}
+function cancelAreaPointer(event: PointerEvent) {
+  if (event.pointerId === areaPointerId) cancelAreaDrag()
 }
 function fitRegion() {
   map?.fitBounds([[props.bbox[1]!, props.bbox[0]!], [props.bbox[3]!, props.bbox[2]!]], { padding: [22,22] })
@@ -248,6 +337,7 @@ watch(() => props.period, () => {
   else loadPoints()
 })
 watch(() => props.bbox, () => {
+  cancelAreaDrag()
   pause()
   rectangle?.remove();rectangle=undefined
   if (L && map && props.bbox.join(',')!=='-124.5,32.5,-114.1,42.1') {
@@ -277,27 +367,10 @@ onMounted(async () => {
   renderer = L.canvas({ padding: .5 })
   points = L.layerGroup().addTo(map)
   L.control.zoom({ position: 'bottomright' }).addTo(map)
-  map.on('click', e => {
-    if (!drawing.value) return
-    if (!anchor.value) { anchor.value = e.latlng; return }
-    const a = anchor.value
-    const b = e.latlng
-    if (Math.abs(a.lng-b.lng) < .05 || Math.abs(a.lat-b.lat) < .05) return
-    const bounds=[Math.max(-124.5,Math.min(a.lng,b.lng)), Math.max(32.5,Math.min(a.lat,b.lat)), Math.min(-114.1,Math.max(a.lng,b.lng)), Math.min(42.1,Math.max(a.lat,b.lat))]
-    if(bounds[0]!>=bounds[2]! || bounds[1]!>=bounds[3]!) {
-      selectionError.value='Select an area inside the prepared California region.';anchor.value=null;return
-    }
-    selectionError.value='';rectangle?.remove()
-    rectangle = L.rectangle([[bounds[1]!,bounds[0]!],[bounds[3]!,bounds[2]!]], { color: '#23554a', fillOpacity: .06, weight: 2, dashArray: '5 5' }).addTo(map!)
-    drawing.value = false
-    anchor.value = null
-    map?.dragging.enable()
-    emit('select', bounds)
-  })
   fitRegion()
   await loadPoints()
 })
-onBeforeUnmount(() => { pause(); generation++; clearFrameCache(); map?.remove() })
+onBeforeUnmount(() => { cancelAreaDrag(); pause(); generation++; clearFrameCache(); map?.remove() })
 </script>
 
 <template>
@@ -305,8 +378,7 @@ onBeforeUnmount(() => { pause(); generation++; clearFrameCache(); map?.remove() 
     <div class="fire-map-controls">
       <label>Color by<select v-model="measure" aria-label="Map color measure"><option value="power">Radiative power (FRP)</option><option v-if="!timeline" value="days">Detection days</option><option v-if="!timeline" value="combined">Power + detection days</option><option value="source">Sensor</option></select></label>
       <label>Show<select v-model="geometry" aria-label="Map geometry"><option v-if="!gridRequired" value="pixels">NASA pixel footprints</option><option value="grid">Activity grid · 1 km</option><option v-if="!gridRequired" value="points">Observation points</option></select></label>
-      <label>Time<select v-model="timeline" aria-label="Map time mode"><option :value="false">Whole month</option><option :value="true">Daily animation · UTC</option></select></label>
-      <label v-if="geometry !== 'points'" class="fire-point-toggle"><input v-model="showPoints" type="checkbox"> Points</label>
+      <label>Time<select v-model="timeline" aria-label="Map time mode"><option :value="false">Whole month</option><option :value="true">Daily animation · UTC</option></select></label> 
     </div>
     <div v-if="timeline" class="fire-timeline">
       <div class="fire-timeline-settings">
@@ -323,20 +395,28 @@ onBeforeUnmount(() => { pause(); generation++; clearFrameCache(); map?.remove() 
         <button aria-label="Next day" :disabled="dayIndex >= dayCount" @click="scrub(dayIndex + 1)"><ChevronRight :size="16" /></button>
         <output>{{ displayedFrame?.timeline ? displayedFrame.date : selectedDate }} UTC</output>
       </div>
-      <small>Daily observations, not a continuous fire front. The 3-day window fades older pixels and points; grid statistics cover the displayed window. The next day loads ahead; the current frame stays visible while buffering.</small>
     </div>
-    <p class="fire-measure-note">{{ measureNote }}</p>
-    <div class="map-shell">
-    <div ref="element" class="map-canvas" aria-label="NASA fire detection pixel footprints and activity cells in California" />
+    <!-- <p class="fire-measure-note">{{ measureNote }}</p> -->
+    <div class="map-shell" :class="{ 'area-drawing': drawing }">
+    <div ref="element" class="map-canvas" aria-label="NASA fire detection pixel footprints and activity cells in California"
+      @pointerdown.capture="startAreaDrag" @pointermove.capture="moveAreaDrag" @pointerup.capture="finishAreaDrag"
+      @pointercancel="cancelAreaPointer" @lostpointercapture="cancelAreaPointer" />
     <div class="map-toolbar">
-      <span class="map-period"><MapPin :size="13" /> {{ displayedFrame?.label || timeLabel }}</span>
+      <details ref="monthPicker" class="map-month-picker" @keydown.esc.prevent.stop="closeMonthPicker" @focusout="event => { if (!monthPicker?.contains(event.relatedTarget as Node)) monthPicker!.open = false }">
+        <summary class="map-period" aria-label="Change selected month" title="Change selected month" @click="openMonthPicker"><MapPin :size="13" /> {{ displayedFrame?.label || timeLabel }} <ChevronDown :size="13" /></summary>
+        <form class="map-month-form" aria-label="Choose map month" @submit.prevent="applyMonth">
+          <label>Month<select v-model="pickerMonth" aria-label="Map month"><option v-for="(name, index) in monthNames" :key="name" :value="String(index + 1).padStart(2, '0')">{{ name }}</option></select></label>
+          <label>Year<select v-model="pickerYear" aria-label="Map year"><option v-for="year in 25" :key="year" :value="String(2026 - year)">{{ 2026 - year }}</option></select></label>
+          <div><button type="button" @click="closeMonthPicker">Cancel</button><button type="submit">Show month</button></div>
+        </form>
+      </details>
       <div class="map-actions">
         <button :class="{ active: drawing }" :aria-pressed="drawing" @click="setDrawing"><MousePointer2 :size="14" /> Select area</button>
         <button aria-label="Fit selected region" title="Fit selected region" @click="fitRegion"><Expand :size="15" /></button>
         <button aria-label="Reset to all California" title="Reset region" @click="resetSelection"><RotateCcw :size="15" /></button>
       </div>
     </div>
-    <div v-if="drawing" class="map-instruction">{{ selectionError || (anchor ? 'Click the opposite corner to finish your selection.' : 'Click two opposite corners to select an area. Or use the coordinate fields above.') }}</div>
+    <div v-if="drawing" class="map-instruction" style="pointer-events: none">{{ selectionError || (anchor ? 'Release to select the highlighted area.' : 'Click and drag to select an area. Release to finish. Or use the coordinate fields above.') }}</div>
     <div class="map-key fire-map-legend">
       <template v-if="measure === 'source'"><span><i style="background:#dd7c4c" /> MODIS</span><span><i style="background:#7659a8" /> VIIRS</span><span v-if="geometry === 'grid'"><i style="background:#235e69" /> Both</span></template>
       <template v-else><strong>{{ measure === 'days' ? 'Detection days' : 'FRP · MW' }}</strong><span v-for="(color,i) in palette" :key="color"><i :style="{background:color}" />{{ bins[i] }}</span><span v-if="measure !== 'days'"><i style="background:#92998b" /> No FRP</span></template>
@@ -344,6 +424,25 @@ onBeforeUnmount(() => { pause(); generation++; clearFrameCache(); map?.remove() 
     </div>
     <div class="map-count"><Layers :size="13" /><span v-if="timeline && rangeError">Invalid date range</span><span v-else-if="loading">{{ data ? 'Buffering next frame · current observations remain visible' : 'Loading observations…' }}</span><span v-else-if="error">{{ error }} <button @click="loadPoints">Retry</button></span><span v-else>{{ fmt(total) }} observations · no sampling<span v-if="!total"> · Try another sensor or date</span></span></div>
     </div>
-    <div class="fire-map-caption"><span v-if="geometry === 'pixels'">Approximate scan/track footprints, aligned north. Overlaps can appear darker.</span><span v-else-if="geometry === 'grid'">Fixed 1 km equal-area cells; observations assigned by pixel center. These are activity cells, not pixel boundaries.</span><span v-else>Points mark the centers of detected pixels.</span> Neither view measures burned area or continuous fire duration. No detection does not prove no fire; clouds and observation gaps remain. <span v-if="(showPoints && geometry !== 'points') || (geometry === 'points' && measure === 'source')">Point colors: orange MODIS, purple VIIRS.</span><span v-if="data?.invalid_geometry"> {{ fmt(data.invalid_geometry) }} observations lack valid pixel dimensions and are omitted from footprints and points; grid statistics include them.</span></div>
   </div>
 </template>
+
+<style scoped>
+.map-month-picker { position: relative; pointer-events: auto; align-self: flex-start; min-width: 0; }
+.map-month-picker .map-period { cursor: pointer; list-style: none; max-width: none; }
+.map-period::-webkit-details-marker { display: none; }
+.map-period svg { flex-shrink: 0; }
+.map-month-form { position: absolute; top: 100%; left: 0; margin-top: 6px; padding: 12px; width: 235px; max-width: calc(100vw - 65px); display: flex; flex-wrap: wrap; gap: 10px; background: #fffef7; border: 1px solid #d5dfcc; border-radius: 6px; box-shadow: 0 4px 15px #34412a26; color: #294a39; }
+.map-month-form label { display: flex; flex-direction: column; gap: 5px; font-size: 11px; flex: 1; }
+.map-month-form select { padding: 7px; border: 1px solid #d5dfcc; border-radius: 4px; background: #f4f6ed; color: inherit; font: inherit; }
+.map-month-form > div { display: flex; justify-content: flex-end; gap: 8px; width: 100%; }
+.map-month-form button { padding: 7px 10px; border: 1px solid #d5dfcc; border-radius: 4px; background: #f4f6ed; color: inherit; font-size: 11px; cursor: pointer; }
+.map-month-form button[type="submit"] { background: #285541; border-color: #285541; color: white; }
+.map-month-picker :focus-visible { outline: 2px solid #285541; outline-offset: 2px; }
+@media (max-width: 700px) { .map-month-picker { max-width: 48%; } }
+.area-drawing .map-canvas,
+.area-drawing .map-canvas :deep(.leaflet-interactive) {
+  cursor: crosshair;
+  touch-action: none;
+}
+</style>

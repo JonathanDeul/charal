@@ -28,7 +28,7 @@ Use the repository root as the Vercel root directory and preserve the checked-in
 - Python entrypoint: `api/index.py`, importing `backend.app:app`.
 - `/api/*` rewrite: `/api/index.py`.
 - Production requirements: FastAPI, numpy, scipy, uvicorn. pandas/sklearn/shapely are offline analysis dependencies.
-- Required prepared assets: observations.npz, events.json.gz, analysis.json.gz, california.geojson, map-context.geojson.
+- Required prepared assets: observations.npz, events.json.gz, analysis.json.gz, california.geojson, map-context.geojson. Seasonal outliers additionally require activity_daily.npz, activity_metadata.json, activity_diagnostics.json, activity_events.npz and activity_events.json. Event preparation is offline; runtime uses numpy/scipy and no Shapely.
 - `.vercelignore` excludes `.env`, raw data, full working CSV/JSON, models, tests, and development folders. No key is embedded in the prepared data.
 
 Vercel's current FastAPI documentation supports Python functions and a 500 MB Python bundle. The prepared data is approximately10 MB. A cloud build has **not** been tested because no deployment was requested; verify the first preview before relying on it for the submission.

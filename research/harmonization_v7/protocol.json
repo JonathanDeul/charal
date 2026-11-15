@@ -1,0 +1,13 @@
+{
+  "created":"2026-11-15","purpose":"Neural-only follow-up: numeric piecewise-linear embeddings and feature-token Transformer; conditional positive-target regression",
+  "motivation":"V5 best neural MAE606, v6 regional attention worse. Test nonlinear feature representation and a positive-only conditional count loss instead of more spatial attention.",
+  "training":[2013,2020],"development_training":[2013,2018],"development_validation":[2019,2020],"selection":[2021,2022],"known_benchmark":[2023,2025],"backward_audit":[2012,2012],
+  "features":"V5 fine subset only; train-only standardization and eight quantile intervals for piecewise-linear numeric embeddings. No year, VIIRS history, CAL FIRE or boosted teacher.",
+  "configs":[{"name":"raw_conditional","architecture":"raw","local_weight":0.05},{"name":"plr_mlp_conditional","architecture":"plr_mlp","local_weight":0.05},{"name":"feature_transformer_conditional","architecture":"feature_transformer","local_weight":0.05}],
+  "optimizer":"MPS AdamW lr .001 weight_decay .01, dropout .1, gradient clip5, cosine to .0001 over320 epochs, eight full months per batch",
+  "epoch_candidates":[20,40,80,160,320],"seeds":[42,43,44],
+  "loss":".05 positive-target-only Poisson conditional-mean loss + .2 binary-presence BCE + statewide monthly smoothL1 beta100 /1000 + .25 north/south monthly smoothL1 beta100 /1000. Mean prediction = presence probability times positive conditional mean >=1.",
+  "architecture":"Raw/embedded MLP width64 depth2; feature Transformer16 dimensions heads2 layers2 plus CLS token per cell. Embedding quantiles learned on training inputs only. Seasonal ratio count offset remains unbounded, learned corrections bounded.",
+  "selection_rule":"Epoch chosen on2019-2020 ensemble monthly MAE, then refit2013-2020. Select family using2021-2022 only, save selection before new winner benchmark. Report all failures and seed variation; no tuning on2023-2025.",
+  "limits":"Exploratory iterative reuse of known historical periods, target <500 is not independent evidence. No automatic production change."
+}

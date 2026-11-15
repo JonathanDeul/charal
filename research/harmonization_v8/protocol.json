@@ -1,0 +1,12 @@
+{
+  "created":"2026-11-15","purpose":"Additional physical sensor separation if previous neural rounds miss MAE500: Terra/Aqua features and modality-fusion Transformer",
+  "training":[2013,2020],"development_training":[2013,2018],"development_validation":[2019,2020],"selection":[2021,2022],"known_benchmark":[2023,2025],"backward_audit":[2012,2012],
+  "features":"V5 fine features plus42 separate Terra/Aqua count, day/night count, FRP, thermal contrast, confidence, geometry, detection-day occupancy and approximate solar acquisition time descriptors from existing raw MODIS data. Detector-only, not exposure masks.",
+  "architecture":"Two training-only month-specific reference-per-platform count scales; neural corrections and learned softmax fusion weights. MLP control or full two-layer32dim4head Transformer over Terra/Aqua modality tokens plus CLS. Pure neural count mean, no boosted teacher.",
+  "configs":[{"name":"platform_mlp_cond005","architecture":"platform_mlp","local_weight":0.05},{"name":"platform_transformer_cond005","architecture":"platform_transformer","local_weight":0.05},{"name":"platform_transformer_cond001","architecture":"platform_transformer","local_weight":0.01}],
+  "optimizer":"MPS AdamW lr .001 weight_decay .01, dropout .1, clip5, cosine .0001 floor over320 epochs, eight full months per batch",
+  "epoch_candidates":[20,40,80,160,320],"seeds":[42,43,44],
+  "loss":"Same v7 positive-only conditional Poisson, .2 BCE and direct statewide/regional monthly losses, coefficient per config.",
+  "selection_rule":"Choose epoch on2019-2020 ensemble MAE, refit2013-2020, select config on2021-2022 only. Seal choice before new winner benchmark. No known-benchmark tuning.",
+  "limits":"Exploratory repeated historical selection. Different nominal Terra/Aqua observation times motivate feature separation, not a claim that either sensor is always superior. Historical Terra-only periods are an unvalidated platform-availability shift. No production promotion."
+}

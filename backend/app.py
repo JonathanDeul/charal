@@ -6,6 +6,7 @@ from datetime import date, timedelta
 from functools import lru_cache
 import csv
 import gzip
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -17,6 +18,7 @@ from fastapi.responses import Response
 
 from backend.science import fit_extremes
 from backend.anomalies import score_activity, WINDOWS
+from backend.fire_events import EventScorer
 
 DATA = Path(__file__).resolve().parents[1] / 'data' / 'processed'
 STATE_BBOX = (-124.5, 32.5, -114.1, 42.1)
@@ -187,6 +189,41 @@ def activity_outliers(anchor_date: date,
     metadata = DATA / 'activity_metadata.json'
     return {**result, 'diagnostics': json.loads(diagnostics.read_text()) if diagnostics.exists() else None,
             'calibration_metadata': json.loads(metadata.read_text()) if metadata.exists() else None}
+
+
+@lru_cache(maxsize=1)
+def event_scorer():
+    if not (DATA/'activity_events.npz').exists() or not (DATA/'activity_events.json').exists():
+        raise HTTPException(503, 'Prepare observed events with scripts/prepare_fire_events.py')
+    metadata = json.loads((DATA/'activity_events.json').read_text())
+    if metadata['source_sha256'] != hashlib.sha256((DATA/'observations.npz').read_bytes()).hexdigest():
+        raise HTTPException(503, 'Event tracks are outdated; run scripts/prepare_fire_events.py')
+    if metadata.get('tracks_sha256') != hashlib.sha256((DATA/'activity_events.npz').read_bytes()).hexdigest():
+        raise HTTPException(503, 'Event tracks and metadata do not match; run scripts/prepare_fire_events.py')
+    with np.load(DATA/'activity_events.npz',allow_pickle=False) as f:
+        tracks = f['tracks']
+    return EventScorer(dataset()['observations'], activity_dataset(), tracks, metadata['events'])
+
+
+@lru_cache(maxsize=24)
+def selected_event_activity(anchor, window, radius, bounds, reference, threshold, include_points):
+    return event_scorer().score(anchor,window,radius,reference,threshold,bounds,include_points)
+
+
+@app.get('/api/event-outliers')
+def event_outliers(anchor_date: date,
+                   window_days: Annotated[int, Query(ge=1,le=14)] = 7,
+                   season_days: Annotated[int, Query(ge=15,le=60)] = 30,
+                   reference: str = 'viirs', bbox: str | None = None,
+                   threshold: Annotated[float, Query(ge=90,le=100)] = 95,
+                   include_points: bool = False):
+    if not date(2001,1,1) <= anchor_date <= date(2025,12,31):
+        raise HTTPException(422, 'Anchor date must be within 2001–2025')
+    if window_days not in WINDOWS or reference not in ('harmonized','viirs'):
+        raise HTTPException(422, 'Choose a 1, 3, 7 or 14 day window and harmonized or viirs reference')
+    result = selected_event_activity(anchor_date,window_days,season_days,parse_bbox(bbox),reference,threshold,include_points)
+    metadata = DATA/'activity_metadata.json'
+    return {**result,'calibration_metadata':json.loads(metadata.read_text()) if metadata.exists() else None}
 
 
 @app.get('/api/hotspots')

@@ -1,0 +1,19 @@
+{
+  "created":"2026-11-15",
+  "purpose":"Follow-up to v5: hierarchical neural regional totals with count-conserving allocation; target MAE <500 on known 2021-2022 development target",
+  "training":[2013,2020],"development_training":[2013,2018],"development_validation":[2019,2020],"selection":[2021,2022],"known_benchmark":[2023,2025],"backward_audit":[2012,2012],
+  "population":"Same eligible complete months and all California cells as v1/v4/v5. No CAL FIRE or VIIRS input features.",
+  "architecture":"Learn north/south total corrections from fixed count-weighted feature pooling or learned query/key/value attention over MODIS cell features. Count-conserving allocation is either baseline-relative or bounded neural local reallocation. Training-only seasonal ratio anchor; no boosted teacher.",
+  "features":"V5 fine feature subset, excluding neighbor/history descriptors. Region features include fixed count-weighted fine descriptors, total count magnitude, active-cell fraction and concentration. Learned attention is a pooling Transformer block, not a pretrained language model.",
+  "configs":[
+    {"name":"regional_pool_fixed","architecture":"pool_fixed","local_weight":0.2},
+    {"name":"regional_attention_fixed","architecture":"attention_fixed","local_weight":0.2},
+    {"name":"regional_attention_flexible","architecture":"attention_flexible","local_weight":0.2},
+    {"name":"regional_attention_flexible005","architecture":"attention_flexible","local_weight":0.05}
+  ],
+  "optimizer":"MPS required; AdamW lr .001, weight_decay .03, cosine .0001 floor over320 epochs, dropout .15, gradient clip5, eight full months per batch",
+  "epoch_candidates":[40,80,160,320],"seeds":[42,43,44],
+  "loss":"Same v5 local Poisson plus presence BCE plus statewide/regional smoothL1 monthly loss. All terms optimized jointly on full-month batches.",
+  "selection_rule":"Epoch chosen on 2019-2020 ensemble MAE. Refit2013-2020, select config on2021-2022 only. Seal selection before new winner benchmark predictions. No tuning on2023-2025.",
+  "limits":"V5 selection outcomes motivate this architecture, so repeated historical selection is explicitly exploratory. Regional sums can improve while allocating missed detections to the wrong cells; report local and zero-input errors. No prospective claim or production promotion."
+}

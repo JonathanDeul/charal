@@ -1,5 +1,7 @@
 # Verification — 14 November 2026
 
+**15 November neural/MPS follow-up:** [13 neural configurations](HARMONIZATION_NEURAL.md) completed three-seed development/final fits on actual MPS. The corrected frozen v7 numeric-embedding ensemble achieves475.51 on2021–2022 and271.47 on the known2023–2025 benchmark. All93 current tests pass. Independent checks verify source/protocol hashes, sealed pre-benchmark selection, all reference rows/metrics, target-input invariance and CPU reproduction of MPS checkpoints. The portable inference loader reproduces all4480 selection cell-month predictions. Reports retain the adverse cell/northern/backward results. The aborted batch-two development attempt is preserved and excluded; the unexecuted platform-fusion follow-up is not counted as a tested candidate. Production remains unchanged.
+
 **15 November v4 candidate:** [harmonization v4](HARMONIZATION_V4.md) evaluated six model families and 30 baseline blends, sealing selection before new candidate benchmark/backward predictions. All 62 current tests pass. Independent checks reproduce the actual deployed baseline's monthly ratio parameters, saved candidate predictions and metrics, source/protocol hashes, reference/year input invariance and positive conditional-count support. Forward selection/benchmark gates, paired event-purged refit gates and the 5% geographic-transfer tolerance pass; backward northern and combined zero-input failures are retained in the report. The 300-month research comparison preserves all 17 outage masks and observed VIIRS values. Production files remain unchanged; hashes are recorded in `data/research/harmonization_v4/verification.json`.
 
 **15 November daily-context follow-up:** [harmonization v3](HARMONIZATION_V3.md) completed seven main model/control families, three neural seeds, development epoch selection, later-period/backward evaluation and spatially buffered refits. All 45 current tests pass. Independent artifact checks reproduce monthly reference counts, all reported metrics and checkpoint predictions; verify frozen protocol/source hashes, sealed pre-benchmark selection, and more than 2° spatial center separation between training and northern audit patches. Detailed checks are saved in `data/research/harmonization_v3/verification.json`. Production data and estimator remain unchanged.
@@ -139,3 +141,38 @@ or simulated network-throttling measurements were not performed.
   were reset. The separate production-build QA server was stopped; the existing
   development frontend remains, with its project API refreshed on port 8000.
 - Screenshot: screenshots/seasonal-outliers.png. No cloud deployment performed.
+
+## Event-based seasonal outliers v2 (2026-11-15)
+
+- Default outlier view now uses inferred same-sensor spatiotemporal activity
+  tracks and fixed local 10 km comparison areas, with separate occurrence and
+  conditional-positive activity scores. Original cell comparison remains available.
+- User requirement is explicit: first recorded local events retain occurrence
+  100 and outlier status, including short archives, insufficient seasonal
+  reference years, and regional support for strength. A positive report on an
+  incomplete historical day still counts as prior activity; gaps cannot erase
+  evidence and manufacture a first occurrence.
+- All **91 current tests pass**, including 16 event tests covering tracking
+  identity/singletons, own-event rather than neighboring-event counts, conditional
+  ranks/ties, preserved novelty, regional pooling, archive/gap support, same-event
+  reference exclusion across years, bbox/API validation and prepared-artifact
+  hash-pair rejection. The larger count includes unrelated existing harmonization
+  tests present in the shared checkout; no harmonization implementation changed.
+- TypeScript and static production generation pass. Runtime event preparation
+  contains 95,039 inferred tracks from 1,169,069 eligible detections; metadata
+  and track artifacts are hash-linked to the observations and each other.
+- Fixed known-case audit covers seven dates and 1,484 earlier perimeter examples.
+  All first-recorded cases stay flagged. Among previously flagged small records,
+  median source-perimeter share changes from 33.3% to 44.4%; attribution ambiguity
+  remains substantial. A 125-row review sheet is prepared with human judgments
+  blank. These diagnostics are not independent human validation or precision/recall.
+- Browser verified the running localhost:3000 application: new default/old cell
+  view toggle, separate score coloring and filters, event/point popups, first-recorded
+  score 100 alongside activity 50, known-outage unavailable state, and JSON export.
+  Downloaded export has 42 events and preserves both first-recorded outliers for
+  18 January 2014. No browser console errors observed.
+- Desktop 1440×1050 and mobile 390×844 layouts inspected; mobile document width
+  equals viewport width. Temporary viewport override reset. Screenshot:
+  screenshots/event-outliers-v2.png. Local API refreshed on its existing port;
+  no cloud deployment performed.
+- Method, known-case results and limitations: EVENT_OUTLIERS_V2.md.

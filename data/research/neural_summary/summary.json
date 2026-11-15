@@ -1,0 +1,108 @@
+{
+  "best_study": "v7",
+  "best_candidate": "plr_mlp_conditional",
+  "threshold_met": true,
+  "selection_mae": 475.5089141845703,
+  "known_benchmark_mae": 271.4693770870086,
+  "production_changed": false,
+  "checks": {
+    "v5": {
+      "device_recorded": "mps",
+      "protocol_and_source_hashes": true,
+      "selection_sealed_before_audits": true,
+      "checkpoint_ensemble_matches": true,
+      "checkpoint_max_absolute_MPS_CPU_difference": 4.185913084597814e-06,
+      "reference_input_invariance": true,
+      "splits": {
+        "selection": {
+          "rows": 4480,
+          "reference_and_metric_parity": true
+        },
+        "known_benchmark": {
+          "rows": 6944,
+          "reference_and_metric_parity": true
+        },
+        "backward_audit": {
+          "rows": 2240,
+          "reference_and_metric_parity": true
+        }
+      }
+    },
+    "v6": {
+      "device_recorded": "mps",
+      "protocol_and_source_hashes": true,
+      "selection_sealed_before_audits": true,
+      "checkpoint_ensemble_matches": true,
+      "checkpoint_max_absolute_MPS_CPU_difference": 3.1850585941128884e-05,
+      "reference_input_invariance": true,
+      "splits": {
+        "selection": {
+          "rows": 4480,
+          "reference_and_metric_parity": true
+        },
+        "known_benchmark": {
+          "rows": 6944,
+          "reference_and_metric_parity": true
+        },
+        "backward_audit": {
+          "rows": 2240,
+          "reference_and_metric_parity": true
+        }
+      }
+    },
+    "v7": {
+      "device_recorded": "mps",
+      "protocol_and_source_hashes": true,
+      "selection_sealed_before_audits": true,
+      "checkpoint_ensemble_matches": true,
+      "checkpoint_max_absolute_MPS_CPU_difference": 8.114990237118036e-06,
+      "reference_input_invariance": true,
+      "splits": {
+        "selection": {
+          "rows": 4480,
+          "reference_and_metric_parity": true
+        },
+        "known_benchmark": {
+          "rows": 6944,
+          "reference_and_metric_parity": true
+        },
+        "backward_audit": {
+          "rows": 2240,
+          "reference_and_metric_parity": true
+        }
+      }
+    }
+  },
+  "relative_to_deployed": {
+    "selection": {
+      "monthly_mae_change": -0.34925374692201816,
+      "cell_mae_change": 0.07263916106728341,
+      "regional_changes": {
+        "north": -0.29928997947635294,
+        "south": -0.25313056424606006
+      }
+    },
+    "known_benchmark": {
+      "monthly_mae_change": -0.0681788195282732,
+      "cell_mae_change": -0.049451788896029414,
+      "regional_changes": {
+        "north": 0.05663332868259241,
+        "south": -0.0023391567883539466
+      }
+    },
+    "backward_audit": {
+      "monthly_mae_change": -0.2749708912740022,
+      "cell_mae_change": 0.0754749701895241,
+      "regional_changes": {
+        "north": 0.7839616662766429,
+        "south": -0.19892801616953482
+      }
+    }
+  },
+  "portable_inference_verified": true,
+  "automated_tests": {
+    "command": ".venv/bin/python -m pytest tests -q",
+    "passed": 93,
+    "failed": 0
+  }
+}
