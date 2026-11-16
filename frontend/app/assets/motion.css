@@ -1,0 +1,115 @@
+/* A small, shared vocabulary: quick feedback, gentle arrivals, quiet exits. */
+:root {
+  --motion-ease: cubic-bezier(.22, 1, .36, 1);
+  --motion-spring: cubic-bezier(.2, .85, .25, 1.12);
+  --motion-fast: 160ms;
+  --motion-medium: 320ms;
+  --motion-slow: 480ms;
+}
+
+button, a, select, input, summary { -webkit-tap-highlight-color: transparent; }
+button, .button, summary, select, input {
+  transition: background-color var(--motion-fast) ease, color var(--motion-fast) ease,
+    border-color var(--motion-fast) ease, box-shadow var(--motion-medium) var(--motion-ease),
+    opacity var(--motion-fast) ease, transform var(--motion-medium) var(--motion-spring);
+}
+button:active:not(:disabled), .button:active, summary:active { transform: scale(.975); transition-duration: 90ms; }
+button:disabled { cursor: default; }
+input:focus-visible, select:focus-visible { box-shadow: 0 0 0 3px #52765b18; }
+.text-button svg, .month-outliers-button svg, .source-panel a svg { transition: transform var(--motion-medium) var(--motion-ease); }
+@media (hover: hover) and (pointer: fine) {
+  .button:hover:not(:disabled), .map-actions > button:hover { transform: translateY(-1px); box-shadow: 0 3px 9px #29412b14; }
+  .text-button:hover svg, .month-outliers-button:hover svg { transform: translateX(2px); }
+  .source-panel a:hover svg { transform: translate(2px, -2px); }
+  .button:active:not(:disabled), .map-actions > button:active { transform: scale(.975); }
+}
+
+/* Shared selection backgrounds work with variable-width and wrapped controls. */
+.motion-selection { position: relative; isolation: isolate; }
+.motion-selection::before {
+  content: ''; position: absolute; left: 0; top: 0; pointer-events: none; z-index: -1;
+  width: var(--selection-width); height: var(--selection-height);
+  transform: translate(var(--selection-x), var(--selection-y));
+  border-radius: 5px; background: #e0e8d8; box-shadow: 0 1px 3px #29412b0c;
+}
+.motion-selection-ready::before {
+  transition: transform var(--motion-slow) var(--motion-ease), width var(--motion-medium) var(--motion-ease), height var(--motion-medium) var(--motion-ease);
+}
+.sidebar nav.motion-selection::before { border-radius: 7px; box-shadow: none; }
+.motion-selection .nav-item.selected,
+.motion-selection.segmented button.active,
+.motion-selection.map-time-toggle button.active,
+.motion-selection.outlier-view-tabs button.active { background: transparent; box-shadow: none; }
+.motion-selection.outlier-view-tabs::before { border: 1px solid #8ea888; }
+.motion-selection.outlier-view-tabs button.active { border-color: transparent; }
+.nav-item { transition: color var(--motion-fast) ease, background-color var(--motion-fast) ease; }
+.nav-item:active:not(:disabled) { transform: none; }
+.nav-arrow { animation: motion-arrow 260ms var(--motion-ease) both; }
+
+/* Section changes fade in place so fixed, expanded maps keep their viewport. */
+.section-enter-active { transition: opacity 280ms var(--motion-ease); }
+.section-leave-active { transition: opacity 110ms ease; pointer-events: none; }
+.section-enter-from, .section-leave-to { opacity: 0; }
+.heading-enter-active { transition: opacity 260ms ease, transform 380ms var(--motion-ease); }
+.heading-leave-active { transition: opacity 90ms ease; }
+.heading-enter-from { opacity: 0; transform: translateY(7px); }
+.heading-leave-to { opacity: 0; }
+.popover-enter-active, .popover-leave-active {
+  transform-origin: top right;
+  transition: opacity 180ms ease, transform var(--motion-medium) var(--motion-ease);
+}
+.popover-leave-active { transition-duration: 130ms; pointer-events: none; }
+.popover-enter-from, .popover-leave-to { opacity: 0; transform: translateY(-5px) scale(.975); }
+.tray-enter-active, .tray-leave-active { transition: opacity 200ms ease, transform 360ms var(--motion-ease); }
+.tray-leave-active { transition-duration: 140ms; pointer-events: none; }
+.tray-enter-from, .tray-leave-to { opacity: 0; transform: translateY(10px); }
+.fade-enter-active, .fade-leave-active { transition: opacity 220ms ease; }
+.fade-enter-from, .fade-leave-to { opacity: 0; }
+
+.motion-collapse { display: grid; grid-template-rows: 0fr; opacity: 0; transition: grid-template-rows 360ms var(--motion-ease), opacity 220ms ease, margin 360ms var(--motion-ease); }
+.motion-collapse.is-open { grid-template-rows: 1fr; opacity: 1; }
+.motion-collapse-inner { min-height: 0; overflow: hidden; }
+.coordinates-collapse { margin: 0; }
+.coordinates-collapse.is-open { margin: -11px 0 23px; }
+.coordinates-collapse .coordinates-panel { margin: 0; }
+.month-overlay > summary svg, .map-month-picker > summary svg:last-child { transition: transform var(--motion-medium) var(--motion-ease); }
+.month-overlay[data-closing='true'] > summary svg { transform: rotate(-90deg); }
+.month-overlay[data-closing='false'] > summary svg { transform: none; }
+.map-month-picker[open] > summary svg:last-child { transform: rotate(180deg); }
+.map-month-form { animation: motion-popover 260ms var(--motion-ease); }
+.activity-diagnostics[open] > :not(summary) { animation: motion-arrive 320ms var(--motion-ease); }
+
+.calendar-cell {
+  transition: background-color 300ms ease, filter var(--motion-fast) ease,
+    box-shadow 220ms ease, transform 260ms var(--motion-spring);
+}
+@media (hover: hover) and (pointer: fine) {
+  .calendar-cell:hover { transform: translateY(-1px); z-index: 2; }
+}
+.calendar-toggle-track { transition: background-color 250ms ease; }
+.calendar-toggle-track > span { transition: transform 380ms var(--motion-spring); }
+.calendar-cell-number { animation: motion-arrive 200ms ease; }
+.season-bars i { transition: height 480ms var(--motion-ease), background-color 260ms ease; }
+.bar-track i { transition: width 480ms var(--motion-ease); }
+.bar-track i { transform-origin: left center; }
+.chart-line-reveal { transform-box: fill-box; transform-origin: left center; }
+.year-ranking-move { transition: transform 520ms var(--motion-ease); }
+.year-ranking-enter-active, .year-ranking-leave-active { transition: opacity 220ms ease; }
+.year-ranking-enter-from, .year-ranking-leave-to { opacity: 0; }
+.activity-loading { animation: motion-arrive 240ms var(--motion-ease); }
+.leaflet-popup-content-wrapper { animation: motion-arrive 200ms var(--motion-ease); }
+
+@keyframes motion-arrive { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+@keyframes motion-popover { from { opacity: 0; transform: translateY(-4px) scale(.98); } to { opacity: 1; transform: none; } }
+@keyframes motion-arrow { from { opacity: 0; transform: translateX(-4px); } to { opacity: 1; transform: none; } }
+@media (max-width: 700px) {
+  .sidebar { transition: transform 420ms var(--motion-ease), visibility 0s linear 420ms; }
+  .sidebar.open { transition: transform 420ms var(--motion-ease), visibility 0s; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+@media print {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  .motion-collapse:not(.is-open) { display: none; }
+}

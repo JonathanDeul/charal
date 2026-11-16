@@ -16,7 +16,7 @@ const yticks = computed(() => [1,.1,.01,.001,.0001].filter(v=>Math.log10(v)>=ext
 
 <template>
   <div class="tail-chart">
-    <svg :viewBox="`0 0 ${width} ${height}`" role="img" aria-label="Log-log complementary cumulative distribution of fire areas, with fitted power-law, lognormal and exponential tails">
+    <svg v-chart-motion :viewBox="`0 0 ${width} ${height}`" role="img" aria-label="Log-log complementary cumulative distribution of fire areas, with fitted power-law, lognormal and exponential tails">
       <defs><clipPath id="tail-clip"><rect :x="pad.l" :y="pad.t" :width="width-pad.l-pad.r" :height="height-pad.t-pad.b" /></clipPath></defs>
       <g v-for="v in yticks" :key="v"><line :x1="pad.l" :x2="width-pad.r" :y1="y(v)" :y2="y(v)" stroke="#e3e8df" stroke-dasharray="3 5" /><text :x="pad.l-12" :y="y(v)+4" text-anchor="end" class="axis-label">{{ v >= .01 ? v : v.toExponential(0) }}</text></g>
       <g v-for="v in xticks" :key="v"><line :x1="x(v)" :x2="x(v)" :y1="pad.t" :y2="height-pad.b" stroke="#edf0e9" /><text :x="x(v)" :y="height-pad.b+22" text-anchor="middle" class="axis-label">{{ v >= 1000 ? `${v/1000}k` : v }}</text></g>

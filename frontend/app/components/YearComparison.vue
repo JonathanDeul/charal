@@ -2,6 +2,8 @@
 const props = defineProps<{ bbox:number[]; startYear:number; endYear:number }>()
 const reference = ref('viirs'), order = ref('rank')
 const first = ref(2020), second = ref(2021)
+const chartReplay = ref(0)
+function selectYear(year: number) { first.value = year; chartReplay.value++ }
 const result = shallowRef<any>(), error = ref(''), busy = ref(false)
 let request = 0
 onBeforeUnmount(()=>{request++})
@@ -51,14 +53,14 @@ watch(()=>[props.bbox.join(','),props.startYear,props.endYear,reference.value],l
       <p v-if="!years.length" class="body-note">No supported VIIRS years in this display period. Include years from 2013 onward or choose the harmonized reference.</p>
       <p class="body-note"><strong>{{insight}}</strong></p>
       <div class="comparison-columns">
-        <div class="year-bars" aria-label="Annual detection ranking">
-          <button v-for="r in sorted" :key="r.year" class="year-bar" :aria-label="`${r.year}: ${fmt(r.total)} detections, ${r.available_months}/12 eligible months`" @click="first=r.year">
+        <TransitionGroup v-stagger-motion="'bars'" name="year-ranking" tag="div" class="year-bars" aria-label="Annual detection ranking">
+          <button v-for="r in sorted" :key="r.year" class="year-bar" :aria-label="`${r.year}: ${fmt(r.total)} detections, ${r.available_months}/12 eligible months`" @click="selectYear(r.year)">
             <span>{{r.year}}<small>{{r.rank?`#${r.rank}`:'Unranked'}}</small></span>
             <span class="bar-track"><i v-if="r.complete" :style="{width:`${r.total/maximum*100}%`}" /></span>
             <span>{{fmt(r.total)}}<small>{{r.available_months}}/12 months{{r.modeled?' · modeled':''}}</small></span>
           </button>
-        </div>
-        <div><h3>Monthly activity · {{first}} and {{second}}</h3><TimeSeries :rows="rows" :series="[{key:'a',color:'#2d6551',label:String(first)},{key:'b',color:'#9c86b6',label:String(second)}]" /><p class="body-note">{{result.eligible_years}} complete years ranked. Click a year to compare its seasonal pattern.</p></div>
+        </TransitionGroup>
+        <div><h3>Monthly activity · {{first}} and {{second}}</h3><TimeSeries draw-on-scroll :replay-key="`${first}:${second}:${chartReplay}`" :rows="rows" :series="[{key:'a',color:'#2d6551',label:String(first)},{key:'b',color:'#9c86b6',label:String(second)}]" /><p class="body-note">{{result.eligible_years}} complete years ranked. Click a year to compare its seasonal pattern.</p></div>
       </div>
       <p class="panel-note">{{result.method}} Detections are neither distinct fires nor burned area. Harmonization is an empirical observation-scale estimate; sensor changes and observation conditions still affect comparisons.</p>
     </template>

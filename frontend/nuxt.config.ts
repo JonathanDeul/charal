@@ -5,7 +5,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-11-14',
   ssr: false,
   devtools: { enabled: false },
-  css: ['~/assets/main.css', 'leaflet/dist/leaflet.css'],
+  css: ['~/assets/main.css', 'leaflet/dist/leaflet.css', '~/assets/motion.css'],
   vite: {
     plugins: [tailwindcss()],
     server: { proxy: { '/api': env.API_PROXY_TARGET || 'http://127.0.0.1:8000' } }

@@ -6,7 +6,25 @@ import type { Map as LMap, LayerGroup, Rectangle, LatLng, Canvas } from 'leaflet
 const props = defineProps<{ bbox: number[]; period: string; sensor: string; focusCount?: number; boundary?: any; context?: any }>()
 const emit = defineEmits<{ select: [bbox: number[]]; reset: []; 'update:period': [period: string] }>()
 const expanded = ref(false)
-watch(expanded, async () => { await nextTick(); map?.invalidateSize() })
+let expansionAnimation: Animation | undefined
+let expansionRevision = 0
+watch(expanded, async () => {
+  const revision = ++expansionRevision
+  const shell = element.value?.closest<HTMLElement>('.fire-map-explorer')
+  const before = shell?.getBoundingClientRect()
+  expansionAnimation?.cancel()
+  await nextTick()
+  map?.invalidateSize({ animate: false })
+  if (!shell || !before || revision !== expansionRevision) return
+  const after = shell.getBoundingClientRect()
+  if (!after.width || !after.height || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
+  // FLIP the container once; Leaflet lays out at its final size without doing
+  // expensive canvas redraws on every animation frame.
+  expansionAnimation = shell.animate([
+    { transformOrigin: '0 0', transform: `translate(${before.left-after.left}px, ${before.top-after.top}px) scale(${before.width/after.width}, ${before.height/after.height})`, borderRadius: expanded.value ? '8px' : '0' },
+    { transformOrigin: '0 0', transform: 'none', borderRadius: expanded.value ? '0' : '8px' }
+  ], { duration: 420, easing: 'cubic-bezier(.22, 1, .36, 1)' })
+})
 const monthPicker = ref<HTMLDetailsElement>()
 const pickerYear = ref(props.period.slice(0, 4))
 const pickerMonth = ref(props.period.slice(5, 7))
@@ -381,7 +399,7 @@ onMounted(async () => {
   fitRegion()
   await loadPoints()
 })
-onBeforeUnmount(() => { viewportObserver?.disconnect(); window.removeEventListener('resize', sizeMapToViewport); cancelAreaDrag(); pause(); generation++; clearFrameCache(); removeLeafletMap(map) })
+onBeforeUnmount(() => { expansionRevision++; expansionAnimation?.cancel(); viewportObserver?.disconnect(); window.removeEventListener('resize', sizeMapToViewport); cancelAreaDrag(); pause(); generation++; clearFrameCache(); removeLeafletMap(map) })
 </script>
 
 <template>
@@ -400,7 +418,7 @@ onBeforeUnmount(() => { viewportObserver?.disconnect(); window.removeEventListen
           <div><button type="button" @click="closeMonthPicker">Cancel</button><button type="submit">Show month</button></div>
         </form>
       </details>
-      <div class="map-time-toggle" role="group" aria-label="Map time mode">
+      <div v-selection-motion class="map-time-toggle" role="group" aria-label="Map time mode">
         <button :class="{active:!timeline}" :aria-pressed="!timeline" @click="timeline=false">Monthly</button>
         <button :class="{active:timeline}" :aria-pressed="timeline" @click="timeline=true"><Play :size="13" /> Animate</button>
       </div>
@@ -417,7 +435,7 @@ onBeforeUnmount(() => { viewportObserver?.disconnect(); window.removeEventListen
       </div>
     </div>
     <slot name="overlay" :timeframe="{start:displayedFrame?.start || monthStart(),end:displayedFrame?.end || monthEnd()}" />
-    <div v-if="timeline" class="fire-timeline">
+    <Transition name="tray"><div v-if="timeline" class="fire-timeline">
       <div class="fire-timeline-settings">
         <label>From<input v-model="rangeStart" type="date" min="2001-01-01" max="2025-12-31" aria-label="Animation start date"></label>
         <label>To<input v-model="rangeEnd" type="date" min="2001-01-01" max="2025-12-31" aria-label="Animation end date"></label>
@@ -433,7 +451,8 @@ onBeforeUnmount(() => { viewportObserver?.disconnect(); window.removeEventListen
         <output>{{ displayedFrame?.timeline ? displayedFrame.date : selectedDate }} UTC</output>
       </div>
     </div>
-    <div v-if="drawing" class="map-instruction" style="pointer-events: none">{{ selectionError || (anchor ? 'Release to select the highlighted area.' : 'Click and drag to select an area. Release to finish. Or use the coordinate fields above.') }}</div>
+    </Transition>
+    <Transition name="fade"><div v-if="drawing" class="map-instruction" style="pointer-events: none">{{ selectionError || (anchor ? 'Release to select the highlighted area.' : 'Click and drag to select an area. Release to finish. Or use the coordinate fields above.') }}</div></Transition>
     <div class="map-key fire-map-legend">
       <label class="legend-color-control">Color by<select v-model="measure" aria-label="Map color measure"><option value="power">Radiative power (FRP)</option><option v-if="!timeline" value="days">Detection days</option><option v-if="!timeline" value="combined">Power + detection days</option><option value="source">Sensor</option></select></label>
       <template v-if="measure === 'source'"><span><i style="background:#dd7c4c" /> MODIS</span><span><i style="background:#7659a8" /> VIIRS</span><span v-if="geometry === 'grid'"><i style="background:#235e69" /> Both</span></template>
